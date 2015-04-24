@@ -1,0 +1,14 @@
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\BusinessLayer\bin\Debug\DataAccess.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\BusinessLayer\bin\Debug\DataAccess.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\bin\Debug\DataAccess.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\bin\Debug\DataAccess.pdb

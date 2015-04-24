@@ -1,0 +1,5 @@
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\DataAccess\bin\Release\DataAccess.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\DataAccess\bin\Release\DataAccess.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\DataAccess\obj\Release\DataAccess.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\DataAccess\obj\Release\DataAccess.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\DataAccess\obj\Release\DataLayer.csprojResolveAssemblyReference.cache
