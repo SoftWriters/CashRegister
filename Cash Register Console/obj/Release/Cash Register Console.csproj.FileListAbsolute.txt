@@ -1,0 +1,9 @@
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register Console\bin\Release\Cash Register Console.exe
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register Console\bin\Release\Cash Register Console.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register Console\bin\Release\BusinessLayer.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register Console\bin\Release\DataAccess.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register Console\bin\Release\BusinessLayer.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register Console\bin\Release\DataAccess.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register Console\obj\Release\Cash Register Console.csprojResolveAssemblyReference.cache
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register Console\obj\Release\Cash Register Console.exe
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register Console\obj\Release\Cash Register Console.pdb

@@ -1,0 +1,7 @@
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\bin\Release\BusinessLayer.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\bin\Release\BusinessLayer.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\bin\Release\DataAccess.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\bin\Release\DataAccess.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\obj\Release\BusinessLayer.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\BusinessLayer\obj\Release\BusinessLayer.pdb

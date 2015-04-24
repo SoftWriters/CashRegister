@@ -1,0 +1,14 @@
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\bin\Debug\Cash Register.exe
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\bin\Debug\Cash Register.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\obj\Debug\Cash Register.csprojResolveAssemblyReference.cache
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\obj\Debug\Cash_Register.Properties.Resources.resources
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\obj\Debug\Cash Register.csproj.GenerateResource.Cache
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\obj\Debug\Cash Register.exe
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\obj\Debug\Cash Register.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\bin\Debug\DataAccess.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\bin\Debug\DataAccess.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\bin\Debug\BusinessLayer.dll
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\bin\Debug\BusinessLayer.pdb
+C:\Cash Register\Cash Register\obj\Debug\Cash Register.exe
+C:\Cash Register\Cash Register\obj\Debug\Cash Register.pdb
+C:\Users\DavidWarzinski\Desktop\One-offs\Cash Register\Cash Register\obj\Debug\Cash_Register.frmCashRegister.resources
