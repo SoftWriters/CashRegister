@@ -1,0 +1,9 @@
+c:\users\ashley\documents\visual studio 2010\Projects\Cash Register\Cash Register\bin\Debug\Cash Register.exe
+c:\users\ashley\documents\visual studio 2010\Projects\Cash Register\Cash Register\bin\Debug\Cash Register.pdb
+c:\users\ashley\documents\visual studio 2010\Projects\Cash Register\Cash Register\obj\x86\Debug\Cash_Register.Properties.Resources.resources
+c:\users\ashley\documents\visual studio 2010\Projects\Cash Register\Cash Register\obj\x86\Debug\Cash Register.csproj.GenerateResource.Cache
+c:\users\ashley\documents\visual studio 2010\Projects\Cash Register\Cash Register\obj\x86\Debug\Cash Register.exe
+c:\users\ashley\documents\visual studio 2010\Projects\Cash Register\Cash Register\obj\x86\Debug\Cash Register.pdb
+c:\users\ashley\documents\visual studio 2010\Projects\Cash Register\Cash Register\obj\x86\Debug\Cash_Register.CashRegister.resources
+c:\users\ashley\documents\visual studio 2010\Projects\Cash Register\Cash Register\bin\Debug\Cash Register.exe.config
+C:\Users\Ashley\Documents\Visual Studio 2010\Projects\Cash Register\Cash Register\obj\x86\Debug\Cash Register.csprojResolveAssemblyReference.cache
