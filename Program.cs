@@ -50,6 +50,7 @@ namespace ConsoleApplication1
     static private void ProcessLines(StreamWriter sw, List<string> AmtOwed, List<string> AmtPaid)
     {
         StringBuilder sb = new StringBuilder();
+        bool randomformat = false;
         // Open The Output File
          for(int i = 0; i < AmtOwed.Count; i++)
         {
@@ -61,33 +62,10 @@ namespace ConsoleApplication1
             decimal.TryParse(AmtOwed[i], out amountowed);
             decimal.TryParse(AmtPaid[i], out amountpaid);
 
-            // Validate Transaction
-            // If this were an interactive system error conditions fail and return
-
-            if (amountowed <= 0)
-            {
-                sw.WriteLine("The amount owed must be greater than 0");
-                continue;
-            }
-            if (amountowed > amountpaid)
-            {
-                sw.WriteLine("The amount paid cannot be less than the amount owed. Sorry No credit.");
-                continue;
-            }
-
-            if (amountowed == amountpaid)
-            {
-                sw.WriteLine("Thank you for paying with exact change.");
-                continue;
-            }
-
             amountchange = amountpaid - amountowed;
-            int dollars = (int)(amountchange);
-            amountchange = amountchange - (decimal)dollars;
-            int cents = (int)(amountchange * (decimal)100);
             sb = new StringBuilder();
-            Helper.CalculateChange(sw, dollars, cents); // Calculate and output the formatted change
-            sw.WriteLine();
+            randomformat = Helper.CheckAmount(amountowed, 3);
+            Helper.ParseChange(sw, amountchange, randomformat); // Calculate and output the formatted change
         }
     }
      
