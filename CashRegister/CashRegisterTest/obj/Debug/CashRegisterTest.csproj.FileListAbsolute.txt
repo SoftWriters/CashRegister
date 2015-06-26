@@ -1,0 +1,14 @@
+C:\Dev\CashRegister\CashRegisterTest\bin\Debug\CashRegisterTest.dll
+C:\Dev\CashRegister\CashRegisterTest\bin\Debug\CashRegisterTest.pdb
+C:\Dev\CashRegister\CashRegisterTest\bin\Debug\CashRegister.exe
+C:\Dev\CashRegister\CashRegisterTest\bin\Debug\CashRegister.pdb
+C:\Dev\CashRegister\CashRegisterTest\obj\Debug\CashRegisterTest.csprojResolveAssemblyReference.cache
+C:\Dev\CashRegister\CashRegisterTest\obj\Debug\CashRegisterTest.dll
+C:\Dev\CashRegister\CashRegisterTest\obj\Debug\CashRegisterTest.pdb
+C:\dotNetDev\CashRegister\CashRegisterTest\bin\Debug\CashRegisterTest.dll
+C:\dotNetDev\CashRegister\CashRegisterTest\bin\Debug\CashRegisterTest.pdb
+C:\dotNetDev\CashRegister\CashRegisterTest\bin\Debug\CashRegister.exe
+C:\dotNetDev\CashRegister\CashRegisterTest\bin\Debug\CashRegister.pdb
+C:\dotNetDev\CashRegister\CashRegisterTest\obj\Debug\ResolveAssemblyReference.cache
+C:\dotNetDev\CashRegister\CashRegisterTest\obj\Debug\CashRegisterTest.dll
+C:\dotNetDev\CashRegister\CashRegisterTest\obj\Debug\CashRegisterTest.pdb
