@@ -1,0 +1,6 @@
+C:\Dev\CashRegister\CashRegister\bin\Debug\CashRegister.exe
+C:\Dev\CashRegister\CashRegister\bin\Debug\CashRegister.pdb
+C:\Dev\CashRegister\CashRegister\obj\x86\Debug\CashRegister.exe
+C:\Dev\CashRegister\CashRegister\obj\x86\Debug\CashRegister.pdb
+C:\dotNetDev\CashRegister\CashRegister\obj\x86\Debug\CashRegister.exe
+C:\dotNetDev\CashRegister\CashRegister\obj\x86\Debug\CashRegister.pdb
