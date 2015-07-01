@@ -1,0 +1,23 @@
+3 quarters, 1 dime, 3 pennies
+3 pennies
+1 dollar, 2 quarters, 17 pennies
+2 dollars, 1 quarter, 1 dime, 1 nickel
+7 dollars, 3 quarters, 2 dimes, 2 pennies
+13 dollars, 1 quarter, 15 pennies
+11 dollars, 3 quarters, 2 dimes, 3 pennies
+20 dollars, 4 pennies
+1 quarter, 3 pennies
+11 dollars, 3 quarters, 1 nickel, 2 pennies
+24 dollars, 2 quarters, 2 pennies
+13 dollars, 1 quarter, 2 dimes, 3 pennies
+5 dollars, 1 quarter, 2 pennies
+1 dollar, 1 quarter, 1 dime, 1 nickel, 1 pennies
+34 dollars, 1 quarter, 4 pennies
+17 dollars, 1 dime, 1 nickel, 2 pennies
+1 dollar, 1 dime, 1 nickel, 3 pennies
+11 dollars, 1 quarter, 10 pennies
+7 dollars, 2 quarters, 2 dimes
+19 dollars, 1 dime
+6 dollars, 3 quarters, 1 nickel, 1 pennies
+12 dollars, 2 quarters, 2 dimes, 4 pennies
+21 dollars, 2 quarters, 1 dime, 1 nickel
