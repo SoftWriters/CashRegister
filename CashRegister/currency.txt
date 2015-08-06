@@ -1,0 +1,6 @@
+﻿0.25,quarter,quarters
+0.50,half dollar, half dollars
+0.01,penny,pennies
+0.05,nickle,nickles
+0.10,dime,dimes
+1.00, dollar, dollars
