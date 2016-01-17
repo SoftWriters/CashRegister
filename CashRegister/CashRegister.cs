@@ -32,15 +32,22 @@ namespace CashRegister
             {
                 var denomination = _denominations[denomIndex];
 
-                var coins = (int)Math.Floor(amountLeft / denomination);
+                var tenders = GetTenders(denomination, amountLeft, owedPaid.ShouldMakeCreative);
 
-                if (coins != 0)
+                if (tenders != 0)
                 {
-                    amountLeft = Math.Round(amountLeft - (coins * denomination), 2);
-                    results.Add(denomination, coins);
+                    amountLeft = Math.Round(amountLeft - (tenders * denomination), 2);
+                    if (results.ContainsKey(denomination))
+                    {
+                        results[denomination] += tenders;
+                    }
+                    else
+                    {
+                        results.Add(denomination, tenders);
+                    }
                 }
 
-                denomIndex = owedPaid.ShouldMakeCreative ? _random.Next(denomIndex + 1, _denominations.Length) : denomIndex + 1;
+                denomIndex = owedPaid.ShouldMakeCreative ? _random.Next(startingPoint, _denominations.Length) : denomIndex + 1;
             }
 
             return ParseChange(results);
@@ -56,6 +63,18 @@ namespace CashRegister
             }
 
             return parsed;
+        }
+
+        private static int GetTenders(double denomination, double amountLeft, bool shouldMakeCreative)
+        {
+            var tenders = (int)Math.Floor(amountLeft / denomination);
+
+            if (shouldMakeCreative)
+            {
+                return tenders != 0 ? _random.Next(1, tenders + 1) : 0;
+            }
+
+            return tenders;
         }
 
         private static string GetDenominationDescription(double denomination, int amount)
