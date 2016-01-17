@@ -7,15 +7,13 @@ namespace CashRegister
     public static class CashRegister
     {
         private static readonly double[] _denominations = { 100.00, 50.00, 20.00, 10.00, 5.00, 1.00, 0.25, 0.10, 0.05, 0.01 };
+        private static readonly Random _random = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
 
         public static IList<ChangeAmount> MakeChange(OwedPaid owedPaid)
         {
-            return owedPaid.ShouldMakeCreative ? MakeCreativeChange(owedPaid.Change) : MakeRegularChange(owedPaid.Change);
-        }
-
-        private static IList<ChangeAmount> MakeRegularChange(double amountLeft)
-        {
+            var amountLeft = owedPaid.Change;
             var startingPoint = 0;
+
             for (var i = 0; i < _denominations.Length; i++)
             {
                 if (_denominations[i] > amountLeft)
@@ -27,51 +25,22 @@ namespace CashRegister
                 break;
             }
 
+            var denomIndex = owedPaid.ShouldMakeCreative ? _random.Next(startingPoint, _denominations.Length) : startingPoint;
+
             var results = new SortedDictionary<double, int>();
-            for (var i = startingPoint; i < _denominations.Length; i++)
-            {
-                var denomination = _denominations[i];
-
-                if (denomination > amountLeft)
-                {
-                    continue;
-                }
-
-                var coins = (int)Math.Floor(amountLeft / denomination);
-                amountLeft = Math.Round(amountLeft - (coins * denomination), 2);
-                if (results.ContainsKey(denomination))
-                    results[denomination] += coins;
-                else
-                    results.Add(denomination, coins);
-            }
-
-            return ParseChange(results);
-        }
-
-        private static IList<ChangeAmount> MakeCreativeChange(double amountLeft)
-        {
-            var results = new SortedDictionary<double, int>();
-            var random = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
-            var randomStartRange = 0;
-
             while (amountLeft > 0)
             {
-                var denomIndex = random.Next(randomStartRange, _denominations.Length);
                 var denomination = _denominations[denomIndex];
 
-                if (denomination > amountLeft)
+                var coins = (int)Math.Floor(amountLeft / denomination);
+
+                if (coins != 0)
                 {
-                    continue;
+                    amountLeft = Math.Round(amountLeft - (coins * denomination), 2);
+                    results.Add(denomination, coins);
                 }
 
-                var coins = (int)Math.Floor(amountLeft / denomination);
-                amountLeft = Math.Round(amountLeft - (coins * denomination), 2);
-                if (results.ContainsKey(denomination))
-                    results[denomination] += coins;
-                else
-                    results.Add(denomination, coins);
-
-                randomStartRange = denomIndex;
+                denomIndex = owedPaid.ShouldMakeCreative ? _random.Next(denomIndex + 1, _denominations.Length) : denomIndex + 1;
             }
 
             return ParseChange(results);
