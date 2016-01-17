@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="CashRegister.cs" />
     <Compile Include="ChangeAmount.cs" />
-    <Compile Include="FileUtility.cs" />
+    <Compile Include="CashRegisterDataUtility.cs" />
     <Compile Include="OwedPaid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

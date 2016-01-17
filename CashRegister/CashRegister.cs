@@ -52,10 +52,11 @@ namespace CashRegister
         {
             var results = new SortedDictionary<double, int>();
             var random = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+            var randomStartRange = 0;
 
             while (amountLeft > 0)
             {
-                var denomIndex = random.Next(0, _denominations.Length);
+                var denomIndex = random.Next(randomStartRange, _denominations.Length);
                 var denomination = _denominations[denomIndex];
 
                 if (denomination > amountLeft)
@@ -69,6 +70,8 @@ namespace CashRegister
                     results[denomination] += coins;
                 else
                     results.Add(denomination, coins);
+
+                randomStartRange = denomIndex;
             }
 
             return ParseChange(results);
