@@ -30,10 +30,10 @@ namespace CashRegister
                 var output = "";
                 foreach(var changeAmount in changeAmounts)
                 {
-                    output += string.Format("{0}, ", changeAmount.ToString());
+                    output += string.Format("{0},", changeAmount.ToString());
                 }
 
-                outputs.Add(output.Substring(0, output.Length - 2));
+                outputs.Add(output.Substring(0, output.Length - 1));
             }
 
             File.WriteAllLines(fileName, outputs);

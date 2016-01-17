@@ -1,6 +1,15 @@
 Cash Register
 ============
 
+Submission for Darryl Faint on 1/17/2016
+-----------
+I've written my submission for this problem as a console application in C# using Visual Studio 2015 targeting the .NET Framework 4.5.2.  Once you've pulled down my solution you can run it two ways:
+
+1. Open the solution and click the Start button.  I have modified the CashRegister project properties under the Debug tab to take two command line arguments, the amounts.txt file that contained the examples from the requirements which I included in the solution, and an output.txt file that will be recreated on every run with the results.
+2. Open the solution and build it with F6 or using the menu by clicking Build -> Build Solution.  Once the solution is built you need to navigate to the bin directory for Debug/Release using the command line.  You can then run the program here by specifying your own files with this usage:        				    ```CashRegister input_file output_file```
+
+Thank you in advance for your time and consideration with this submission.
+
 The Problem
 -----------
 Creative Cash Draw Solutions is a client who wants to provide something different for the cashiers who use their system. The function of the application is to tell the cashier how much change is owed, and what denominations should be used. In most cases the app should return the minimum amount of physical change, but the client would like to add a twist. If the "owed" amount is divisible by 3, the app should randomly generate the change denominations (but the math still needs to be right :))
