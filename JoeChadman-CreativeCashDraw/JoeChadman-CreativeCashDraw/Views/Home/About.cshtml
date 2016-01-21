@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<article>
+    <p>
+        <h3>Experience</h3>
+
+        <h4>CGI Federal:</h4>
+        <i>eDiscovery</i> – Worked with a team to create a SharePoint 2013 Online site that will be used by EPA
+
+        Attorneys to submit requests for electronically stored information and process that request through a
+
+        workflow until it the information has been delivered.  Primarily I created web pages for high level
+
+        managers to access information about how much work is currently in the pipeline using SPServices and
+
+        Google Visualization.  Also, worked with several pages using JQuery to display information as needed
+
+        including in a calendar using the fullCalendar.js library.
+    </p>
+
+    <p>
+        <i>OIC Unify SharePoint</i> – Used SharePoint Designer 2010, InfoPath 2010 and Microsoft .NET to meet the
+
+        needs of the Office of Information Collection.  C# was used to for an Event Receiver that would transform
+
+        the data as needed when updated. C# was also used to create a workflow that imports data via CSV files
+
+        from disparate systems that could not be connected to directly to SharePoint Lists.  The workflow also
+
+        assigned tasks and on completion of the tasks would move and transform the data as needed.
+    </p>
+
+    <p>
+        <i>CDX Web Modernization</i> – Using Microsoft .NET MVC 3 pattern to completely rewrite the Central Data
+
+        Exchange web portal.  Working with a team of developers we were able to upgrade and enhance an
+
+        already existing system used by almost 300,000 users.
+    </p>
+
+    <h5>Work History</h5>
+
+    <p>
+        <strong>April 2011 to Present</strong>
+        <span class="float-right">CGI Federal, Fairfax VA</span>
+
+        <br />
+        <i>Consultant</i>
+
+        <ul>
+            <li>Work with various teams to create applications for use by the EPA</li>
+            <li>Created solutions using Visual Studio 2008, 2010 and 2013 as standalone web sites and for Microsoft SharePoint 2010 and 2013</li>
+        </ul>
+    </p>
+    <br /><br />
+
+    <p>
+        <strong>May 2006 to March 2011</strong>
+        <span class="float-right">Odyssey Software, Pittsburgh PA</span>
+
+        <br />
+        <i>Software Engineer</i>
+
+        <ul>
+            <li>Create web based solutions using Visual Studio 2003, 2005, and 2008.  Program Stored Procedures and Queries using SQL Management Studio 2005 and 2008.</li>
+            <li>Create and maintain custom solutions to meet client needs using various technologies.  Including eConnect, Web Parts, SharePoint, Reporting Services, and Analytical Services.</li>
+        </ul>
+    </p>
+</article>
+
+<aside>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+</aside>
