@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using CashMachine.Domain;
 
-namespace BasicConsoleAppTests.DomainTests
+namespace CashMachineTests.DomainTests
 {
     public class WithTestMoney<TSubject> : With<TSubject> where TSubject : class
     {

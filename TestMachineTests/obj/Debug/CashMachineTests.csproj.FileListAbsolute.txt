@@ -25,3 +25,24 @@ C:\Users\Larry McCutchan\Dropbox\Code\SimpleApplications\BasicConsoleAppTests\bi
 C:\Users\Larry McCutchan\Dropbox\Code\SimpleApplications\BasicConsoleAppTests\bin\Debug\CashMachine.pdb
 C:\Users\Larry McCutchan\Dropbox\Code\SimpleApplications\BasicConsoleAppTests\bin\Debug\BasicConsoleAppTests.dll.CodeAnalysisLog.xml
 C:\Users\Larry McCutchan\Dropbox\Code\SimpleApplications\BasicConsoleAppTests\bin\Debug\BasicConsoleAppTests.dll.lastcodeanalysissucceeded
+C:\src\git\CashRegister\TestMachineTests\obj\Debug\CashMachineTests.csprojResolveAssemblyReference.cache
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\BadInputSample.csv
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\InputSample.csv
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\CashMachineTests.dll
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\CashMachineTests.pdb
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\CashMachine.exe
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\NSubstitute.dll
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\Rhino.Mocks.dll
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\StructureMap.AutoMocking.dll
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\StructureMap.AutoMocking.NSubstitute.dll
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\StructureMap.dll
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\StructureMap.Net4.dll
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\CashMachine.pdb
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\NSubstitute.xml
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\Rhino.Mocks.xml
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\StructureMap.AutoMocking.pdb
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\StructureMap.AutoMocking.xml
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\StructureMap.AutoMocking.NSubstitute.pdb
+C:\src\git\CashRegister\TestMachineTests\bin\Debug\StructureMap.Net4.pdb
+C:\src\git\CashRegister\TestMachineTests\obj\Debug\CashMachineTests.dll
+C:\src\git\CashRegister\TestMachineTests\obj\Debug\CashMachineTests.pdb

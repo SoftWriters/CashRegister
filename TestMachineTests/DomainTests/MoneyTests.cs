@@ -1,10 +1,8 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
+﻿using BasicConsoleAppTests;
 using CashMachine.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BasicConsoleAppTests.DomainTests
+namespace CashMachineTests.DomainTests
 {
     /// <summary>
     /// Summary description for MoneyTests

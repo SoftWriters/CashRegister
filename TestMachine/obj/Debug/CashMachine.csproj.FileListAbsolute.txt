@@ -24,3 +24,27 @@ C:\Users\Larry McCutchan\Dropbox\Code\SimpleApplications\BasicConsoleApp\obj\Deb
 C:\Users\Larry McCutchan\Dropbox\Code\SimpleApplications\BasicConsoleApp\bin\Debug\BadInputSample.csv
 C:\Users\Larry McCutchan\Dropbox\Code\SimpleApplications\BasicConsoleApp\bin\Debug\CashMachine.exe.CodeAnalysisLog.xml
 C:\Users\Larry McCutchan\Dropbox\Code\SimpleApplications\BasicConsoleApp\bin\Debug\CashMachine.exe.lastcodeanalysissucceeded
+C:\src\git\CashRegister\TestMachine\bin\Debug\CashMachine.exe.config
+C:\src\git\CashRegister\TestMachine\bin\Debug\BadInputSample.csv
+C:\src\git\CashRegister\TestMachine\bin\Debug\InputSample.csv
+C:\src\git\CashRegister\TestMachine\bin\Debug\CashMachine.exe
+C:\src\git\CashRegister\TestMachine\bin\Debug\CashMachine.pdb
+C:\src\git\CashRegister\TestMachine\bin\Debug\FluentAssertions.Core.dll
+C:\src\git\CashRegister\TestMachine\bin\Debug\FluentAssertions.dll
+C:\src\git\CashRegister\TestMachine\bin\Debug\log4net.dll
+C:\src\git\CashRegister\TestMachine\bin\Debug\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.dll
+C:\src\git\CashRegister\TestMachine\bin\Debug\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll
+C:\src\git\CashRegister\TestMachine\bin\Debug\StructureMap.dll
+C:\src\git\CashRegister\TestMachine\bin\Debug\StructureMap.Net4.dll
+C:\src\git\CashRegister\TestMachine\bin\Debug\FluentAssertions.pdb
+C:\src\git\CashRegister\TestMachine\bin\Debug\FluentAssertions.xml
+C:\src\git\CashRegister\TestMachine\bin\Debug\FluentAssertions.Core.pdb
+C:\src\git\CashRegister\TestMachine\bin\Debug\FluentAssertions.Core.xml
+C:\src\git\CashRegister\TestMachine\bin\Debug\log4net.xml
+C:\src\git\CashRegister\TestMachine\bin\Debug\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.xml
+C:\src\git\CashRegister\TestMachine\bin\Debug\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.xml
+C:\src\git\CashRegister\TestMachine\bin\Debug\StructureMap.pdb
+C:\src\git\CashRegister\TestMachine\bin\Debug\StructureMap.xml
+C:\src\git\CashRegister\TestMachine\bin\Debug\StructureMap.Net4.pdb
+C:\src\git\CashRegister\TestMachine\obj\Debug\CashMachine.exe
+C:\src\git\CashRegister\TestMachine\obj\Debug\CashMachine.pdb

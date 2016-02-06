@@ -1,6 +1,6 @@
 ﻿using StructureMap.AutoMocking;
 
-namespace BasicConsoleAppTests
+namespace CashMachineTests
 {
     public class With<TSubject> where TSubject : class
     {

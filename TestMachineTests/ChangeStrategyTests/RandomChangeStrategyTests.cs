@@ -1,11 +1,11 @@
-﻿using BasicConsoleAppTests.DomainTests;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Rhino.Mocks;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CashMachine.ChangeStrategies;
 using CashMachine.Domain;
+using CashMachineTests.DomainTests;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Rhino.Mocks;
 
-namespace BasicConsoleAppTests.ChangeStrategyTests
+namespace CashMachineTests.ChangeStrategyTests
 {
     [TestClass]
     public class when_making_random_change : WithTestMoney<RandomChangeStrategy>

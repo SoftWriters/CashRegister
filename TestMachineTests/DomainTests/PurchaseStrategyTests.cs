@@ -3,7 +3,7 @@ using CashMachine.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rhino.Mocks;
 
-namespace BasicConsoleAppTests.DomainTests
+namespace CashMachineTests.DomainTests
 {
     [TestClass]
     public class PurchaseStrategyTests : WithTestMoney<PurchaseStrategy>

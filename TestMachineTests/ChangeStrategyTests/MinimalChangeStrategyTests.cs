@@ -1,10 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Rhino.Mocks;
-using BasicConsoleAppTests.DomainTests;
-using CashMachine.ChangeStrategies;
+﻿using CashMachine.ChangeStrategies;
 using CashMachine.Domain;
+using CashMachineTests.DomainTests;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Rhino.Mocks;
 
-namespace BasicConsoleAppTests.ChangeStrategyTests
+namespace CashMachineTests.ChangeStrategyTests
 {
 
     [TestClass]

@@ -1,7 +1,7 @@
 ﻿using CashMachine.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BasicConsoleAppTests.DomainTests
+namespace CashMachineTests.DomainTests
 {
     [TestClass]
     // ReSharper disable once InconsistentNaming
