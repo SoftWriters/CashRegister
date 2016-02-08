@@ -1,0 +1,11 @@
+﻿@model CashRegisterMVC.Helpers.MonetaryHelper
+
+@{
+    ViewBag.Title = "Cash Register Change Calculator";
+}
+
+<h2>Input</h2>
+<span style="white-space: pre-line">@Html.DisplayFor(model => model.InputData)</span>
+
+<h2>Output</h2>
+<span style="white-space: pre-line">@Html.DisplayFor(model => model.ChangeGiven)</span>
