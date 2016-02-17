@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.IO;
 using System.Text;
-using System.ComponentModel.DataAnnotations;
 
 
 namespace CashRegisterMVC.Models
@@ -18,8 +17,7 @@ namespace CashRegisterMVC.Models
         public decimal Change { get; set; }
         public string PairKey { get; set; }
         public string ChangeGiven { get; set; }
-
-        [RegularExpression(@"/^\d*\.?\d*\,\d*\.?\d*$/]", ErrorMessage="Input string must be in format decimal,decimal")]
+        public string InputValueError { get; set; }
         public string Path = HttpContext.Current.ApplicationInstance.Server.MapPath("~/App_Data/monetaryValues.dat");
      
         public Dictionary<string, decimal> CashDictionary = new Dictionary<string, decimal>();

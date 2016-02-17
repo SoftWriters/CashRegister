@@ -26,25 +26,40 @@ namespace CashRegisterMVC.Helpers
             // Read data from file line by line and store results in array.
             // Split on comma so that each value of each line can be accessed
             IEnumerable<string[]> resultArray1 = System.IO.File.ReadAllLines(Path).Select(x => x.Split(','));
+            decimal decimalValue1, decimalValue2;
+            int counter = 1;
 
             // iterate through array doing calculations where necessary and ultimately getting the correct change amount
             // as desired
             foreach (string[] item in resultArray1)  // each outer item
             {
-                InputData += item[0] + ", " + item[1] + "\r\n";
-                AmountOwed = Convert.ToDecimal(item[0]);
-                TotalCost = Convert.ToDecimal(item[1]);
-                Change = TotalCost - AmountOwed;
-
-                // Generate monetary denominations
-                if ((int)AmountOwed % 3 == 0)
+                
+                if (Decimal.TryParse(item[0].ToString(), out decimalValue1) && Decimal.TryParse(item[1].ToString(), out decimalValue2))
                 {
-                     GetChangeAmount(Change, CashDictionary, true);
+
+                    InputData += item[0] + ", " + item[1] + "\r\n";
+                    AmountOwed = Convert.ToDecimal(item[0]);
+                    TotalCost = Convert.ToDecimal(item[1]);
+                    Change = TotalCost - AmountOwed;
+
+                    // Generate monetary denominations
+                    if ((int)AmountOwed % 3 == 0)
+                    {
+                        GetChangeAmount(Change, CashDictionary, true);
+                    }
+                    else
+                    {
+                        GetChangeAmount(Change, CashDictionary, false);
+                    }
                 }
                 else
                 {
-                    GetChangeAmount(Change, CashDictionary, false);
+                    // if input data is invalid, just display anything typed in up to the first comma.
+                    // This isn't that important since it's not used in the final result anyway - just an fyi thing
+                    InputData += item[0] + "\r\n";
+                    InputValueError += "Input data on line " + counter + " was invalid and not included in results.\r\n";
                 }
+                counter++;
             }
         }
         #endregion

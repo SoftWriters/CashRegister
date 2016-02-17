@@ -1,4 +1,9 @@
 2.12,3.00
 1.97,2.00
+testdata
+invalid_data
 3.33,5.00
-ada
+another invalid entry
+
+invalid entry after blank line
+invalid entry number 2 after blank line
