@@ -1,0 +1,11 @@
+c:\users\rachel\documents\visual studio 2015\Projects\CashRegister\CashRegister\bin\Debug\CashRegister.exe.config
+c:\users\rachel\documents\visual studio 2015\Projects\CashRegister\CashRegister\obj\Debug\CashRegister.vbprojResolveAssemblyReference.cache
+c:\users\rachel\documents\visual studio 2015\Projects\CashRegister\CashRegister\obj\Debug\CashRegister.Main.resources
+c:\users\rachel\documents\visual studio 2015\Projects\CashRegister\CashRegister\obj\Debug\CashRegister.Resources.resources
+c:\users\rachel\documents\visual studio 2015\Projects\CashRegister\CashRegister\obj\Debug\CashRegister.vbproj.GenerateResource.Cache
+c:\users\rachel\documents\visual studio 2015\Projects\CashRegister\CashRegister\obj\Debug\CashRegister.xml
+c:\users\rachel\documents\visual studio 2015\Projects\CashRegister\CashRegister\bin\Debug\CashRegister.exe
+c:\users\rachel\documents\visual studio 2015\Projects\CashRegister\CashRegister\bin\Debug\CashRegister.pdb
+c:\users\rachel\documents\visual studio 2015\Projects\CashRegister\CashRegister\bin\Debug\CashRegister.xml
+c:\users\rachel\documents\visual studio 2015\Projects\CashRegister\CashRegister\obj\Debug\CashRegister.exe
+c:\users\rachel\documents\visual studio 2015\Projects\CashRegister\CashRegister\obj\Debug\CashRegister.pdb
