@@ -1,0 +1,21 @@
+*
+* Sample Input
+*
+2.12,3.00
+
+1.97,2.00
+
+3.33,5.00
+
+*
+* No change Test
+*
+2.12,2.12
+*
+* Missing parameter test
+*
+2.12
+*
+* Invalid parameter test
+*
+2.12, Bad
