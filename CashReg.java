@@ -17,7 +17,7 @@ public class CashReg {
        
   public static void main(String[] args) throws IOException {
                     
-       //Read input data file
+      //Read input data file infile
       File fin = new File("infile.txt");
       BufferedReader br = new BufferedReader(new FileReader(fin));
       String line = null;
