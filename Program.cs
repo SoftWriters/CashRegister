@@ -41,8 +41,8 @@ namespace CashRegister
                                 continue;
                             }
 
-                            var amountOwed = Convert.ToDecimal(tokens[0].Trim());
-                            var amountPaid = Convert.ToDecimal(tokens[1].Trim());
+                            var amountOwed = ValidateAmount(tokens[0].Trim());
+                            var amountPaid = ValidateAmount(tokens[1].Trim());
 
                             if (amountOwed < 0 || amountPaid < 0 || amountPaid < amountOwed)
                             {
@@ -63,6 +63,28 @@ namespace CashRegister
             {
                 Console.WriteLine("An error occurred while reading the input file: " + e.Message);
             }
+        }
+
+        /// <summary>
+        /// Validates that string passed in is a valid decimal number and converts it 
+        /// to a decimal if it is.
+        /// </summary>
+        /// <param name="amount">string to be validated and converted</param>
+        /// <returns>amount converted to a decimal, or -1 if invalid</returns>
+        public static decimal ValidateAmount(string amount)
+        {
+            decimal dAmount = -1; // invalid amount
+
+            try
+            {
+                dAmount = Convert.ToDecimal(amount);
+            }
+            catch
+            {
+                // ignored
+            }
+
+            return dAmount;
         }
     }
 }
