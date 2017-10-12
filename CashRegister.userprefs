@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{B8285489-E679-4439-8F59-591B2C505082}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CashRegister/Program.cs">
+    <Files>
+      <File FileName="CashRegister.Tests/UnitTest1.cs" Line="1" Column="1" />
+      <File FileName="CashRegister/Program.cs" Line="17" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CashRegister PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
