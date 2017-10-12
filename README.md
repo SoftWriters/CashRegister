@@ -39,3 +39,15 @@ Please use whatever technology and techniques you feel are applicable to solve t
 Please fork this repository. When you have completed your solution, please issue a pull request to notify us that you are ready.
 
 Have fun.
+
+
+
+-----------
+
+This solution is build using [.NET Core 2.0](https://www.microsoft.com/net/core)
+
+From the cli:
+```
+dotnet restore
+dotnet run --project CashRegister
+```
