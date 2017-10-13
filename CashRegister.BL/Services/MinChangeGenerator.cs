@@ -32,7 +32,7 @@ namespace CashRegister.BL.Services
 					}
 
 				}
-				_dict.Add(totalCents, temp.OrderBy(x => x.TotalCoins).FirstOrDefault());
+				_dict.Add(totalCents, temp.MinBy(x => x.TotalCoins));
 				return _dict[totalCents];
 			}
 			else

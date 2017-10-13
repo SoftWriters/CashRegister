@@ -32,10 +32,7 @@ namespace CashRegister.BL.Services
 					}
 
 				}
-                var total = temp.Count;
-                var random = new Random();
-                var randomIdx = random.Next(0, total-1);
-				_dict.Add(totalCents, temp[randomIdx]);
+				_dict.Add(totalCents, temp.Random());
 				return _dict[totalCents];
 			}
 			else
