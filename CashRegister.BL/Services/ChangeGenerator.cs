@@ -4,11 +4,11 @@ using System.Linq;
 using CashRegister.BL.Objects;
 namespace CashRegister.BL.Services
 {
-	public class RandomChangeGenerator : IChangeGenerator
+	public class ChangeGenerator : IChangeGenerator
 	{
 		Dictionary<int, Denomination> _dict = new Dictionary<int, Denomination>();
-        public RandomChangeGenerator() {}
-		public Denomination ComputeChange(int totalCents) 
+        public ChangeGenerator() {}
+		public Denomination ComputeChange(int totalCents, Func<IList<Denomination>, Denomination> reducer) 
 		{
 			if(totalCents < 0)
 				throw new ArgumentOutOfRangeException("totalCents");
@@ -21,18 +21,17 @@ namespace CashRegister.BL.Services
 				{
 					if (totalCents >= c)
 					{
-						var results = ComputeChange(totalCents - c);
+						var results = ComputeChange(totalCents - c, reducer);
 						var coinKey = results.TotalCoins + 1;
 						var coinList = new List<int>(results.Coins) { c };
 
 						var r = new Denomination(coinKey, coinList.ToArray());
 						temp.Add(r);
-						//if (!temp.ContainsKey(coinKey))
-						//    temp.Add(coinKey, r);
 					}
 
 				}
-				_dict.Add(totalCents, temp.Random());
+				//_dict.Add(totalCents, temp.MinBy(x => x.TotalCoins));
+				_dict.Add(totalCents, reducer(temp));
 				return _dict[totalCents];
 			}
 			else

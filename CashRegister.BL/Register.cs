@@ -26,12 +26,12 @@ namespace CashRegister.BL
             return count > 0 && count % 3 == 0;
         }
 
-        public IChangeGenerator GetGenerator(int count) 
+        public IReducer GetReducer(int count) 
         {
             if(IsDivisbleByThree(count)) {
-                return new RandomChangeGenerator();    
+                return new RandomReducer();    
             }
-            return new MinChangeGenerator();
+            return new MinReducer();
         }
 
         public int Process() 
@@ -40,8 +40,12 @@ namespace CashRegister.BL
             var inputData = _input.LoadData();
             foreach(var transaction in inputData) 
             {
-                IChangeGenerator generator = GetGenerator((int)transaction.AmountOwed);
-                var result = generator.ComputeChange(transaction.AmountChangeCents);
+                IReducer reducer = GetReducer((int)transaction.AmountOwed);
+                IChangeGenerator generator = new ChangeGenerator();// 
+                var result = generator.ComputeChange(transaction.AmountChangeCents, (list) => 
+                {
+                    return reducer.Reduce(list);
+                });
                 denList.Add(result);
             }
             if(denList.Any())

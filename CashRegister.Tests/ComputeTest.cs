@@ -11,33 +11,41 @@ namespace CashRegister.Tests
 		[Fact]
 		public void TestMinComputeLessThanZero()
 		{
-			var service = new MinChangeGenerator();
-			Exception ex = Assert.Throws<ArgumentOutOfRangeException>(() => service.ComputeChange(-1));
+			var service = new ChangeGenerator();
+			Exception ex = Assert.Throws<ArgumentOutOfRangeException>(() => service.ComputeChange(-1, (list) => 
+                {
+					var reducer = new MinReducer();
+                    return reducer.Reduce(list);
+                }));
 		}
 
 		[Fact]
 		public void TestMinComputePassOne()
 		{
-			var service = new MinChangeGenerator();
-			var result = service.ComputeChange(103);
+			var service = new ChangeGenerator();
+			var result = service.ComputeChange(103, (list) => 
+                {
+					var reducer = new MinReducer();
+                    return reducer.Reduce(list);
+                });
 			Assert.Equal(result.TotalCoins, 4);
 		}
 
 		[Fact]
-		public void TestGetGeneratorRandom() 
+		public void TestGetReducerRandom() 
 		{
 			var mock = new MockFile();
 			var register = new Register(mock, mock);
-			var generator = register.GetGenerator(3);
-			Assert.IsType<RandomChangeGenerator>(generator);
+			var reducer = register.GetReducer(3);
+			Assert.IsType<RandomReducer>(reducer);
 		}
 		[Fact]
-		public void TestGetGeneratorMin() 
+		public void TestGetReducerMin() 
 		{
 			var mock = new MockFile();
 			var register = new Register(mock, mock);
-			var generator = register.GetGenerator(1);
-			Assert.IsType<MinChangeGenerator>(generator);
+			var reducer = register.GetReducer(1);
+			Assert.IsType<MinReducer>(reducer);
 			
 		}
 
