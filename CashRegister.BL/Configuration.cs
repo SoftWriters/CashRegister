@@ -6,11 +6,11 @@ namespace CashRegister.BL
 	{
 
 		public static Dictionary<int, string> CoinTypes = new Dictionary<int, string>{
-			{1, "Penny"},
-			{5, "Nickel"},
-			{10, "Dime"},
-			{25, "Quarter"},
-			{100, "Dollar"}
+			{1, "penny:pennies"},
+			{5, "nickel:nickels"},
+			{10, "dime:dimes"},
+			{25, "quarter:quarters"},
+			{100, "dollar:dollars"}
 		};
 	}
 }

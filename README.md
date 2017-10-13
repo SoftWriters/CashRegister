@@ -49,5 +49,11 @@ This solution is build using [.NET Core 2.0](https://www.microsoft.com/net/core)
 From the cli:
 ```
 dotnet restore
-dotnet run --project CashRegister
+dotnet run --project CashRegister -i:PATH-TO-INPUT -o:PATH-TO-SAVE
 ```
+For tests:
+```
+dotnet test CashRegister.Tests
+```
+
+
