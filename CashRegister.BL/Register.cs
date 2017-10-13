@@ -10,6 +10,9 @@ namespace CashRegister.BL
         private IInputSource _input;
         private IOutputSource _output;
 
+        public Register() {
+            
+        }
         public Register(IInputSource inputSource, IOutputSource outputSource) {
             if(inputSource == null)
                 throw new ArgumentNullException("inputSource");
@@ -19,8 +22,16 @@ namespace CashRegister.BL
             _output = outputSource;
         }
 
-        private bool IsDivisbleByThree(int count) {
+        public bool IsDivisbleByThree(int count) {
             return count > 0 && count % 3 == 0;
+        }
+
+        public IChangeGenerator GetGenerator(int count) 
+        {
+            if(IsDivisbleByThree(count)) {
+                return new RandomChangeGenerator();    
+            }
+            return new MinChangeGenerator();
         }
 
         public void Process() 
@@ -29,12 +40,7 @@ namespace CashRegister.BL
             var inputData = _input.LoadData();
             foreach(var transaction in inputData) 
             {
-                IChangeGenerator generator = null;
-                if(IsDivisbleByThree((int)transaction.AmountOwed)) {
-                    generator = new RandomChangeGenerator();    
-                } else {
-                    generator = new MinChangeGenerator();
-                }
+                IChangeGenerator generator = GetGenerator((int)transaction.AmountOwed);
                 var result = generator.ComputeChange(transaction.AmountChangeCents);
                 denList.Add(result);
             }
