@@ -3,6 +3,7 @@ using Xunit;
 using CashRegister.BL.Services;
 using CashRegister.BL.Objects;
 using CashRegister.BL;
+using CashRegister.BL.Reducers;
 
 namespace CashRegister.Tests
 {

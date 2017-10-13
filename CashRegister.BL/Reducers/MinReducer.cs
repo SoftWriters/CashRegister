@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using CashRegister.BL.Objects;
 
-namespace CashRegister.BL.Services
+namespace CashRegister.BL.Reducers
 {
-    public class RandomReducer : IReducer
+    public class MinReducer : IReducer
     {
-        public RandomReducer()
+        public MinReducer()
         {
         }
 
         public Denomination Reduce(IList<Denomination> resultList)
         {
-            return resultList.Random();
+            return resultList.MinBy(x => x.TotalCoins);
         }
     }
 }

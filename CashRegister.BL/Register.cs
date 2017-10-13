@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CashRegister.BL.Objects;
 using CashRegister.BL.Services;
+using CashRegister.BL.Reducers;
 namespace CashRegister.BL
 {
 	public class Register 

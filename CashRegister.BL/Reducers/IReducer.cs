@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using CashRegister.BL.Objects;
 
-namespace CashRegister.BL.Services
+namespace CashRegister.BL.Reducers
 {
     public interface IReducer
     {
