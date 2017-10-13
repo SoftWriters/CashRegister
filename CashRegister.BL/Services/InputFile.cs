@@ -27,12 +27,12 @@ namespace CashRegister.BL.Services
                 {
                     if (string.IsNullOrEmpty(line))
                         continue;
-                    //FXG_ID,JOB_TITLE,STATE,COUNTRY,COMPANY,AREA,LOCATION_NAME,LOCATION,REGION,REGION_DESC,DISTRICT,DISTRICT_DESC,CO
                     var lineData = line.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                     if (!lineData.Any())
                         continue;
-
-                    yield return new Transaction(lineData.GetField<decimal>(0), lineData.GetField<decimal>(1)); 
+                    var owed = lineData.GetField<decimal>(0);
+                    var paid =lineData.GetField<decimal>(1);
+                    yield return new Transaction(owed, paid); 
                 }
             }
 

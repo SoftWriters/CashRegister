@@ -16,6 +16,7 @@ namespace CashRegister
                 Usage();
                 return;
             }
+			string input = null, output = null;
 			IInputSource fileInput = null;
 			IOutputSource fileOut = null;
 			foreach (string arg in args)
@@ -24,11 +25,13 @@ namespace CashRegister
 				{
 					case "-I":
 						// process argument...
-						fileInput = new InputFile(arg.Substring(3));
+						input = arg.Substring(3);
+						fileInput = new InputFile(input);
 						break;
 					case "-O":
 						// process arg...
-						fileOut = new OutputFile(arg.Substring(3));
+						output =arg.Substring(3);
+						fileOut = new OutputFile(output);
 						break;
 				}
 			}
@@ -48,7 +51,10 @@ namespace CashRegister
 
 			try {
 				var register = new Register(fileInput, fileOut);
-				register.Process();
+				Console.WriteLine("Processing... {0}", input);
+				var totalProcess =register.Process();
+				Console.WriteLine("Total Transactions: {0}", totalProcess);
+				Console.WriteLine("Saved to...{0}", output);
 			}
 			catch (Exception ex) {
 				Console.WriteLine(ex);

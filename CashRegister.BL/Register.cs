@@ -34,7 +34,7 @@ namespace CashRegister.BL
             return new MinChangeGenerator();
         }
 
-        public void Process() 
+        public int Process() 
         {
             var denList = new List<Denomination>();
             var inputData = _input.LoadData();
@@ -46,6 +46,8 @@ namespace CashRegister.BL
             }
             if(denList.Any())
                 _output.SaveData(denList);
+
+            return denList.Count;    
         }
 	}
 }
