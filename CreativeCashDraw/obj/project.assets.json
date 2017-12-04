@@ -13132,11 +13132,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\github\\SoftWriters\\CreativeCashDraw\\CreativeCashDraw\\CreativeCashDraw.csproj",
+      "projectUniqueName": "D:\\github\\SoftWriters\\CreativeCashDraw\\CashRegister\\CreativeCashDraw\\CreativeCashDraw.csproj",
       "projectName": "CreativeCashDraw",
-      "projectPath": "D:\\github\\SoftWriters\\CreativeCashDraw\\CreativeCashDraw\\CreativeCashDraw.csproj",
+      "projectPath": "D:\\github\\SoftWriters\\CreativeCashDraw\\CashRegister\\CreativeCashDraw\\CreativeCashDraw.csproj",
       "packagesPath": "C:\\Users\\weido\\.nuget\\packages\\",
-      "outputPath": "D:\\github\\SoftWriters\\CreativeCashDraw\\CreativeCashDraw\\obj\\",
+      "outputPath": "D:\\github\\SoftWriters\\CreativeCashDraw\\CashRegister\\CreativeCashDraw\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
