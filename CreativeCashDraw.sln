@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreativeCashDraw", "CreativeCashDraw\CreativeCashDraw.csproj", "{F1E4F57E-C413-4310-8DAE-29876CC2AA3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCashDraw.Test", "CreativeCashDraw.Test\CreativeCashDraw.Test.csproj", "{C1CD887A-E064-40F9-8C9A-E57B057BF0E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1E4F57E-C413-4310-8DAE-29876CC2AA3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E4F57E-C413-4310-8DAE-29876CC2AA3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E4F57E-C413-4310-8DAE-29876CC2AA3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E4F57E-C413-4310-8DAE-29876CC2AA3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1CD887A-E064-40F9-8C9A-E57B057BF0E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1CD887A-E064-40F9-8C9A-E57B057BF0E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1CD887A-E064-40F9-8C9A-E57B057BF0E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1CD887A-E064-40F9-8C9A-E57B057BF0E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58CA417E-71D1-4607-AB39-8ABB0B208D7E}
+	EndGlobalSection
+EndGlobal

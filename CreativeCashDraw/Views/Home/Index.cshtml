@@ -1,0 +1,118 @@
+﻿@model FileOutputModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000" style="width:100%;">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" style="padding:5px">
+        <div class="item active">
+            <img src="~/images/drink1.jpg" alt="ASP.NET" class="img-responsive img-circle" style="height:250px;display: block;
+    margin: 0 auto;" />
+        </div>
+        <div class="item">
+            <img src="~/images/food2.jpg" alt="ASP.NET" class="img-responsive img-circle" style="height:250px;display: block;
+    margin: 0 auto;" />
+        </div>
+        <div class="item">
+            <img src="~/images/food5.jpg" alt="ASP.NET" class="img-responsive img-circle" style="height:250px;display: block;
+    margin: 0 auto;" />
+        </div>
+
+        <div class="item">
+            <img src="~/images/food6.jpg" alt="ASP.NET" class="img-responsive img-circle" style="height:250px;display: block;
+    margin: 0 auto;" />
+        </div>
+        <div class="item">
+            <img src="~/images/food7.jpg" alt="ASP.NET" class="img-responsive img-circle" style="height:250px;display: block;
+    margin: 0 auto;" />
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="row" style="clear:both;">
+    <div class="panel panel-primary panel-title" style="padding:2px;margin:15px;height:auto">
+        <div class="panel-heading text-bold">Checkout</div>
+
+        <div class="panel-body" style="width: auto">
+            <p class="well">
+                Creative Cash Draw Solutions is a client who wants to provide something different for the cashiers who use their system. The function of the application is to tell the cashier how much change is owed, and what denominations should be used. In most cases the app should return the minimum amount of physical change, but the client would like to add a twist. If the "owed" amount is divisible by 3, the app should randomly generate the change denominations.
+            </p>
+            <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="UploadFile">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="file" class="form-control" accept="text/plain" name="file" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Upload" />
+                        <input type="submit" class="btn btn-danger" asp-action="Index" asp-controller="Home" value="Reset" />
+                        @if (Model != null && !Model.InvalidFile)
+                        {
+                            <a class="btn btn-success" onclick='window.open("@Model.Url", "Output", "toolbar=no,scrollbars=yes,resizable=yes,top=200,left=200,width=400,height=400");'>Print Output</a>
+                        }
+                        else if(Model != null && Model.InvalidFile)
+                        {
+                            <p style="color:red;font-style:italic;font-size:12px;">Invalid file. Please select a valid text file.</p>
+                        }
+                    </div>
+
+                </div>
+            </form>
+           @if (Model != null && Model.CheckoutModel != null && Model.CheckoutModel.Count > 0)
+           {
+            <hr style="border:1px dashed" />
+            <table id="tblResults" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Owned Amount($)</th>
+                        <th>Paid Amount($)</th>
+                        <th>Changes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.CheckoutModel)
+                    {
+                        <tr>
+                            <td>@item.OwnedAmount</td>
+                            <td>@item.PaidAmount</td>
+                            <td>@item.ChangeString</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+           }
+            
+        </div>
+    </div>
+   
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tblResults').DataTable(
+                {
+                    /* No ordering applied during initialisation */
+                    "order": []
+                }
+            );
+        });
+        function onReset() {
+            location.reload(true)
+        }
+    </script>
+}
