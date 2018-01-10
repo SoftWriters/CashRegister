@@ -1,0 +1,7 @@
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Changemaker\obj\Debug\Changemaker.csprojResolveAssemblyReference.cache
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Changemaker\bin\Debug\Changemaker.dll
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Changemaker\bin\Debug\Changemaker.pdb
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Changemaker\bin\Debug\Common.dll
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Changemaker\bin\Debug\Common.pdb
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Changemaker\obj\Debug\Changemaker.dll
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Changemaker\obj\Debug\Changemaker.pdb
