@@ -1,8 +1,6 @@
 ﻿Option Strict On
 Option Explicit On
-Imports Microsoft.VisualBasic
 Imports System.IO
-Imports System
 
 Public Class FileIO
 

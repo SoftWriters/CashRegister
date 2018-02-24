@@ -48,6 +48,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Sub Main</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
@@ -59,9 +62,16 @@
     <Folder Include="My Project\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CashRegisterObject.vb" />
+    <Compile Include="CashRegister.vb" />
     <Compile Include="FileIO.vb" />
     <Compile Include="Main.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Files\Input.txt" />
+    <Content Include="Files\Output.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Data" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
