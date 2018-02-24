@@ -165,7 +165,7 @@ Public Class CashRegister
             '5 = penny
 
             If order.GetValue(b) = 1 Then
-                HandleDollars(currentValue, newRow, order.GetValue(b))
+                HandleDollars(currentValue, newRow)
             ElseIf order.GetValue(b) = 2 Then
                 HandleQuarters(currentValue, newRow)
             ElseIf order.GetValue(b) = 3 Then
@@ -180,25 +180,11 @@ Public Class CashRegister
 
     End Sub
 
-    Private Sub HandleDollars(ByRef currentValue As Decimal, ByRef newRow As DataRow, ByVal nextDenomination As Integer)
+    Private Sub HandleDollars(ByRef currentValue As Decimal, ByRef newRow As DataRow)
         If currentValue - 1.0 >= 0 Then
             newRow.Item("Dollars") = newRow.Item("Dollars") + 1
             currentValue = currentValue - 1.0
             HandleDollars(currentValue, newRow)
-        Else
-            'determine which handler to use next
-            If nextDenomination = 1 Then
-                HandleDollars(currentValue, newRow, order.GetValue(b))
-            ElseIf order.GetValue(b) = 2 Then
-                HandleQuarters(currentValue, newRow)
-            ElseIf order.GetValue(b) = 3 Then
-                HandleDimes(currentValue, newRow)
-            ElseIf order.GetValue(b) = 4 Then
-                HandleNickels(currentValue, newRow)
-            ElseIf order.GetValue(b) = 5 Then
-                HandlePennies(currentValue, newRow)
-            End If
-
         End If
     End Sub
 
