@@ -1,7 +1,8 @@
-﻿Option Strict On
-Option Explicit On
-Imports System.IO
+﻿Imports System.IO
 
+''' <summary>
+''' Handles reading input and writing output
+''' </summary>
 Public Class FileIO
 
     Sub New()
@@ -15,13 +16,20 @@ Public Class FileIO
     ''' <returns></returns>
     Function ReadText(ByVal filePath As String) As String()
 
+        'get file path
+        Dim path As String = Directory.GetCurrentDirectory()
+        path = path.Replace("bin\Debug", "")
+
+        'create the full file path
+        filePath = path & filePath
+
         Dim lines As String() = {}
 
         'if file exists
         If File.Exists(filePath) Then
 
             Try
-
+                'read in all lines in the file as a String()
                 lines = File.ReadAllLines(filePath)
 
             Catch ex As Exception
@@ -38,45 +46,116 @@ Public Class FileIO
     End Function
 
     ''' <summary>
-    ''' Writes a String Array of Values to a text file
+    ''' Writes the change due to the designated output file fileString
     ''' </summary>
-    ''' <param name="lines"></param>
-    ''' <param name="filePath"></param>
-    ''' <param name="overwrite"></param>
-    Sub WriteToFile(ByVal lines As String(), ByVal filePath As String, Optional ByVal overwrite As Boolean = True, Optional ByVal tries As Integer = 0)
+    ''' <param name="fileString"></param>
+    ''' <param name="change"></param>
+    Public Sub WriteToOutput(ByVal fileString As String, ByRef change As Data.DataTable)
 
-        'if overwrite is true
-        If overwrite = True Then
-            'just write to the file
-            Try
-                File.WriteAllLines(filePath, lines)
-            Catch ex As Exception
-                Throw New System.Exception("Could not write to location: " & filePath)
-            End Try
+        'get file path
+        Dim path As String = Directory.GetCurrentDirectory()
+        path = path.Replace("bin\Debug", "")
 
-        Else
-            tries = tries + 1
+        'open the output file so it can be written to
+        Dim outputFile As StreamWriter
+        Try
+            outputFile = New StreamWriter(path & fileString)
+        Catch ex As Exception
+            Throw New Exception("Cannot write to the designated output file!")
+        End Try
 
-            'try 3 times and if that doesn't work, throw an Exception
-            If tries <> 3 Then
+        'get number of rows in the change DataTable to loop through
+        Dim changeLoop As Integer = change.Rows.Count - 1
 
-                Dim random As New Random()
+        For x As Integer = 0 To changeLoop
 
-                'create a new file name
-                filePath = filePath.Replace(".txt", random.Next(1, 100000).ToString & ".txt")
-                Try
-                    File.WriteAllLines(filePath, lines)
-                Catch ex As Exception
-                    'try again
-                    Console.WriteLine("Attempting to create a valid file name again")
-                    WriteToFile(lines, filePath, False, tries)
-                End Try
+            'if no warnings
+            If change.Rows.Item(x).Item("Warning") = "" Then
 
+                'get the order of change for this row
+                Dim order As Integer() = change.Rows.Item(x).Item("Order")
+
+                'change values as String
+                Dim changeString As String = ""
+
+                'build the change String
+                For y As Integer = 0 To order.Length - 1
+
+                    'dollars
+                    If order.GetValue(y) = 1 Then
+                        If Not change.Rows.Item(x).Item("Dollars") = "0" Then
+                            Dim noun As String = ""
+                            If change.Rows.Item(x).Item("Dollars") = "1" Then
+                                noun = " dollar,"
+                            Else
+                                noun = " dollars,"
+                            End If
+                            changeString = changeString & change.Rows.Item(x).Item("Dollars").ToString & noun
+                        End If
+                        'quarters
+                    ElseIf order.GetValue(y) = 2 Then
+                        If Not change.Rows.Item(x).Item("Quarters") = "0" Then
+                            Dim noun As String = ""
+                            If change.Rows.Item(x).Item("Quarters") = "1" Then
+                                noun = " quarter,"
+                            Else
+                                noun = " quarters,"
+                            End If
+                            changeString = changeString & change.Rows.Item(x).Item("Quarters").ToString & noun
+                        End If
+                        'dimes
+                    ElseIf order.GetValue(y) = 3 Then
+                        If Not change.Rows.Item(x).Item("Dimes") = "0" Then
+                            Dim noun As String = ""
+                            If change.Rows.Item(x).Item("Dimes") = "1" Then
+                                noun = " dime,"
+                            Else
+                                noun = " dimes,"
+                            End If
+                            changeString = changeString & change.Rows.Item(x).Item("Dimes").ToString & noun
+                        End If
+                        'nickels
+                    ElseIf order.GetValue(y) = 4 Then
+                        If Not change.Rows.Item(x).Item("Nickels") = "0" Then
+                            Dim noun As String = ""
+                            If change.Rows.Item(x).Item("Nickels") = "1" Then
+                                noun = " nickel,"
+                            Else
+                                noun = " nickels,"
+                            End If
+                            changeString = changeString & change.Rows.Item(x).Item("Nickels").ToString & noun
+                        End If
+                        'pennies
+                    ElseIf order.GetValue(y) = 5 Then
+                        If Not change.Rows.Item(x).Item("Pennies") = "0" Then
+                            Dim noun As String = ""
+                            If change.Rows.Item(x).Item("Pennies") = "1" Then
+                                noun = " penny,"
+                            Else
+                                noun = " pennies,"
+                            End If
+                            changeString = changeString & change.Rows.Item(x).Item("Pennies").ToString & noun
+                        End If
+                    End If
+                Next
+
+                'get rid of last comma
+                If Not String.IsNullOrWhiteSpace(changeString) Then
+                    If changeString.Substring(changeString.Length - 1) = "," Then
+                        changeString = changeString.Substring(0, changeString.Length - 1)
+                    End If
+
+                    outputFile.WriteLine(changeString)
+                End If
             Else
-                Throw New Exception("Cannot create new file, specify a unique filename!")
+                'write the warning
+                outputFile.WriteLine(change.Rows.Item(x).Item("Warning"))
             End If
 
-        End If
+        Next
+
+        'close the StreamWriter
+        outputFile.Close()
 
     End Sub
 

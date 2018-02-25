@@ -1,6 +1,9 @@
 ﻿Imports System.Collections.Generic
 Imports System.Data
 
+''' <summary>
+''' Cash Register business logic
+''' </summary>
 Public Class CashRegister
 
     'store input from file in a DataTable
@@ -35,9 +38,12 @@ Public Class CashRegister
         change.Columns.Add(changeOrder)
         change.Columns.Add(warning)
 
-
     End Sub
 
+    ''' <summary>
+    ''' Add the values from the input file to the input DataTable
+    ''' </summary>
+    ''' <param name="data"></param>
     Sub ParseNewData(ByVal data As String())
 
         'number of loops
@@ -64,8 +70,11 @@ Public Class CashRegister
 
     End Sub
 
+    ''' <summary>
+    ''' Computes the change due
+    ''' </summary>
+    ''' <returns></returns>
     Function GetChange() As DataTable
-
 
         'number of rows in input DataTable
         Dim rowLoop As Integer = input.Rows.Count
@@ -110,11 +119,12 @@ Public Class CashRegister
                 'then make new row with warning
                 newRow.Item("Warning") = "Insufficient funds provided"
             Else
-                'check to see if the change is divisible by three 
-                Dim changeAmountDivisibleByThree As String = ((changeAmount) / 3.0).ToString()
-
-                'if the change is divisble by three, there won't be anything after the decimal place.
-                If changeAmountDivisibleByThree.Substring(changeAmountDivisibleByThree.IndexOf(".")).Length > 1 Then
+                'check to see if the change is divisible by 3
+                'It IS divisible if:
+                'the value of amount owed (currentOwed) WITHOUT a decimal is divisible by 3
+                'That is, if the remainder after dividing currentOwed by 3 is 0
+                Dim currentOwedTest As Integer = Integer.Parse(currentOwed.ToString.Replace(".", ""))
+                If ((currentOwedTest Mod 3) <> 0) Then
                     'calculate change normally
                     '1 = dollar
                     '2 = quarter
@@ -129,8 +139,41 @@ Public Class CashRegister
                     'create an Integer Array using random values from 1 to 5
                     Dim randomOrder As New List(Of Integer)
                     Dim random As New Random()
+
+                    'can't be the same int over again
+                    Dim existingNumbers As New Dictionary(Of Integer, Integer)
+                    Dim randomDenomination As Integer = 0
+
+                    'add only unique integers to the Dictionary
+                    'Yes, this will loop through more times than necessary if an already chosen Int is generated
+                    While existingNumbers.Count < 5
+
+                        'n is the key for the existingNumbers dictionary, corresponding to each of the 5 elements that will
+                        'be added to the Dictionary
+                        For n As Integer = 0 To 4
+
+                            'generate another random number
+                            randomDenomination = random.Next(1, 6)
+
+                            If Not existingNumbers.ContainsValue(randomDenomination) Then
+                                'add the newly generated number to the HashSet, which only allows unique values
+                                Try
+                                    existingNumbers.Add(n, randomDenomination)
+                                Catch ex As Exception
+                                    'do nothing, try again
+                                End Try
+
+                            End If
+
+                        Next
+
+                    End While
+
+                    'Create the order Array
                     For z As Integer = 0 To 4
-                        randomOrder.Add(random.Next(1, 6))
+                        'retrieve item z from the Dictionary existingNumbers and add it to the randomOrder List
+                        'so that it can be outputted as an Array
+                        randomOrder.Add(existingNumbers.Item(z))
                     Next
                     'add the order to the row
                     newRow.Item("Order") = randomOrder.ToArray()
@@ -150,6 +193,12 @@ Public Class CashRegister
 
     End Function
 
+    ''' <summary>
+    ''' Determine the quantities for each denomination
+    ''' </summary>
+    ''' <param name="changeAmount"></param>
+    ''' <param name="newRow"></param>
+    ''' <param name="order"></param>
     Private Sub CalculateChange(ByVal changeAmount As Decimal,
                              ByRef newRow As DataRow, ByVal order As Integer())
 
@@ -180,6 +229,11 @@ Public Class CashRegister
 
     End Sub
 
+    ''' <summary>
+    ''' Computes the number of dollars due
+    ''' </summary>
+    ''' <param name="currentValue"></param>
+    ''' <param name="newRow"></param>
     Private Sub HandleDollars(ByRef currentValue As Decimal, ByRef newRow As DataRow)
         If currentValue - 1.0 >= 0 Then
             newRow.Item("Dollars") = newRow.Item("Dollars") + 1
@@ -188,6 +242,11 @@ Public Class CashRegister
         End If
     End Sub
 
+    ''' <summary>
+    ''' Computes the number of quarters due
+    ''' </summary>
+    ''' <param name="currentValue"></param>
+    ''' <param name="newRow"></param>
     Private Sub HandleQuarters(ByRef currentValue As Decimal, ByRef newRow As DataRow)
         If currentValue - 0.25 >= 0 Then
             newRow.Item("Quarters") = newRow.Item("Quarters") + 1
@@ -196,6 +255,11 @@ Public Class CashRegister
         End If
     End Sub
 
+    ''' <summary>
+    ''' Computes the number of dimes due
+    ''' </summary>
+    ''' <param name="currentValue"></param>
+    ''' <param name="newRow"></param>
     Private Sub HandleDimes(ByRef currentValue As Decimal, ByRef newRow As DataRow)
         If currentValue - 0.1 >= 0 Then
             newRow.Item("Dimes") = newRow.Item("Dimes") + 1
@@ -204,6 +268,11 @@ Public Class CashRegister
         End If
     End Sub
 
+    ''' <summary>
+    ''' Computes the number of nickels due
+    ''' </summary>
+    ''' <param name="currentValue"></param>
+    ''' <param name="newRow"></param>
     Private Sub HandleNickels(ByRef currentValue As Decimal, ByRef newRow As DataRow)
         If currentValue - 0.05 >= 0 Then
             newRow.Item("Nickels") = newRow.Item("Nickels") + 1
@@ -212,10 +281,15 @@ Public Class CashRegister
         End If
     End Sub
 
+    ''' <summary>
+    ''' Computes the number of pennies dues
+    ''' </summary>
+    ''' <param name="currentValue"></param>
+    ''' <param name="newRow"></param>
     Private Sub HandlePennies(ByRef currentValue As Decimal, ByRef newRow As DataRow)
         If currentValue - 0.01 >= 0 Then
             newRow.Item("Pennies") = newRow.Item("Pennies") + 1
-            currentValue = currentValue - 0.05
+            currentValue = currentValue - 0.01
             HandlePennies(currentValue, newRow)
         End If
     End Sub

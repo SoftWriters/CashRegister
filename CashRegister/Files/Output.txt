@@ -1,3 +1,3 @@
-0 dollars,3 quarters,1 dimes,0 nickels,1 pennies
-0 dollars,0 quarters,0 dimes,0 nickels,1 pennies
-1 dollars,2 quarters,1 dimes,1 nickels,1 pennies
+3 quarters,1 dime,3 pennies
+3 pennies
+16 dimes,7 pennies
