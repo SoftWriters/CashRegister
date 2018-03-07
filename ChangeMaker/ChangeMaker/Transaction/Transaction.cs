@@ -88,13 +88,13 @@ namespace ChangeMaker
             //Error handling
             if (Change == null)
             {
-                Console.WriteLine("Error - Change is null");
+                Log.WriteLine("Error - Change is null");
                 return;
             }
 
             if (Change.Count == 0)
             {
-                Console.WriteLine("Customer paid with exact change. No change necessary.");
+                Log.WriteLine("Customer paid with exact change. No change necessary.");
                 return;
             }
 
@@ -120,7 +120,7 @@ namespace ChangeMaker
                 }
             }
 
-            Console.WriteLine(output);
+            Log.WriteLine(output);
         }
 
         #endregion
