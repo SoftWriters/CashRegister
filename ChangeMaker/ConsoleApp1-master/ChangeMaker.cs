@@ -50,7 +50,7 @@ namespace ChangeMaker
                 outputFilename = @".\" + outputFilename;
             }
 
-            var transactionList = new List<Transaction>();
+            var transactionList = new List<ISellTransaction>();
 
             //Read the file, line by line
             try
@@ -91,7 +91,7 @@ namespace ChangeMaker
                         try
                         {
                             amountTendered = Convert.ToDecimal(inputTokens[1].Trim());
-                            transactionList.Add(new Transaction(cost, amountTendered));
+                            transactionList.Add(new SellTransaction(cost, amountTendered));
                         }
                         catch (FormatException)
                         {
