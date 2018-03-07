@@ -205,7 +205,7 @@ namespace ChangeMaker
             }
 
             //Keep repeating until the change is down to 0
-            if (rollingChange == 0)
+            if (rollingChange <= 0)
             {
                 return;
             }
