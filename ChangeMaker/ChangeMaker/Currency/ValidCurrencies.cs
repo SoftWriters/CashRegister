@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,14 +39,16 @@ namespace ChangeMaker
                         || string.IsNullOrEmpty(c.ValueString)
                         || string.IsNullOrEmpty(c.DenominationPlural))
                     {
-                        throw new InvalidDataException("Currency configuration file was malformed - Check Currencies.xml. Each Currency entry should have Denomination, Value and DenominationPlural nodes.");
+                        var error = "Currency configuration file was malformed - Check Currencies.xml. Each Currency entry should have Denomination, Value and DenominationPlural nodes.";
+                        Log.WriteLine(error);
+                        throw new InvalidDataException(error);
                     }
 
                 }
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine("Could not find Currencies.xml configuration file");
+                Log.WriteLine("Could not find Currencies.xml configuration file");
                 throw;
             }
         }
