@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -53,6 +53,12 @@ namespace ChangeMaker
         /// </summary>
         public void CalculateChange()
         {
+            //Nothing to do if the customer used exact change.
+            if(_cost == _amtTendered)
+            {
+                return;
+            }
+
             if (ValidCurrencies.CurrencyList == null)
             {
                 ValidCurrencies.Initialize();
@@ -88,7 +94,7 @@ namespace ChangeMaker
 
             if (Change.Count == 0)
             {
-                Console.WriteLine("Change paid with exact change. No change necessary.");
+                Console.WriteLine("Customer paid with exact change. No change necessary.");
                 return;
             }
 
