@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Currencies>
+  <Currency>
+    <Denomination>Dollar</Denomination>
+    <Value>1</Value>
+    <DenominationPlural>Dollars</DenominationPlural>
+  </Currency>
+  <Currency>
+    <Denomination>Quarter</Denomination>
+    <Value>.25</Value>
+    <DenominationPlural>Quarters</DenominationPlural>
+  </Currency>
+  <Currency>
+    <Denomination>Dime</Denomination>
+    <Value>.10</Value>
+    <DenominationPlural>Dimes</DenominationPlural>
+  </Currency>
+  <Currency>
+    <Denomination>Nickel</Denomination>
+    <Value>.05</Value>
+    <DenominationPlural>Nickels</DenominationPlural>
+  </Currency>
+  <Currency>
+    <Denomination>Penny</Denomination>
+    <Value>.01</Value>
+    <DenominationPlural>Pennies</DenominationPlural>
+  </Currency>
+</Currencies>
