@@ -7,7 +7,7 @@ namespace ChangeMaker
     /// <summary>
     /// Transaction object for the processing of a cost and amount tendered.
     /// </summary>
-    public class Transaction
+    public class SellTransaction : ISellTransaction
     {
         private readonly decimal _cost;
         private readonly decimal _amtTendered;
@@ -22,7 +22,7 @@ namespace ChangeMaker
         /// </summary>
         /// <param name="cost"></param>
         /// <param name="amtTendered"></param>
-        public Transaction(decimal cost, decimal amtTendered)
+        public SellTransaction(decimal cost, decimal amtTendered)
         {
             //Error checking
             if (cost < 0)
