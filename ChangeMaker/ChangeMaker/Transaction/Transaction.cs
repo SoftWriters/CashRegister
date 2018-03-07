@@ -143,12 +143,11 @@ namespace ChangeMaker
                 if (totalForThisCurrency > 0)
                 {
                     Change.Add(new Tuple<Currency, int>(currency, totalForThisCurrency));
-                }
-
-                rollingChange -= Math.Round(currency.Value * totalForThisCurrency, 2, MidpointRounding.ToEven);
+                    rollingChange -= Math.Round(currency.Value * totalForThisCurrency, 2, MidpointRounding.ToEven);
+                }              
 
                 //Short-circuit the breaking of this loop so it doesn't waste time if the correct change is already calculated.
-                if (rollingChange == 0)
+                if (rollingChange <= 0)
                 {
                     break;
                 }
