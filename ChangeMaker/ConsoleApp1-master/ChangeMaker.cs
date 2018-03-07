@@ -11,24 +11,43 @@ namespace ChangeMaker
     {
         static void Main(string[] args)
         {
-            string filename;
+            string inputFilename;
+            string outputFilename = "";
+
+            Log.Initialize();
 
             //Try to get the filename from args, otherwise prompt for input
             if (args.Length > 0)
             {
-                filename = args[0];
+                inputFilename = args[0];
+                if(args.Length > 1)
+                {
+                    outputFilename = args[1];
+                }
             }
             else
             {
-                Console.WriteLine("Enter filename");
-                filename = Console.ReadLine();
+                Console.WriteLine("Enter input filename");
+                inputFilename = Console.ReadLine();
+                Console.WriteLine();
+            }
+
+            if(string.IsNullOrEmpty(outputFilename))
+            {
+                Console.WriteLine("Enter output filename");
+                outputFilename = Console.ReadLine();
                 Console.WriteLine();
             }
 
             //If the user did not specify an absolute path / folder structure, assume the file is at the current directory
-            if (!filename.Contains(@"\"))
+            if (!inputFilename.Contains(@"\"))
             {
-                filename = @".\" + filename;
+                inputFilename = @".\" + inputFilename;
+            }
+
+            if(!outputFilename.Contains(@"\"))
+            {
+                outputFilename = @".\" + outputFilename;
             }
 
             var transactionList = new List<Transaction>();
@@ -36,14 +55,14 @@ namespace ChangeMaker
             //Read the file, line by line
             try
             {
-                var inputLines = File.ReadLines(filename).ToList();
+                var inputLines = File.ReadLines(inputFilename).ToList();
                 if(inputLines.Count == 0)
                 {
-                    Console.WriteLine("No input found in input file");
+                    Log.WriteLine("No input found in input file");
                     return;
                 }
 
-                Console.WriteLine("\r\nProcessing Input\r\n");
+                Log.WriteLine("\r\nProcessing Input\r\n");
 
                 //Try to convert each line into a Transaction to be processed
                 for(var i = 0; i < inputLines.Count; i++)
@@ -53,13 +72,13 @@ namespace ChangeMaker
                     //Must have exactly 2 tokens in each line
                     if(inputTokens.Length < 2)
                     {
-                        Console.WriteLine($"Error in line {i + 1} of input file - both a cost and amount tendered must be provided. Line contents: {inputLines[i]}");
+                        Log.WriteLine($"Error in line {i + 1} of input file - both a cost and amount tendered must be provided. Line contents: {inputLines[i]}");
                         continue;
                     }
 
                     if(inputTokens.Length > 2)
                     {
-                        Console.WriteLine($"Warning - line {i + 1} contained more than two items of input. Expecting two (cost and amount tendered). Utilizing the first two values as the cost and amount.");
+                        Log.WriteLine($"Warning - line {i + 1} contained more than two items of input. Expecting two (cost and amount tendered). Utilizing the first two values as the cost and amount.");
                         continue;
                     }
 
@@ -76,39 +95,39 @@ namespace ChangeMaker
                         }
                         catch (FormatException)
                         {
-                            Console.WriteLine($"Error - Amount Tendered in line {i + 1} was in an invalid format. Input provided: {inputTokens[1]}");
+                            Log.WriteLine($"Error - Amount Tendered in line {i + 1} was in an invalid format. Input provided: {inputTokens[1]}");
                             continue;
                         }
                         catch(InvalidOperationException e)
                         {
-                            Console.WriteLine(e.Message);
+                            Log.WriteLine(e.Message);
                             continue;
                         }
                     }
                     catch(FormatException)
                     {
-                        Console.WriteLine($"Error - Cost in line {i + 1} was in an invalid format. Input provided: {inputTokens[0]}");
+                        Log.WriteLine($"Error - Cost in line {i + 1} was in an invalid format. Input provided: {inputTokens[0]}");
                         continue;
                     }
                     catch(InvalidOperationException e)
                     {
-                        Console.WriteLine(e.Message);
+                        Log.WriteLine(e.Message);
                         continue;
                     }
                 }
             }
             catch(FileNotFoundException)
             {
-                Console.WriteLine($"File not found: {filename}");
+                Log.WriteLine($"File not found: {inputFilename}");
                 return;
             }
             catch (IOException)
             {
-                Console.WriteLine($"File IO error when attempting to open input file: {filename}");
+                Log.WriteLine($"File IO error when attempting to open input file: {inputFilename}");
                 return;
             }
 
-            Console.WriteLine("\r\nInput processing complete. Calculating Change.\r\n");
+            Log.WriteLine("\r\nInput processing complete. Calculating Change.\r\n");
             
             //Process the transactions and output the change
             foreach (var tran in transactionList)
@@ -116,6 +135,8 @@ namespace ChangeMaker
                 tran.CalculateChange();
                 tran.DisplayChange();
             }
+
+            Log.OutputToFile(outputFilename);
         }
     }
 }
