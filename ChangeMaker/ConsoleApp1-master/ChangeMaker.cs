@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,6 +43,8 @@ namespace ChangeMaker
                     return;
                 }
 
+                Console.WriteLine("\r\nProcessing Input\r\n");
+
                 //Try to convert each line into a Transaction to be processed
                 for(var i = 0; i < inputLines.Count; i++)
                 {
@@ -52,11 +54,13 @@ namespace ChangeMaker
                     if(inputTokens.Length < 2)
                     {
                         Console.WriteLine($"Error in line {i + 1} of input file - both a cost and amount tendered must be provided. Line contents: {inputLines[i]}");
+                        continue;
                     }
 
                     if(inputTokens.Length > 2)
                     {
                         Console.WriteLine($"Warning - line {i + 1} contained more than two items of input. Expecting two (cost and amount tendered). Utilizing the first two values as the cost and amount.");
+                        continue;
                     }
 
                     //Convert the strings to decimals and create a Transaction record
@@ -73,13 +77,23 @@ namespace ChangeMaker
                         catch (FormatException)
                         {
                             Console.WriteLine($"Error - Amount Tendered in line {i + 1} was in an invalid format. Input provided: {inputTokens[1]}");
-                            return;
+                            continue;
+                        }
+                        catch(InvalidOperationException e)
+                        {
+                            Console.WriteLine(e.Message);
+                            continue;
                         }
                     }
                     catch(FormatException)
                     {
                         Console.WriteLine($"Error - Cost in line {i + 1} was in an invalid format. Input provided: {inputTokens[0]}");
-                        return;
+                        continue;
+                    }
+                    catch(InvalidOperationException e)
+                    {
+                        Console.WriteLine(e.Message);
+                        continue;
                     }
                 }
             }
@@ -93,6 +107,8 @@ namespace ChangeMaker
                 Console.WriteLine($"File IO error when attempting to open input file: {filename}");
                 return;
             }
+
+            Console.WriteLine("\r\nInput processing complete. Calculating Change.\r\n");
             
             //Process the transactions and output the change
             foreach (var tran in transactionList)
