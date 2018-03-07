@@ -1,9 +1,10 @@
 This solution consists of two projects -- the ChangeMaker libraries, and the Console App driver.
 
-You can run the ConsoleApp1.exe in a dos prompt and provide a filepath / filename argument for a test input file and it will process that file and output the results
-(i.e. ConsoleApp1.exe C:\Files\TestInput.txt)
+You can run the ConsoleApp1.exe in a dos prompt and provide a filepath / filename arguments for a test input file and a test output file and it will process the input and output the results accordingly. You may have to run VS as administrator to output to C: or choose a folder in Documents.
+(i.e. ConsoleApp1.exe C:\Files\TestInput.txt C:\FilesTestOutput.txt)
 
-You can also run ConsoleApp1.exe without any arguments and it will prompt for an input file
+You can also run ConsoleApp1.exe without any arguments and it will prompt for an input file and an output file. If run with one argument it will assume that is the input file.
+Output is mirrored between the Console and the output log file.
 
 ---------------------
 
