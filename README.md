@@ -1,3 +1,10 @@
+Hello,
+
+Please see \Solution\CashRegister.sln
+
+Thank you!
+
+
 Cash Register
 ============
 
