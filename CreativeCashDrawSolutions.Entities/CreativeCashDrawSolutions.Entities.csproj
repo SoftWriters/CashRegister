@@ -35,7 +35,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DenominationType.cs" />
+    <Compile Include="Exceptions\BadDataTypeInInputStringException.cs" />
+    <Compile Include="Exceptions\MalformedInputStringException.cs" />
     <Compile Include="Exceptions\NoPossibleSolutionException.cs" />
+    <Compile Include="Helpers\InputStringHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

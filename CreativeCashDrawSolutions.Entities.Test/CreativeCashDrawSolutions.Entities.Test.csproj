@@ -81,7 +81,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Exceptions\BadDataTypeInInputStringExceptionTest.cs" />
+    <Compile Include="Exceptions\MalformedInputStringExceptionTest.cs" />
     <Compile Include="Exceptions\NoPossibleSolutionExceptionTest.cs" />
+    <Compile Include="Helpers\InputStringHelperTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
