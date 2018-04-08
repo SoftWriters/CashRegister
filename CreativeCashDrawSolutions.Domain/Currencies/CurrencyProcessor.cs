@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CreativeCashDrawSolutions.Entities.Exceptions;
 
 namespace CreativeCashDrawSolutions.Domain.Currencies
 {
@@ -123,7 +124,12 @@ namespace CreativeCashDrawSolutions.Domain.Currencies
                 var solutionGrid = new List<List<int>>();
                 GetEntireGrid(solutionGrid, total, 0, string.Empty);
                 var rdm = new Random();
-                var itemToGet = rdm.Next(1, solutionGrid.Count);
+                var countOfSolutions = solutionGrid.Count;
+                if (countOfSolutions == 0)
+                {
+                    throw new NoPossibleSolutionException("Not completed due to not enough currency denominations.");
+                }
+                var itemToGet = rdm.Next(1, countOfSolutions);
                 return solutionGrid[itemToGet];
             }
 
@@ -153,15 +159,14 @@ namespace CreativeCashDrawSolutions.Domain.Currencies
                     coinPlaceholder[i] = j;
                 }
             }
-
-            var neededDenominations = new List<int>();
-
+            
             if (coinPlaceholder[coinPlaceholder.Length - 1] == -1)
             {
-                throw new Exception("No solution is possible");
+                throw new NoPossibleSolutionException("Not completed due to not enough currency denominations.");
             }
             var start = coinPlaceholder.Length - 1;
 
+            var neededDenominations = new List<int>();
             while (start != 0)
             {
                 var j = coinPlaceholder[start];

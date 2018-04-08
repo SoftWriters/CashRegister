@@ -1,4 +1,8 @@
-﻿using Xunit;
+﻿using System.Collections.Generic;
+using CreativeCashDrawSolutions.Domain.Currencies;
+using CreativeCashDrawSolutions.Entities;
+using CreativeCashDrawSolutions.Entities.Exceptions;
+using Xunit;
 
 namespace CreativeCashDrawSolutions.CreativeCashDrawSolutionsTest
 {
@@ -8,11 +12,46 @@ namespace CreativeCashDrawSolutions.CreativeCashDrawSolutionsTest
     // TODO: Naming schema for tests defined
     public class AcceptanceTests
     {
+        private class MyFakeCurrency : CurrencyType
+        {
+            private readonly List<DenominationType> _denominations = new List<DenominationType>
+            {
+                new DenominationType { NameSingular = "seven", NamePlural = "sevens", Value = 7 }
+            };
+
+            protected override IEnumerable<DenominationType> Denominations
+            {
+                get { return _denominations; }
+            }
+        }
+
+        private class MyFakeCurrencyProcessor : CurrencyProcessor
+        {
+            public MyFakeCurrencyProcessor() : base(new MyFakeCurrency()) {}
+        }
+
         [Fact]
-        public void WhenNoDenominationsExistToComplete_ThrowsException()
+        public void WhenNoDenominationsExistToCompleteOnNormal_ThrowsException()
         {
             // In the event a denomination amount cannot be completed to give the change, throw an exception
             // ie. we need provide 3 back and the smallest demo. is 5
+            var processor = new MyFakeCurrencyProcessor();
+            var exception = Record.Exception(() => processor.GetOutputString("1.95,2.00"));
+
+            Assert.IsType(typeof(NoPossibleSolutionException), exception);
+            Assert.Equal("Not completed due to not enough currency denominations.", exception.Message);
+        }
+
+        [Fact]
+        public void WhenNoDenominationsExistToCompleteOnRandom_ThrowsException()
+        {
+            // In the event a denomination amount cannot be completed to give the change, throw an exception
+            // ie. we need provide 3 back and the smallest demo. is 5
+            var processor = new MyFakeCurrencyProcessor();
+            var exception = Record.Exception(() => processor.GetOutputString("1.00,4.00"));
+
+            Assert.IsType(typeof(NoPossibleSolutionException), exception);
+            Assert.Equal("Not completed due to not enough currency denominations.", exception.Message);
         }
 
         [Fact]
