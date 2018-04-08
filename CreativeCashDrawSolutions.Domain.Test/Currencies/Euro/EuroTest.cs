@@ -5,7 +5,6 @@ namespace CreativeCashDrawSolutions.Domain.Test.Currencies.Euro
 {
     public class EuroTest
     {
-
         [Fact]
         public void Euro_Denominations_AreOrdered()
         {

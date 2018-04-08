@@ -27,24 +27,6 @@ namespace CreativeCashDrawSolutions.CreativeCashDrawSolutionsTest
         }
 
         [Fact]
-        public void EnsureInputHasTwoItemsSeperatedByComma()
-        {
-            // Ensure that the input is on a line and seperated by a comma
-        }
-
-        [Fact]
-        public void EnsureLineIsInProperFormat()
-        {
-            // Input should be two numbers that can go in a double or decimal
-        }
-
-        [Fact]
-        public void ReturnExceptionIfNotInProperFormat()
-        {
-            // If format is bad throws exception
-        }
-
-        [Fact]
         public void InputFileContainsAtLeastOneLine()
         {
             // Make sure that we are checking for at least one line in the file

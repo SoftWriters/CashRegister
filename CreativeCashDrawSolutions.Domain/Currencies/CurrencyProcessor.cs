@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using CreativeCashDrawSolutions.Entities.Exceptions;
 using CreativeCashDrawSolutions.Entities.Helpers;
@@ -19,9 +18,9 @@ namespace CreativeCashDrawSolutions.Domain.Currencies
 
         public string GetOutputString(string totalAndPaid)
         {
-            int total, paid;
-            InputStringHelper.InputStringToInts(totalAndPaid, out total, out paid);
-            var difference = total - paid;
+            int due, paid;
+            InputStringHelper.InputStringToInts(totalAndPaid, out due, out paid);
+            var difference = due - paid;
             return InputStringHelper.ShouldBeRandom(totalAndPaid) ? GetOutputString(difference, true) : GetOutputString(difference);
         }
 
@@ -83,18 +82,17 @@ namespace CreativeCashDrawSolutions.Domain.Currencies
 
         private IEnumerable<int> EvaluateDenomination(int total, bool random = false)
         {
-            // Taking a slow route by calculating all the possibilities and grabbing a random one out of it
+            // Taking a slow route by calculating all the possibilities and grabbing a random one out of it O(n < 20) solutions do not randomize very well since the 
             if (random)
             {
                 var solutionGrid = new List<List<int>>();
                 GetEntireGrid(solutionGrid, total, 0, string.Empty);
-                var rdm = new Random();
                 var countOfSolutions = solutionGrid.Count;
                 if (countOfSolutions == 0)
                 {
                     throw new NoPossibleSolutionException("Not completed due to not enough currency denominations.");
                 }
-                var itemToGet = rdm.Next(1, countOfSolutions);
+                var itemToGet = RandomNumberHelper.RandomNumber(1, countOfSolutions);
                 return solutionGrid[itemToGet];
             }
 

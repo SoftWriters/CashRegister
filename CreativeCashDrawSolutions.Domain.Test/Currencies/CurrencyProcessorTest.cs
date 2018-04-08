@@ -44,7 +44,7 @@ namespace CreativeCashDrawSolutions.Domain.Test.Currencies
             // In the event a denomination amount cannot be completed to give the change, throw an exception
             // ie. we need provide 3 back and the smallest demo. is 5
             var processor = new MyFakeNoSolutionProcessor();
-            var exception = Record.Exception(() => processor.GetOutputString("1.00,4.00"));
+            var exception = Record.Exception(() => processor.GetOutputString("3.00,4.00"));
 
             Assert.IsType(typeof(NoPossibleSolutionException), exception);
             Assert.Equal("Not completed due to not enough currency denominations.", exception.Message);

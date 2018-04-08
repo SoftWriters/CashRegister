@@ -18,10 +18,10 @@ namespace CreativeCashDrawSolutions.Entities.Test.Helpers
         }
 
         [Theory]
-        [InlineData("2.00, 5.00", true)]
-        [InlineData("2.00, 5.01", false)]
-        [InlineData("1.00, 4.00", true)]
-        [InlineData("1.00, 5.00", false)]
+        [InlineData("2.12,3.00", false)]
+        [InlineData("1.97,2.00", false)]
+        [InlineData("3.33,5.00", true)]
+        [InlineData("3.00,5.00", true)]
         public void ShouldBeRandom(string input, bool expectedResult)
         {
             var actual = InputStringHelper.ShouldBeRandom(input);
@@ -55,7 +55,7 @@ namespace CreativeCashDrawSolutions.Entities.Test.Helpers
             const string inputString = "4.12,boom";
             var exception = Record.Exception(() => InputStringHelper.InputStringToInts(inputString, out actual1, out actual2));
             Assert.IsType(typeof(BadDataTypeInInputStringException), exception);
-            Assert.Equal("boom is not a valid decimal for total", exception.Message);
+            Assert.Equal("boom is not a valid decimal for due", exception.Message);
         }
     }
 }
