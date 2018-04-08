@@ -4,14 +4,14 @@ using Xunit;
 
 namespace CreativeCashDrawSolutions.Entities.Test.Exceptions
 {
-    public class NoPossibleSolutionExceptionTest
+    public class BadDataTypeInInputStringExceptionTest
     {
         [Fact]
-        public void NoPossibleSolutionException_default_ctor()
+        public void MalformedInputStringException_default_ctor()
         {
-            const string expectedMessage = "Exception of type 'CreativeCashDrawSolutions.Entities.Exceptions.NoPossibleSolutionException' was thrown.";
+            const string expectedMessage = "Exception of type 'CreativeCashDrawSolutions.Entities.Exceptions.BadDataTypeInInputStringException' was thrown.";
 
-            var exception = new NoPossibleSolutionException();
+            var exception = new BadDataTypeInInputStringException();
 
             Assert.Null(exception.InnerException);
             Assert.Equal(expectedMessage, exception.Message);
@@ -22,7 +22,7 @@ namespace CreativeCashDrawSolutions.Entities.Test.Exceptions
         {
             const string expectedMessage = "message";
 
-            var exception = new NoPossibleSolutionException(expectedMessage);
+            var exception = new BadDataTypeInInputStringException(expectedMessage);
 
             Assert.Null(exception.InnerException);
             Assert.Equal(expectedMessage, exception.Message);
@@ -34,7 +34,7 @@ namespace CreativeCashDrawSolutions.Entities.Test.Exceptions
             const string expectedMessage = "message";
             var innerEx = new Exception("oops");
 
-            var exception = new NoPossibleSolutionException(expectedMessage, innerEx);
+            var exception = new BadDataTypeInInputStringException(expectedMessage, innerEx);
 
             Assert.Equal(innerEx, exception.InnerException);
             Assert.Equal(expectedMessage, exception.Message);

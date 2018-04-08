@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CreativeCashDrawSolutions.Entities.Exceptions;
+using CreativeCashDrawSolutions.Entities.Helpers;
 
 namespace CreativeCashDrawSolutions.Domain.Currencies
 {
@@ -19,9 +20,9 @@ namespace CreativeCashDrawSolutions.Domain.Currencies
         public string GetOutputString(string totalAndPaid)
         {
             int total, paid;
-            InputStringToInts(totalAndPaid, out total, out paid);
+            InputStringHelper.InputStringToInts(totalAndPaid, out total, out paid);
             var difference = total - paid;
-            return ShouldBeRandom(totalAndPaid) ? GetOutputString(difference, true) : GetOutputString(difference);
+            return InputStringHelper.ShouldBeRandom(totalAndPaid) ? GetOutputString(difference, true) : GetOutputString(difference);
         }
 
         private Dictionary<int, int> GetChangeSolution(int total, bool randomize = false)
@@ -50,42 +51,6 @@ namespace CreativeCashDrawSolutions.Domain.Currencies
                 strings.Add(_type.GetOutputStringByValue(i.Key, i.Value));
             }
             return string.Join(",", strings);
-        }
-
-        // TODO: Not specific to class, break it out
-        private static void InputStringToInts(string input, out int total, out int paid)
-        {
-            decimal amountDue, amountPaid;
-            InputStringToDecimals(input, out amountDue, out amountPaid);
-
-            // Convert the decimals to intergers
-            total = CovertDecimalAmountToInt(amountDue);
-            paid = CovertDecimalAmountToInt(amountPaid);
-        }
-
-        // TODO: Not specific to class, break it out
-        private static void InputStringToDecimals(string input, out decimal total, out decimal paid)
-        {
-            var inputTokens = input.Trim().Split(",".ToCharArray());
-            if (inputTokens.Length < 2) throw new ArgumentException();
-            if (inputTokens.Length > 2) throw new ArgumentException();
-            if (!decimal.TryParse(inputTokens[0].Trim(), out paid)) throw new ArgumentException();
-            if (!decimal.TryParse(inputTokens[1].Trim(), out total)) throw new ArgumentException();
-        }
-
-        // TODO: Not specific to class, break it out
-        private static int CovertDecimalAmountToInt(decimal amount)
-        {
-            return Convert.ToInt32(Math.Round(amount, 2) * 100);
-        }
-
-        // TODO: Not specific to class, break it out
-        private static bool ShouldBeRandom(string input)
-        {
-            decimal amountDue, amountPaid;
-            InputStringToDecimals(input, out amountDue, out amountPaid);
-            var difference = amountDue - amountPaid;
-            return difference % 3 == 0;
         }
 
         private void GetEntireGrid(ICollection<List<int>> solutions, int currentSum, int minCoin, string commmaSeperatedList)
