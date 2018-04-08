@@ -67,29 +67,5 @@ namespace CreativeCashDrawSolutions.CreativeCashDrawSolutionsTest
         {
             // If the line counts of the input and output do not match, throw exception
         }
-
-        [Fact]
-        public void EnsureThatWhenOneItemReturnedItIsSingular()
-        {
-            // 1 quarter should not be plural
-        }
-
-        [Fact]
-        public void EnsureThatWhenMultipleItemsReturnedItIsPlural()
-        {
-            // 3 quarters should not be singular
-        }
-
-        [Fact]
-        public void EnsureReturnStatementsAreseperatedByCommas()
-        {
-            // 3 quarters,1 dime,3 pennies
-        }
-
-        [Fact]
-        public void EnsureReturnStatementsDoesNotHaveTrailingComma()
-        {
-            // A comma at the end would be incorrect ie. 3 quarters,1 dime,3 pennies,
-        }
     }
 }

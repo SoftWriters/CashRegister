@@ -80,6 +80,15 @@ namespace CreativeCashDrawSolutions.Domain.Test.Currencies
             Assert.Equal(expectedOutput, actual);
         }
 
+        [Fact]
+        public void EnsureReturnStatementsDoesNotHaveTrailingComma()
+        {
+            // A comma at the end would be incorrect ie. 3 quarters,1 dime,3 pennies,
+            var processor = new MyFakeMinimumProcessor();
+            var actual = processor.GetOutputString("0.04,1.00");
+            Assert.Equal(false, actual.EndsWith(","));
+        }
+
         private class MyFakeMaximumCurrency : CurrencyType
         {
             private readonly List<DenominationType> _denominations = new List<DenominationType>
