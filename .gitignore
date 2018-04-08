@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CreativeCashDrawSolutions.Domain/bin/Debug
+/CreativeCashDrawSolutions.Domain/obj/Debug
+*.user
+*.dll
+*.pdb
+/CreativeCashDrawSolutions.Domain.Test/bin/Debug
+/CreativeCashDrawSolutions.Domain.Test/obj/Debug
+/CreativeCashDrawSolutions.Entities/obj/Debug
+/CreativeCashDrawSolutions.Entities.Test/bin/Debug
+/CreativeCashDrawSolutions.Entities.Test/obj/Debug
+/CreativeCashDrawSolutionsTest/bin/Debug
+/CreativeCashDrawSolutionsTest/obj/Debug
+*.suo
+/packages

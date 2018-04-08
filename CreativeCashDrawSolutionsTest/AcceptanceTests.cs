@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace CreativeCashDrawSolutionsTest
+namespace CreativeCashDrawSolutions.CreativeCashDrawSolutionsTest
 {
     // The goal of this test class is to support some basic acceptance tests that were gathered throughout the problem description. This file
     // will likely be changed to reflect progress throughout development. 
@@ -8,27 +8,6 @@ namespace CreativeCashDrawSolutionsTest
     // TODO: Naming schema for tests defined
     public class AcceptanceTests
     {
-        [Fact]
-        public void EnsureTheDenominationsAreOrdered()
-        {
-            // This test will check that the implemented denominations are ordered correctly.
-        }
-
-        [Theory]
-        [InlineData("2.12", "3.00")]
-        [InlineData("1.97", "2.00")]
-        public void VerifyChangeIsCorrect(string input, string expectedOutput)
-        {
-            // This test is responsible for taking predictable input values and returning the output values
-        }
-
-        [Fact]
-        public void VerifyRandomChangeIsCorrect()
-        {
-            // This test is responsible for taking the random change that is returned and verifying its correctness
-            // 3.33,5.00
-        }
-
         [Fact]
         public void WhenNoDenominationsExistToComplete_ThrowsException()
         {
