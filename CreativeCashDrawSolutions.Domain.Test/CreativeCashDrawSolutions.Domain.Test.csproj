@@ -78,6 +78,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Currencies\CurrencyProcessorTest.cs" />
+    <Compile Include="Currencies\CurrencyTypeTest.cs" />
     <Compile Include="Currencies\Euro\EuroProcessorTest.cs" />
     <Compile Include="Currencies\Euro\EuroTest.cs" />
     <Compile Include="Currencies\UnitedStatesDollar\UnitedStatesDollarProcessorTest.cs" />
