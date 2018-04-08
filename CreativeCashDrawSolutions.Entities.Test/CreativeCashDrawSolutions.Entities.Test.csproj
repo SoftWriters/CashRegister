@@ -85,6 +85,7 @@
     <Compile Include="Exceptions\MalformedInputStringExceptionTest.cs" />
     <Compile Include="Exceptions\NoPossibleSolutionExceptionTest.cs" />
     <Compile Include="Helpers\InputStringHelperTest.cs" />
+    <Compile Include="Helpers\RadomNumberHelperTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

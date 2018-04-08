@@ -39,6 +39,7 @@
     <Compile Include="Exceptions\MalformedInputStringException.cs" />
     <Compile Include="Exceptions\NoPossibleSolutionException.cs" />
     <Compile Include="Helpers\InputStringHelper.cs" />
+    <Compile Include="Helpers\RandomNumberHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
