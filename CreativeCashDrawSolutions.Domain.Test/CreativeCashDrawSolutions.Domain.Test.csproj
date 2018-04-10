@@ -86,6 +86,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Currencies\Canada\CanadaProcessorTest.cs" />
+    <Compile Include="Currencies\Canada\CanadaTest.cs" />
     <Compile Include="Currencies\CurrencyProcessorTest.cs" />
     <Compile Include="Currencies\CurrencyTypeTest.cs" />
     <Compile Include="Currencies\Euro\EuroProcessorTest.cs" />
@@ -108,6 +110,7 @@
       <Name>CreativeCashDrawSolutions.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
