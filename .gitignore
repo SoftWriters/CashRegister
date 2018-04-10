@@ -16,3 +16,5 @@
 /CreativeCashDrawSolutionsTest/obj/Debug
 *.suo
 /packages
+/CreativeCashDrawSolutions.App/obj/Debug
+/CreativeCashDrawSolutions.App/bin/Debug

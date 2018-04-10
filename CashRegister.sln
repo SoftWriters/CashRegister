@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCashDrawSolutions.E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCashDrawSolutions.Domain.Test", "CreativeCashDrawSolutions.Domain.Test\CreativeCashDrawSolutions.Domain.Test.csproj", "{6F800EBA-429B-4AA9-8BCC-A399DBA98CEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeCashDrawSolutions.App", "CreativeCashDrawSolutions.App\CreativeCashDrawSolutions.App.csproj", "{BB0CEED5-5841-4B2F-B4EA-60C72D9FECD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{6F800EBA-429B-4AA9-8BCC-A399DBA98CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F800EBA-429B-4AA9-8BCC-A399DBA98CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F800EBA-429B-4AA9-8BCC-A399DBA98CEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB0CEED5-5841-4B2F-B4EA-60C72D9FECD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB0CEED5-5841-4B2F-B4EA-60C72D9FECD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB0CEED5-5841-4B2F-B4EA-60C72D9FECD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB0CEED5-5841-4B2F-B4EA-60C72D9FECD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
