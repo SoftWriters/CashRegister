@@ -39,6 +39,16 @@ namespace CreativeCashDrawSolutions.Entities.Test.Helpers
         }
 
         [Fact]
+        public void InputStringToInts_ThrowsExceptionWhenTooManyElements()
+        {
+            int actual1, actual2;
+            const string inputString = "4.12,5.00,6.12";
+            var exception = Record.Exception(() => InputStringHelper.InputStringToInts(inputString, out actual1, out actual2));
+            Assert.IsType(typeof(MalformedInputStringException), exception);
+            Assert.Equal("Too many elements in the input string", exception.Message);
+        }
+
+        [Fact]
         public void InputStringToInts_ThrowsExceptionWhenFirstElementIsNotDecimal()
         {
             int actual1, actual2;
