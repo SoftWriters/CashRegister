@@ -9,12 +9,6 @@ namespace CreativeCashDrawSolutions.CreativeCashDrawSolutionsTest
     public class AcceptanceTests
     {
         [Fact]
-        public void EnsureThatAcceptedFileTypesAreAllowed()
-        {
-            // Allowed file types of csv and txt are accepted
-        }
-
-        [Fact]
         public void InvalidFileTypeThrowsException()
         {
             // File type not accepted throws exception
@@ -39,21 +33,9 @@ namespace CreativeCashDrawSolutions.CreativeCashDrawSolutionsTest
         }
 
         [Fact]
-        public void EnsureOutputFileIsGenerated()
-        {
-            // Make that an output file can be generated to disk
-        }
-
-        [Fact]
         public void ThrowExceptionIfOutputFileCannotBeWritten()
         {
             // Throw exception if output file cannot be written
-        }
-
-        [Fact]
-        public void EnsureStringIsWrittenToFile()
-        {
-            // Verify that the output can actually be written
         }
 
         [Fact]
