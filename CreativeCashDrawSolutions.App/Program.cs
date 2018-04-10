@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CreativeCashDrawSolutions.Domain.Currencies;
+using CreativeCashDrawSolutions.Domain.Currencies.Canada;
 using CreativeCashDrawSolutions.Domain.Currencies.Euro;
 using CreativeCashDrawSolutions.Domain.Currencies.UnitedStatesDollar;
 using CreativeCashDrawSolutions.Domain.Files;
@@ -25,7 +26,19 @@ namespace CreativeCashDrawSolutions.App
                 var fileProcessor = new FileProcessor();
                 var transactions = fileProcessor.ImportTransactions(inputFile);
 
-                var currencyProcessor = currencyCode == "EURO" ? (CurrencyProcessor)new EuroProcessor() : new UnitedStatesDollarProcessor();
+                CurrencyProcessor currencyProcessor;
+                switch (currencyCode)
+                {
+                    case "EURO":
+                        currencyProcessor = new EuroProcessor();
+                        break;
+                    case "CAD":
+                        currencyProcessor = new CanadaProcessor();
+                        break;
+                    default:
+                        currencyProcessor = new UnitedStatesDollarProcessor();
+                        break;
+                }
 
                 var outputStrings = new List<string>();
                 foreach (var transaction in transactions)
