@@ -1,0 +1,3 @@
+# ignore Visual Studio config folder
+.vs
+.vs/*
