@@ -89,7 +89,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CashRegisterTests.cs" />
+    <Compile Include="Businesses\CashRegisterBusinessTests.cs" />
+    <Compile Include="Controllers\CashRegisterControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
