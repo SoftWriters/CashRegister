@@ -1,3 +1,8 @@
 # ignore Visual Studio config folder
 .vs
 .vs/*
+# ignore bin and obj directories
+CashRegister/bin/*
+CashRegister/obj/*
+CashRegister.Tests/bin/*
+CashRegister.Tests/obj/*

@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Cash Register";
+}
+
+@* TODO make this partial? *@
+
+<h3>
+    Cash Register
+</h3>
+<div class="cash-div">
+    Please upload a file with amounts owed and paid.
+    <button class="cash-button" data-toggle="collapse" data-target="#fileHint">Details...</button>
+</div>
+<div id="fileHint" class="collapse cash-div">
+    File should be a plain text file, with each line containing amount owed and amount paid separated by a comma, for example:
+    <br />
+    2.12,3.00
+    <br />
+    1.97,2.00
+    <br />
+    3.33,5.00
+</div>
+<form id="cashRegisterProcessFileForm" method="post" action="/CashRegister/ProcessFile" enctype="multipart/form-data">
+    <div class="cash-div">
+        <div style="display: inline-block;">
+            <input name="cashRegisterFile" type="file" accept=".txt" required />
+        </div>
+        <div style="display: inline-block;">
+            <button class="cash-button" type="submit">Process File</button>
+        </div>
+    </div>
+</form>

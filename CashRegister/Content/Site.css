@@ -22,3 +22,18 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Space out the controls a little bit */
+.cash-div {
+    padding: 8px;
+}
+
+/* Space out the results table */
+.cash-table {
+    border-collapse: collapse;
+}
+
+.cash-table th, .cash-table td {
+    border: 1px solid #d0d0d0;
+    padding: 8px;
+}
