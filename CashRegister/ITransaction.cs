@@ -5,5 +5,7 @@
         decimal MoneyPaid { get; }
 
         decimal MoneyOwed { get; }
+
+        decimal ChangeDue { get; }
     }
 }

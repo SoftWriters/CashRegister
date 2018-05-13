@@ -6,7 +6,7 @@
 
         public decimal MoneyPaid { get; }
 
-        public decimal MoneyDue => MoneyPaid - MoneyOwed;
+        public decimal ChangeDue => MoneyPaid - MoneyOwed;
 
         public Transaction(decimal moneyOwed, decimal moneyPaid)
         {
