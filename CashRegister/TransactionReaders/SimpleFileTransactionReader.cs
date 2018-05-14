@@ -18,8 +18,10 @@ namespace CashRegister.TransactionReaders
         {
             using (var csv = new CsvReader(InputStream))
             {
+                csv.Configuration.HasHeaderRecord = false;
                 csv.Configuration.RegisterClassMap<TransactionCsvMap>();
-                return csv.GetRecords<Transaction>();
+                foreach (Transaction transaction in csv.GetRecords<Transaction>())
+                    yield return transaction;
             }
         }
 
