@@ -46,12 +46,15 @@
   <ItemGroup>
     <Compile Include="ChangeFormatterProvider.cs" />
     <Compile Include="ChangeFormatters\GreedyChangeFormatter.cs" />
+    <Compile Include="ChangeFormatters\IChangeFormatter.cs" />
+    <Compile Include="TransactionReaders\ITransactionReader.cs" />
     <Compile Include="InvalidTransactionException.cs" />
     <Compile Include="ITransaction.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ChangeFormatters\RandomChangeFormatter.cs" />
+    <Compile Include="TransactionReaders\SimpleFileTransactionReader.cs" />
     <Compile Include="Transaction.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +63,9 @@
   <ItemGroup>
     <PackageReference Include="CommandLineParser">
       <Version>2.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="CsvHelper">
+      <Version>7.1.0</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
