@@ -10,7 +10,7 @@ namespace CashRegister
         private static Lazy<IChangeFormatter> RandomChangeFormatter => new Lazy<IChangeFormatter>(() => new RandomChangeFormatter());
 
         public static IChangeFormatter GetChangeFormatter(Transaction transaction) =>
-            (transaction.ChangeDue % 0.03m) == 0m
+            (transaction.MoneyOwed % 0.03m) == 0m
                 ? RandomChangeFormatter.Value
                 : GreedyChangeFormatter.Value;
     }
