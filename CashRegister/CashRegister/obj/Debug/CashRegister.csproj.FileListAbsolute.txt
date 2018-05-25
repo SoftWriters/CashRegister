@@ -1,0 +1,6 @@
+C:\Users\LAUERJM1.2CE12909LG\Desktop\CashRegister\CashRegister\CashRegister\bin\Debug\CashRegister.exe.config
+C:\Users\LAUERJM1.2CE12909LG\Desktop\CashRegister\CashRegister\CashRegister\bin\Debug\CashRegister.exe
+C:\Users\LAUERJM1.2CE12909LG\Desktop\CashRegister\CashRegister\CashRegister\bin\Debug\CashRegister.pdb
+C:\Users\LAUERJM1.2CE12909LG\Desktop\CashRegister\CashRegister\CashRegister\obj\Debug\CashRegister.csprojResolveAssemblyReference.cache
+C:\Users\LAUERJM1.2CE12909LG\Desktop\CashRegister\CashRegister\CashRegister\obj\Debug\CashRegister.exe
+C:\Users\LAUERJM1.2CE12909LG\Desktop\CashRegister\CashRegister\CashRegister\obj\Debug\CashRegister.pdb
