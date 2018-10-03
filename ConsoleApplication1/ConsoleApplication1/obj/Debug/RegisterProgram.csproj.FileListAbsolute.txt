@@ -1,0 +1,8 @@
+C:\Users\vjw\documents\visual studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\RegisterProgram.csprojResolveAssemblyReference.cache
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\Cash.dll
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\Cash.pdb

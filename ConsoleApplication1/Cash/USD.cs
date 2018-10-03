@@ -23,11 +23,11 @@ namespace Cash
         {
             Denomination temp;
 
-            denominations = new List<Denomination> { new Denomination(0.01,        "Penny",       "Pennies"),
-                                                     new Denomination(0.05,       "Nickel",       "Nickels"),
-                                                     new Denomination(0.10,         "Dime",         "Dimes"),
-                                                     new Denomination(0.25,      "Quarter",      "Quarters"),
-                                                     new Denomination(1.00,  "Dollar Bill",  "Dollar Bills") };
+            denominations = new List<Denomination> { new Denomination(0.01,            "Penny",           "Pennies"),
+                                                     new Denomination(0.05,           "Nickel",           "Nickels"),
+                                                     new Denomination(0.10,             "Dime",             "Dimes"),
+                                                     new Denomination(0.25,          "Quarter",          "Quarters"),
+                                                     new Denomination(1.00,  "One Dollar Bill",  "One Dollar Bills") };
             if ((flags & UNCOMMON_DENOMINATIONS) != 0)
             {
                 temp = new Denomination(0.50, "Half Dollar", "Half Dollars");
@@ -95,6 +95,11 @@ namespace Cash
             {
                 return null;
             }
+        }
+
+        public int get_count()
+        {
+            return denominations.Count;
         }
     }
 }

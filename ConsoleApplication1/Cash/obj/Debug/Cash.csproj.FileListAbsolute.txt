@@ -1,0 +1,5 @@
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\Cash\bin\Debug\Cash.dll
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\Cash\bin\Debug\Cash.pdb
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\Cash\obj\Debug\Cash.dll
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\Cash\obj\Debug\Cash.pdb
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\Cash\obj\Debug\Cash.csprojResolveAssemblyReference.cache
