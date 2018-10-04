@@ -5,8 +5,9 @@ using Cash;
 
 namespace Cash
 {
-    public class Transaction //TODO: clean up functions to clarify class
+    public class Transaction //TODO: clean up functions to clarify class, change from doubles to avoid errors
     {
+        //variables
         public bool          failure;
         public bool          exact;
         private Currency     currency;
@@ -14,16 +15,17 @@ namespace Cash
         private double       bill, payment, difference;
         private Random       generate;
 
-        public Transaction(double b, double p, Currency c)
+        //public functions
+        public Transaction(double bill, double payment, Currency currency)//constructor
         {
-            bill       = b;
-            payment    = p;
-            difference = p - b;
+            this.bill       = bill;
+            this.payment    = payment;
+            this.difference = payment - bill;
 
             generate = new Random();
 
             change = new List<Change>();
-            currency = c;
+            this.currency = currency;
 
             failure = false;
             exact   = false;
@@ -38,6 +40,43 @@ namespace Cash
             }
         }
 
+        public List<Change> get_change()//returns the list of and count of current denomniations in the change
+        {
+            return change;
+        }
+
+        public string change_to_text()//returns a formatted string TODO:implement the use of expression matching for output
+        {
+            string output = "";
+            if (failure)
+            {
+                output += "Cannot complete transaction";
+            }
+            else if (exact)
+            {
+                output += "Exact change";
+            }
+            else
+            {
+                foreach (Change c in change)
+                {
+                    output += c.count + " ";
+                    if (c.count > 1)
+                    {
+                        output += c.plural;
+                    }
+                    else
+                    {
+                        output += c.name;
+                    }
+                    output += ", ";
+                }
+                output = output.Substring(0, output.Length - 2);
+            }
+            return output;
+        }
+
+        //private functions
         private void calculate_change()
         {
             if (difference < 0)
@@ -54,9 +93,9 @@ namespace Cash
                 {
                     make_random_change(difference);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    throw e;
+                    throw;
                 }
             }
             else
@@ -103,7 +142,7 @@ namespace Cash
             find_extra_penny(value);
         }
 
-        private void make_random_change(double value)
+        private void make_random_change(double value) //makes random change by pseudo randomly selecting denominations that add up to the value
         {
             Denomination tempd;
             int max = currency.get_count()-1;
@@ -172,42 +211,6 @@ namespace Cash
                 }
             }
             
-        }
-
-        public List<Change> get_change()
-        {
-            return change;
-        }
-
-        public string change_to_text()
-        {
-            string output = "";
-            if (failure)
-            {
-                output += "Cannot complete transaction";
-            }
-            else if (exact)
-            {
-                output += "Exact change";
-            }
-            else
-            {
-                foreach (Change c in change)
-                {
-                    output += c.count + " ";
-                    if (c.count > 1)
-                    {
-                        output += c.plural;
-                    }
-                    else
-                    {
-                        output += c.name;
-                    }
-                    output += ", ";
-                }
-                output = output.Substring(0, output.Length - 2);
-            }
-            return output;
         }
     }
 }
