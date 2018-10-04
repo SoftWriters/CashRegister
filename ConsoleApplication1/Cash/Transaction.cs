@@ -76,6 +76,11 @@ namespace Cash
             return output;
         }
 
+        public List<Change> get_change_list()
+        {
+            return change;
+        }
+
         //private functions
         private void calculate_change()
         {
