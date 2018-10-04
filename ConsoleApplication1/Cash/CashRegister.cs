@@ -12,7 +12,7 @@ namespace Cash
     {
         private List<Transaction> transactions;
         private Currency currency;
-        public CashRegister(string file, Currency c)
+        public CashRegister(string file, Currency c) //TODO: overload the constructor to parse from string arrays and strings
         {
             StreamReader filestream = new StreamReader(file);
             string line;
@@ -25,7 +25,7 @@ namespace Cash
                 {
                     transactions.Add(parse_transaction(line));
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.WriteLine("Invalid Transaction Format");
                 }
@@ -40,14 +40,6 @@ namespace Cash
             {
                 temp = new Transaction(Convert.ToDouble(values[0]), Convert.ToDouble(values[1]), currency);
             }
-            catch (FormatException)
-            {
-                throw;
-            }
-            catch (OverflowException)
-            {
-                throw;
-            }
             catch (Exception)
             {
                 throw;
@@ -55,7 +47,7 @@ namespace Cash
 
             return temp;
         }
-        public string change_to_text()
+        public string change_to_text() //TODO: indicate invalid format inputs in output
         {
             string output = "";
             foreach (Transaction t in transactions)
@@ -65,7 +57,7 @@ namespace Cash
             }
             return output;
         }
-        public void change_to_file(string file)
+        public void change_to_file(string file) //outputs the formatted string to the specified file
         {
             StreamWriter filestream = new StreamWriter(file);
             filestream.Write(change_to_text());
