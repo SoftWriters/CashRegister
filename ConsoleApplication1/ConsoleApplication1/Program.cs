@@ -11,8 +11,8 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Currency currency         = new USD(USD.NO_FLAGS);
-            CashRegister register = new CashRegister(@"..\..\input.txt",currency);
+            Currency     currency  = new USD(USD.MORE_BILLS|USD.HIGH_VALUES);
+            CashRegister register  = new CashRegister(@"..\..\input.txt",currency);
             register.change_to_file(@"..\..\output.txt");
         }
     }
