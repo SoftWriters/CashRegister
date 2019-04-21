@@ -1,0 +1,16 @@
+{
+  "name": "codechallenge",
+  "version": "1.0.0",
+  "description": "Code Challenge for SoftWriters",
+  "main": "CashRegister.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node ./src/CashRegister"
+  },
+  "author": "Zach Archer",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "4.2.0",
+    "mocha": "6.1.4"
+  }
+}
