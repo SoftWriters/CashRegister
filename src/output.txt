@@ -1,0 +1,5 @@
+3 Quarters, 1 Dime, 3 Pennies
+3 Pennies
+1 Dollar, 2 Quarters, 1 Dime, 1 Nickel, 2 Pennies
+1 Ten, 4 Dollars, 1 Quarter, 2 Dimes
+Not Enough Money

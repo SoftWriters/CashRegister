@@ -1,0 +1,29 @@
+Set up
+=================================
+
+This project uses Node.js 10.15.* and will be needed to be installed to run.
+
+The latest version of Node.js can be installed from here https://nodejs.org/en/.
+
+Once node is installed run the following command from within the project folder
+        
+        npm install
+
+This will install all project dependincies.
+
+Running the program
+==================================
+
+The program will read input values from input.txt within the src folder. That file can contain any values as long as they are separtated by a ','.
+
+To run the program with the following command
+
+        npm start
+
+The output of the program will be saved to output.txt
+
+To run my test run the following command
+
+        npm test
+
+results will be printed out in the command line
