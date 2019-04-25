@@ -1,0 +1,7 @@
+C:\Users\vjw\documents\visual studio 2012\Projects\ConsoleApplication1\RegisterTest\obj\Debug\RegisterTest.csprojResolveAssemblyReference.cache
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\RegisterTest\bin\Debug\RegisterTest.dll
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\RegisterTest\bin\Debug\RegisterTest.pdb
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\RegisterTest\obj\Debug\RegisterTest.dll
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\RegisterTest\obj\Debug\RegisterTest.pdb
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\RegisterTest\bin\Debug\Cash.dll
+C:\Users\vjw\Documents\Visual Studio 2012\Projects\ConsoleApplication1\RegisterTest\bin\Debug\Cash.pdb
