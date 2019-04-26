@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model List<JoeChadman_CreativeCashDraw.Models.Register>
+
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+<p>Upload your file</p>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>
+                <label for="file">File Name:</label>
+            </td>
+            <td>
+                <input type="file" name="file" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Calculate Change" />
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+<p class="message-error"><strong>@ViewBag.Error</strong></p>
+
+@if (Model != null){
+    <table>
+        <tr>
+            <td class="message-success">
+                Change:
+            </td>
+        </tr>
+
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>
+                    @c.Change
+                </td>
+            </tr>
+        }
+</table>
+}
+
+
