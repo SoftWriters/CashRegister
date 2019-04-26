@@ -1,0 +1,37 @@
+﻿@using CashRegister.Models;
+@model IEnumerable<CashRegisterRecord>
+
+@{
+    ViewBag.Title = "Results";
+}
+
+<h3>Cash Register Calculation Results</h3>
+
+<div class="cash-div">
+    <table class="cash-table">
+        <tr>
+            <th>Owed</th>
+            <th>Paid</th>
+            <th colspan="2">Change</th>
+        </tr>
+        @foreach (CashRegisterRecord record in Model)
+        {
+            <tr>
+                @if (record.Error)
+                {
+                    <td colspan="4">There were problems processing this record</td>
+                }
+                else
+                {
+                    <td>$@record.Owed</td>
+                    <td>$@record.Paid</td>
+                    <td>$@record.Change</td>
+                    <td>@record.ChangeText</td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+<div class="cash-div">
+    <a href="Index">Back</a>
+</div>
