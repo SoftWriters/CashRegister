@@ -1,0 +1,5 @@
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Common\bin\Debug\Common.dll
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Common\bin\Debug\Common.pdb
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Common\obj\Debug\Common.dll
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Common\obj\Debug\Common.pdb
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

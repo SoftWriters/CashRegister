@@ -1,0 +1,10 @@
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\ChangemakerFileIO\bin\Debug\ChangemakerFileIO.exe.config
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\ChangemakerFileIO\bin\Debug\ChangemakerFileIO.exe
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\ChangemakerFileIO\bin\Debug\ChangemakerFileIO.pdb
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\ChangemakerFileIO\bin\Debug\Changemaker.dll
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\ChangemakerFileIO\bin\Debug\Common.dll
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\ChangemakerFileIO\bin\Debug\Changemaker.pdb
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\ChangemakerFileIO\bin\Debug\Common.pdb
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\ChangemakerFileIO\obj\Debug\ChangemakerFileIO.csprojResolveAssemblyReference.cache
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\ChangemakerFileIO\obj\Debug\ChangemakerFileIO.exe
+c:\users\sg\documents\visual studio 2017\Projects\Changemaker\ChangemakerFileIO\obj\Debug\ChangemakerFileIO.pdb
