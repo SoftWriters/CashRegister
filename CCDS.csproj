@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5BFFC533-676E-4025-83F5-D7B2ACF25C0D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CCDS</RootNamespace>
+    <AssemblyName>CCDS</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlphaBlendTextBox">
+      <HintPath>res\ctrls\AlphaBlendTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="res\calc\SimpleArithmetic.cs" />
+    <Compile Include="res\calc\ProcessTransactions.cs" />
+    <Compile Include="res\calc\Transaction.cs" />
+    <Compile Include="res\ctrls\console\io\input\exceptions\OperandEquationException.cs" />
+    <Compile Include="res\ctrls\console\io\input\exceptions\InvalidSubtractionException.cs" />
+    <Compile Include="res\ctrls\console\io\input\exceptions\EmptyStringException.cs" />
+    <Compile Include="res\ctrls\console\io\input\exceptions\OperandFormatException.cs" />
+    <Compile Include="res\ctrls\console\io\input\exceptions\MissingOperandException.cs" />
+    <Compile Include="res\ctrls\console\io\input\exceptions\NegativeNumberException.cs" />
+    <Compile Include="res\ctrls\console\io\input\exceptions\NonCommaDelimitedStringException.cs" />
+    <Compile Include="res\ctrls\console\io\output\Prompt.cs" />
+    <Compile Include="res\ctrls\console\io\input\Parser.cs" />
+    <Compile Include="res\ctrls\console\io\input\Validate.cs" />
+    <Compile Include="res\currency\base\Currency.cs" />
+    <Compile Include="res\currency\base\CurrencyChooser.cs" />
+    <Compile Include="res\currency\base\derived\InternationalCurrency.cs" />
+    <Compile Include="res\currency\base\derived\InternationalCurrencyChooser.cs" />
+    <Compile Include="res\currency\factories\USD\USD.cs" />
+    <Compile Include="res\currency\factories\USDCurrencyFactory.cs" />
+    <Compile Include="res\currency\interfaces\factory\components\ICurrencyValue.cs" />
+    <Compile Include="res\currency\factories\USD\denominations\Dollar.cs" />
+    <Compile Include="res\currency\interfaces\factory\ICurrencyFactory.cs" />
+    <Compile Include="res\forms\CashRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="res\forms\CashRegister.Designer.cs">
+      <DependentUpon>CashRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="res\forms\animations\BackgroundImage.cs" />
+    <Compile Include="res\forms\input\PopulateFileChooser.cs" />
+    <Compile Include="res\forms\movement\Drag.cs" />
+    <Compile Include="res\forms\transitions\Fade.cs" />
+    <Compile Include="res\forms\traversal\AuditTrail.cs" />
+    <Compile Include="res\forms\traversal\screens\OpenFileModeScreen.cs" />
+    <Compile Include="res\forms\traversal\screens\OpenFileModeOptionsScreen.cs" />
+    <Compile Include="res\forms\traversal\screens\InteractiveModeScreen.cs" />
+    <Compile Include="res\forms\traversal\screens\StartScreen.cs" />
+    <EmbeddedResource Include="res\forms\CashRegister.resx">
+      <DependentUpon>CashRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\files\input\Encoding Time.csv" />
+    <None Include="res\files\input\flat_file.csv" />
+    <None Include="res\imgs\ccd-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\imgs\ccd-logo-24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="res\ctrls\console\AlphaBlendTextBox.dll" />
+    <None Include="res\imgs\save_icon.png" />
+    <None Include="res\imgs\settings-cog.png" />
+    <None Include="res\imgs\csv-icon.png" />
+    <None Include="res\imgs\txt-icon.png" />
+    <None Include="res\imgs\deselect-all.png" />
+    <None Include="res\imgs\select-all.png" />
+    <None Include="res\imgs\menu.png" />
+    <None Include="res\imgs\back_icon.png" />
+    <Content Include="res\files\input\blanks.txt" />
+    <Content Include="res\files\input\dispersed.txt" />
+    <Content Include="res\files\input\exceptions.txt" />
+    <Content Include="res\files\input\flat_file.txt" />
+    <Content Include="res\files\input\national_debt_size_numbers.txt" />
+    <Content Include="res\files\input\newline_flat_file.txt" />
+    <Content Include="res\files\input\power_of_three.txt" />
+    <Content Include="res\files\input\simple_change_asc.txt" />
+    <Content Include="res\imgs\ccd_logo.ico" />
+    <None Include="res\imgs\minimize_icon.png" />
+    <None Include="res\imgs\close_icon.png" />
+    <None Include="res\imgs\throbber_23.png" />
+    <None Include="res\imgs\throbber_22.png" />
+    <None Include="res\imgs\throbber_21.png" />
+    <None Include="res\imgs\throbber_20.png" />
+    <None Include="res\imgs\throbber_19.png" />
+    <None Include="res\imgs\throbber_18.png" />
+    <None Include="res\imgs\throbber_17.png" />
+    <None Include="res\imgs\throbber_16.png" />
+    <None Include="res\imgs\throbber_15.png" />
+    <None Include="res\imgs\throbber_14.png" />
+    <None Include="res\imgs\throbber_13.png" />
+    <None Include="res\imgs\throbber_12.png" />
+    <None Include="res\imgs\throbber_11.png" />
+    <None Include="res\imgs\throbber_10.png" />
+    <None Include="res\imgs\throbber_9.png" />
+    <None Include="res\imgs\throbber_8.png" />
+    <None Include="res\imgs\throbber_7.png" />
+    <None Include="res\imgs\throbber_6.png" />
+    <None Include="res\imgs\throbber_5.png" />
+    <None Include="res\imgs\throbber_4.png" />
+    <None Include="res\imgs\throbber_3.png" />
+    <None Include="res\imgs\throbber_2.png" />
+    <None Include="res\imgs\throbber_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="res\files\output\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

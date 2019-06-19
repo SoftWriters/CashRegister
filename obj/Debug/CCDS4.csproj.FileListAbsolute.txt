@@ -1,0 +1,12 @@
+C:\Git-Clones\CCDS4\obj\Debug\CCDS4.csprojAssemblyReference.cache
+C:\Git-Clones\CCDS4\obj\Debug\CCDS4.Properties.Resources.resources
+C:\Git-Clones\CCDS4\obj\Debug\CCDS4.csproj.GenerateResource.cache
+C:\Git-Clones\CCDS4\obj\Debug\CCDS4.csproj.CoreCompileInputs.cache
+C:\Git-Clones\CCDS4\obj\Debug\CCDS4.res.forms.CashRegisterForm.resources
+C:\Git-Clones\CCDS4\bin\Debug\CCDS4.exe.config
+C:\Git-Clones\CCDS4\bin\Debug\CCDS4.exe
+C:\Git-Clones\CCDS4\bin\Debug\CCDS4.pdb
+C:\Git-Clones\CCDS4\bin\Debug\AlphaBlendTextBox.dll
+C:\Git-Clones\CCDS4\obj\Debug\CCDS4.csproj.CopyComplete
+C:\Git-Clones\CCDS4\obj\Debug\CCDS4.exe
+C:\Git-Clones\CCDS4\obj\Debug\CCDS4.pdb

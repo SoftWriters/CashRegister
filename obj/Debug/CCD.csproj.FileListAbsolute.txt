@@ -1,0 +1,12 @@
+C:\Git-Clones\CCD\CCD\bin\Debug\CCD.exe.config
+C:\Git-Clones\CCD\CCD\bin\Debug\CCD.exe
+C:\Git-Clones\CCD\CCD\bin\Debug\CCD.pdb
+C:\Git-Clones\CCD\CCD\obj\Debug\CCD.csprojAssemblyReference.cache
+C:\Git-Clones\CCD\CCD\obj\Debug\CCD.Properties.Resources.resources
+C:\Git-Clones\CCD\CCD\obj\Debug\CCD.csproj.GenerateResource.cache
+C:\Git-Clones\CCD\CCD\obj\Debug\CCD.csproj.CoreCompileInputs.cache
+C:\Git-Clones\CCD\CCD\obj\Debug\CCD.exe
+C:\Git-Clones\CCD\CCD\obj\Debug\CCD.pdb
+C:\Git-Clones\CCD\CCD\bin\Debug\AlphaBlendTextBox.dll
+C:\Git-Clones\CCD\CCD\obj\Debug\CCD.csproj.CopyComplete
+C:\Git-Clones\CCD\CCD\obj\Debug\CCD.CashRegisterForm.resources
