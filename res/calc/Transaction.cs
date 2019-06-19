@@ -17,6 +17,7 @@ namespace CCDS.res.calc
         private List<Currency> money = new List<Currency>();
         private long _bills = 0;
         private decimal _coins = 0.00m;
+        private decimal totalCentsDue;
         private Parser _parser = new Parser();
         public Transaction(AlphaBlendTextBox console, decimal amountPaid, decimal totalDue)
         {
@@ -29,7 +30,7 @@ namespace CCDS.res.calc
             _bills = _parser.ParseLong(billsAndCoins[0]);
             _coins = _parser.ParseDecimal(billsAndCoins[1]);
             string[] totalDueInDollarsAndCents = _parser.ParseDecimalIntoBillsAndCoins(totalDue);
-            var totalCentsDue = _parser.ParseDecimal(totalDueInDollarsAndCents[1]);
+            totalCentsDue = _parser.ParseDecimal(totalDueInDollarsAndCents[1]);
             if (IsTotalCentsDueDivisibleByThree(_parser.ParseLong(totalCentsDue))) TenderRandomPayment();
             else TenderMinimumPayment();
         }
@@ -83,19 +84,16 @@ namespace CCDS.res.calc
                 tempCopyOfMoneyArray.RemoveAt(0);
                 money.RemoveAt(0);  //no more bills left... And dollars wasn't used...
             }
-            var cents = _parser.ParseLong((_changeOwed * 100));
+            var cents = _parser.ParseLong(_coins);
             while (cents > 0) //subtract # of dollars from change if due
             {
                 long randoNumOfCents = new SimpleArithmetic().GetRandomNumber(0, cents);
                 if (randoNumOfCents == 0) continue;//random amount of cents due
                 i = unchecked((int)new SimpleArithmetic().GetRandomNumber(0, (money.Count - 1)));
                 FindTheRandoThatFits:  //todo refactor this goto away; rather, return from methods containing the loops
-                Console.WriteLine("Random Denomination: " + money[i].GetPluralName());
                 var monetaryUnitInCents = _parser.ParseLong((money[i].GetValue() * 100));
                 if (randoNumOfCents >= monetaryUnitInCents)
                 {
-                    Console.WriteLine("Putting " + randoNumOfCents + " cents into " + money[i].GetPluralName() + " " + randoNumOfCents + "/" + monetaryUnitInCents + "==" + (randoNumOfCents / monetaryUnitInCents));
-                    Console.WriteLine("Adding quantity from number of random coins processed to rando denom: " + money[i].GetQuantity() + " " + money[i].GetPluralName() + " => " + (money[0].GetQuantity() + _parser.ParseLong(randoNumOfCents)));
                     var howManyCoinsWeCanTake = (randoNumOfCents / monetaryUnitInCents);
                     var howMuchWeCanTakeInCents = (howManyCoinsWeCanTake * monetaryUnitInCents);
                     cents -= howMuchWeCanTakeInCents; //remove from the total how many we took

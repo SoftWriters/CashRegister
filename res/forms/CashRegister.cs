@@ -247,8 +247,9 @@ namespace CCDS.res.forms
                 e.SuppressKeyPress = true;
                 _consoleInput = ConsoleAlphaBlendTextBox.Text.Substring(_cmdPrompt.GetPromptStartingPosition(), (ConsoleAlphaBlendTextBox.TextLength - _cmdPrompt.GetPromptStartingPosition())).Trim();
             }
-            if (e.KeyCode == Keys.Left)
-                if (_cmdPrompt.GetPromptStartingPosition() >= ConsoleAlphaBlendTextBox.SelectionStart) e.SuppressKeyPress = true;
+            if (e.KeyCode == Keys.Up) e.SuppressKeyPress = true;
+
+            if (e.KeyCode == Keys.Left) if (_cmdPrompt.GetPromptStartingPosition() >= ConsoleAlphaBlendTextBox.SelectionStart) e.SuppressKeyPress = true;
             if (e.KeyCode == Keys.Back)
             {
                 e.SuppressKeyPress = true;
