@@ -1,0 +1,13 @@
+Please enter the total due, and the amount paid seperated by a comma (e.g., "2.13, 3.00"):  
+
+==============================================================
+SAVE FILE OPERATION CANCELED
+==============================================================
+
+Please enter the total due, and the amount paid seperated by a comma (e.g., "2.13, 3.00"):  
+
+==============================================================
+SAVE FILE OPERATION CANCELED
+==============================================================
+
+Please enter the total due, and the amount paid seperated by a comma (e.g., "2.13, 3.00"):  

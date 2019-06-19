@@ -1,0 +1,11 @@
+C:\Git-Clones\CCDS\bin\Release\CCDS.exe.config
+C:\Git-Clones\CCDS\bin\Release\CCDS.exe
+C:\Git-Clones\CCDS\bin\Release\CCDS.pdb
+C:\Git-Clones\CCDS\bin\Release\AlphaBlendTextBox.dll
+C:\Git-Clones\CCDS\obj\Release\CCDS.res.forms.CashRegisterForm.resources
+C:\Git-Clones\CCDS\obj\Release\CCDS.Properties.Resources.resources
+C:\Git-Clones\CCDS\obj\Release\CCDS.csproj.GenerateResource.cache
+C:\Git-Clones\CCDS\obj\Release\CCDS.csproj.CoreCompileInputs.cache
+C:\Git-Clones\CCDS\obj\Release\CCDS.csproj.CopyComplete
+C:\Git-Clones\CCDS\obj\Release\CCDS.exe
+C:\Git-Clones\CCDS\obj\Release\CCDS.pdb
