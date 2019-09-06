@@ -1,6 +1,18 @@
 Cash Register
 ============
 
+** NOTES by JLC **
+
+# There are of course not enough tests.
+# The code assumes that we don't care about negative values.
+# Each input line corresponds to the same output line, even if there are errors.  The line numbers should line up.
+# I'm using MathNet.Numerics for a better randomizer than the standard .NET pseudo-RNG.
+# I normally use CsvHelper NuGet package for CSV file handling, but did not in this case.
+# FluentAssertions is a great little library to augment unit testing.  It makes things very readable.
+# The code is placed in a reusable .NET Standard 2.0 library.
+# Structs are great for creating small objects that hold structured data.
+# This library is bound by the usage of Int32.  If larger amounts are required, a different datatype should be used.
+
 The Problem
 -----------
 Creative Cash Draw Solutions is a client who wants to provide something different for the cashiers who use their system. The function of the application is to tell the cashier how much change is owed and what denominations should be used. In most cases the app should return the minimum amount of physical change, but the client would like to add a twist. If the total due in cents is divisible by 3, the app should randomly generate the change denominations (but the math still needs to be right :))
