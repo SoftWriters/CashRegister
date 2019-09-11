@@ -1,0 +1,8 @@
+3 hundreds,1 fifty,2 twenties,4 dollars,1 quarter,3 pennies
+13 dollars,37 quarters,7 nickels,228 pennies
+3 quarters,4 pennies
+1 dime
+No change needed
+1 quarter,7 dimes,12 nickels,13 pennies
+4 dollars,1 quarter,2 dimes,2 pennies
+8 hundreds,1 fifty,2 twenties,4 dollars,3 quarters,1 dime,4 pennies
