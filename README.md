@@ -1,3 +1,12 @@
+Hello,
+
+Please see \Solution\CashRegister.sln.  (To run, you will most likely need to make UI_Winforms the startup project)
+
+I included SampleInputFile.txt which includes the sample input below and several other test transactions.
+
+Thank you!
+
+
 Cash Register
 ============
 
