@@ -1,0 +1,15 @@
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\bin\Release\CCDS.CashRegister.exe.config
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\bin\Release\CCDS.CashRegister.exe
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\bin\Release\CCDS.CashRegister.pdb
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\bin\Release\IdentityModel.dll
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\bin\Release\Newtonsoft.Json.dll
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\bin\Release\System.Text.Encodings.Web.dll
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\bin\Release\IdentityModel.pdb
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\bin\Release\IdentityModel.xml
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\bin\Release\Newtonsoft.Json.xml
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\obj\Release\CCDS.CashRegister.csprojAssemblyReference.cache
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\obj\Release\CCDS.CashRegister.csproj.CoreCompileInputs.cache
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\obj\Release\CCDS.CashRegister.csproj.CopyComplete
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\obj\Release\CCDS.CashRegister.exe
+C:\Users\Jason\source\repos\CCDS.CashRegister\CCDS.CashRegister\obj\Release\CCDS.CashRegister.pdb
