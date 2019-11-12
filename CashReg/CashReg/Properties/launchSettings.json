@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CashReg": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\dev\\CashRegister\\input.txt\""
+    }
+  }
+}
