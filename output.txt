@@ -1,0 +1,49 @@
+1 Half Dollar, 1 Quarter, 1 Dime, 3 Pennies
+3 Pennies
+1 Dollar, 1 Half Dollar, 1 Dime, 1 Nickel, 2 Pennies
+1 2 Dollar Bill, 1 Half Dollar, 3 Pennies
+1 20 Dollar Bill, 1 5 Dollar Bill, 1 2 Dollar Bill, 1 Dime, 1 Nickel, 1 Penny
+1 100 Dollar Bill, 4 50 Dollar Bills, 19 20 Dollar Bills, 23 5 Dollar Bills, 81 2 Dollar Bills, 6 Dollars, 6 Half Dollars, 1 Quarter, 206 Dimes, 254 Nickels, 44 Pennies
+2 Pennies
+1 Half Dollar, 1 Quarter, 1 Dime, 3 Pennies
+3 Pennies
+1 Dollar, 1 Half Dollar, 1 Dime, 1 Nickel, 2 Pennies
+1 2 Dollar Bill, 1 Half Dollar, 3 Pennies
+1 20 Dollar Bill, 1 5 Dollar Bill, 1 2 Dollar Bill, 1 Dime, 1 Nickel, 1 Penny
+1 100 Dollar Bill, 5 50 Dollar Bills, 8 20 Dollar Bills, 30 10 Dollar Bills, 30 2 Dollar Bills, 89 Dollars, 60 Half Dollars, 16 Quarters, 53 Dimes, 28 Nickels, 29 Pennies
+2 Pennies
+1 Half Dollar, 1 Quarter, 1 Dime, 3 Pennies
+3 Pennies
+1 Dollar, 1 Half Dollar, 1 Dime, 1 Nickel, 2 Pennies
+1 2 Dollar Bill, 1 Half Dollar, 3 Pennies
+1 20 Dollar Bill, 1 5 Dollar Bill, 1 2 Dollar Bill, 1 Dime, 1 Nickel, 1 Penny
+6 100 Dollar Bills, 2 50 Dollar Bills, 11 20 Dollar Bills, 3 10 Dollar Bills, 4 5 Dollar Bills, 3 2 Dollar Bills, 12 Dollars, 15 Half Dollars, 11 Quarters, 16 Dimes, 14 Pennies
+2 Pennies
+1 Half Dollar, 1 Quarter, 1 Dime, 3 Pennies
+3 Pennies
+1 Dollar, 1 Half Dollar, 1 Dime, 1 Nickel, 2 Pennies
+1 2 Dollar Bill, 1 Half Dollar, 3 Pennies
+1 20 Dollar Bill, 1 5 Dollar Bill, 1 2 Dollar Bill, 1 Dime, 1 Nickel, 1 Penny
+7 100 Dollar Bills, 3 50 Dollar Bills, 2 20 Dollar Bills, 2 10 Dollar Bills, 4 5 Dollar Bills, 24 2 Dollar Bills, 1 Dollar, 21 Half Dollars, 12 Quarters, 20 Dimes, 71 Nickels, 194 Pennies
+2 Pennies
+1 Half Dollar, 1 Quarter, 1 Dime, 3 Pennies
+3 Pennies
+1 Dollar, 1 Half Dollar, 1 Dime, 1 Nickel, 2 Pennies
+1 2 Dollar Bill, 1 Half Dollar, 3 Pennies
+1 20 Dollar Bill, 1 5 Dollar Bill, 1 2 Dollar Bill, 1 Dime, 1 Nickel, 1 Penny
+2 100 Dollar Bills, 13 50 Dollar Bills, 4 20 Dollar Bills, 5 10 Dollar Bills, 2 5 Dollar Bills, 2 2 Dollar Bills, 1 Dollar, 8 Half Dollars, 99 Pennies
+2 Pennies
+1 Half Dollar, 1 Quarter, 1 Dime, 3 Pennies
+3 Pennies
+1 Dollar, 1 Half Dollar, 1 Dime, 1 Nickel, 2 Pennies
+1 2 Dollar Bill, 1 Half Dollar, 3 Pennies
+1 20 Dollar Bill, 1 5 Dollar Bill, 1 2 Dollar Bill, 1 Dime, 1 Nickel, 1 Penny
+4 50 Dollar Bills, 37 20 Dollar Bills, 4 10 Dollar Bills, 1 5 Dollar Bill, 6 2 Dollar Bills, 1 Dollar, 12 Dimes, 11 Nickels, 24 Pennies
+2 Pennies
+1 Half Dollar, 1 Quarter, 1 Dime, 3 Pennies
+3 Pennies
+1 Dollar, 1 Half Dollar, 1 Dime, 1 Nickel, 2 Pennies
+1 2 Dollar Bill, 1 Half Dollar, 3 Pennies
+1 20 Dollar Bill, 1 5 Dollar Bill, 1 2 Dollar Bill, 1 Dime, 1 Nickel, 1 Penny
+7 100 Dollar Bills, 1 50 Dollar Bill, 2 20 Dollar Bills, 18 10 Dollar Bills, 2 5 Dollar Bills, 6 2 Dollar Bills, 4 Dollars, 2 Half Dollars, 6 Quarters, 2 Dimes, 7 Nickels, 94 Pennies
+2 Pennies
