@@ -1,0 +1,14 @@
+C:\Users\umufti\source\repos\CashRegister\CashRegister\bin\Debug\CashRegister.exe.config
+C:\Users\umufti\source\repos\CashRegister\CashRegister\bin\Debug\CashRegister.exe
+C:\Users\umufti\source\repos\CashRegister\CashRegister\bin\Debug\CashRegister.pdb
+C:\Users\umufti\source\repos\CashRegister\CashRegister\obj\Debug\CashRegister.csprojAssemblyReference.cache
+C:\Users\umufti\source\repos\CashRegister\CashRegister\obj\Debug\CashRegister.csproj.CoreCompileInputs.cache
+C:\Users\umufti\source\repos\CashRegister\CashRegister\obj\Debug\CashRegister.exe
+C:\Users\umufti\source\repos\CashRegister\CashRegister\obj\Debug\CashRegister.pdb
+C:\Users\pkumar\Documents\CashRegister\CashRegister\CashRegister\bin\Debug\CashRegister.exe.config
+C:\Users\pkumar\Documents\CashRegister\CashRegister\CashRegister\bin\Debug\CashRegister.exe
+C:\Users\pkumar\Documents\CashRegister\CashRegister\CashRegister\bin\Debug\CashRegister.pdb
+C:\Users\pkumar\Documents\CashRegister\CashRegister\CashRegister\obj\Debug\CashRegister.csprojAssemblyReference.cache
+C:\Users\pkumar\Documents\CashRegister\CashRegister\CashRegister\obj\Debug\CashRegister.csproj.CoreCompileInputs.cache
+C:\Users\pkumar\Documents\CashRegister\CashRegister\CashRegister\obj\Debug\CashRegister.exe
+C:\Users\pkumar\Documents\CashRegister\CashRegister\CashRegister\obj\Debug\CashRegister.pdb
