@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashRegisterApp", "CashRegisterApp\CashRegisterApp.csproj", "{030C7C9A-9DEF-47A3-8B44-0AA99640A2CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashRegisterLib", "CashRegisterLib\CashRegisterLib.csproj", "{84DE2951-4E59-4ADA-AFE6-DADAA8833539}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashRegisterLib.Tests", "CashRegisterLib.Tests\CashRegisterLib.Tests.csproj", "{4FC57344-F83D-4185-879A-0B5295F89221}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InputFiles", "InputFiles", "{2F70DF5B-A875-42F3-8E6A-22AF06E763B9}"
+	ProjectSection(SolutionItems) = preProject
+		InputFiles\Bad.csv = InputFiles\Bad.csv
+		InputFiles\BiggerValues.csv = InputFiles\BiggerValues.csv
+		InputFiles\BlankLines.csv = InputFiles\BlankLines.csv
+		InputFiles\Empty.csv = InputFiles\Empty.csv
+		InputFiles\Sample1.csv = InputFiles\Sample1.csv
+		InputFiles\ZeroValues.csv = InputFiles\ZeroValues.csv
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{030C7C9A-9DEF-47A3-8B44-0AA99640A2CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{030C7C9A-9DEF-47A3-8B44-0AA99640A2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{030C7C9A-9DEF-47A3-8B44-0AA99640A2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{030C7C9A-9DEF-47A3-8B44-0AA99640A2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84DE2951-4E59-4ADA-AFE6-DADAA8833539}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84DE2951-4E59-4ADA-AFE6-DADAA8833539}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84DE2951-4E59-4ADA-AFE6-DADAA8833539}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84DE2951-4E59-4ADA-AFE6-DADAA8833539}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FC57344-F83D-4185-879A-0B5295F89221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FC57344-F83D-4185-879A-0B5295F89221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FC57344-F83D-4185-879A-0B5295F89221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FC57344-F83D-4185-879A-0B5295F89221}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8AC51FD-DF35-413B-8B7B-84B1A06E8FA8}
+	EndGlobalSection
+EndGlobal
