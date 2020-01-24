@@ -1,0 +1,13 @@
+C:\Programming\SoftWriters\CashRegister\bin\Debug\CashRegister.exe.config
+C:\Programming\SoftWriters\CashRegister\bin\Debug\CashRegister.exe
+C:\Programming\SoftWriters\CashRegister\bin\Debug\CashRegister.pdb
+C:\Programming\SoftWriters\CashRegister\obj\Debug\CashRegister.CashRegisterForm.resources
+C:\Programming\SoftWriters\CashRegister\obj\Debug\CashRegister.Properties.Resources.resources
+C:\Programming\SoftWriters\CashRegister\obj\Debug\CashRegister.csproj.GenerateResource.cache
+C:\Programming\SoftWriters\CashRegister\obj\Debug\CashRegister.exe
+C:\Programming\SoftWriters\CashRegister\obj\Debug\CashRegister.pdb
+C:\Programming\SoftWriters\CashRegister\bin\Debug\SimpleInjector.dll
+C:\Programming\SoftWriters\CashRegister\bin\Debug\SimpleInjector.xml
+C:\Programming\SoftWriters\CashRegister\obj\Debug\CashRegister.csproj.CopyComplete
+C:\Programming\SoftWriters\CashRegister\obj\Debug\CashRegister.AboutScreenForm.resources
+C:\Programming\SoftWriters\CashRegister\obj\Debug\CashRegister.csprojAssemblyReference.cache

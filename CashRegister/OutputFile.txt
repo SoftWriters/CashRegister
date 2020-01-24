@@ -1,0 +1,9 @@
+6 Quarters, 17 Pennies (Total due in cents was divisible by 3; Denominations are randomly generated.)
+3 Pennies
+Invalid Input
+Invalid Input
+Invalid Input
+4 One Dollar Bills
+1 One Dollar Bill, 2 Quarters
+Invalid Input
+2 Twenty Dollar Bills, 16 Quarters (Total due in cents was divisible by 3; Denominations are randomly generated.)
