@@ -141,3 +141,14 @@ Parameter name: source
 Index was outside the bounds of the array.
 1/24/2020 3:59:56 PM - The following error occurred while executing ReplaceWithPlurals method:
 Object reference not set to an instance of an object.
+1/24/2020 5:19:39 PM - The following error occurred while executing ErrorWhenExecutingGetMonetaryDenominationsDue method:
+Object reference not set to an instance of an object.
+1/24/2020 5:19:40 PM - The following error occurred while executing OutputChangeToCustomer method:
+Object reference not set to an instance of an object.
+1/24/2020 5:19:40 PM - The following error occurred while randomizing CashDictionary:
+Value cannot be null.
+Parameter name: source
+1/24/2020 5:19:40 PM - The following error occurred while executing ReplaceWithPlurals method:
+Index was outside the bounds of the array.
+1/24/2020 5:19:40 PM - The following error occurred while executing ReplaceWithPlurals method:
+Object reference not set to an instance of an object.
