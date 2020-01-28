@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace SWCashRegisterSB.Calculators
 {
-    class ChangeCalculator : IChangeCalculator
+    public class ChangeCalculator : IChangeCalculator
     {
-        List<IChangeResult> IChangeCalculator.CalculateChange(decimal changeAmount)
+        public List<IChangeResult> CalculateChange(decimal changeAmount)
         {
             var result = new List<IChangeResult>();
 
