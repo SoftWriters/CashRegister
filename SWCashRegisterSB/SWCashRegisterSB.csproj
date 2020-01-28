@@ -43,11 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculators\ChangeCalculator.cs" />
+    <Compile Include="Calculators\Interfaces\IChangeCalculator.cs" />
+    <Compile Include="Calculators\RandomChangeCalculator.cs" />
+    <Compile Include="Models\ChangeDenomination.cs" />
+    <Compile Include="Models\ChangeResult.cs" />
+    <Compile Include="Models\Interfaces\IChangeResult.cs" />
+    <Compile Include="Models\Interfaces\IDenomination.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\DenominationUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
