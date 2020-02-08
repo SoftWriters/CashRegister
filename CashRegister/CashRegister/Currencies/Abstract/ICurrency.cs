@@ -4,8 +4,10 @@ namespace CashRegisterConsumer
 {
     public interface ICurrency
     {
-        decimal TotalValue();
-        void AddMoney(decimal value);
-        void AddMoney(Money money);
+        List<Money> Bills { get; }
+        List<Money> Coins { get; }
+        List<Money> AllDenominations { get; }
+
+        void Clear();
     }
 }
