@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace CashRegisterConsumer
 {
@@ -7,40 +10,47 @@ namespace CashRegisterConsumer
         protected List<Money> _bills;
         protected List<Money> _coins;
 
+        public List<Money> Bills { get { return _bills; } }
+        public List<Money> Coins { get { return _coins; } }
+        public List<Money> AllDenominations { get { return _bills.Concat(_coins).ToList(); } }
 
-        public List<Money> Bills
+        public Currency()
         {
-            get { return _bills; }
+            this._bills = new List<Money>();
+            this._coins = new List<Money>();
+
+            InitializeCurrency();
+            this._bills.Sort();
+            this._bills.Reverse();
+            this._coins.Sort();
+            this._coins.Reverse();
         }
 
-        public List<Money> Coins
+        protected abstract void InitializeCurrency();
+
+        public void Clear()
         {
-            get { return _coins; }
+            foreach (Money money in AllDenominations)
+            {
+                money.Clear();
+            }
         }
 
-        public decimal TotalValue()
+        public override string ToString()
         {
-            //todo Calculate Total Value for both bills and coins
-            //todo  return the decimal value.
-            throw new System.NotImplementedException();
-        }
+            StringBuilder sr = new StringBuilder();
+            foreach (Money money in AllDenominations)
+            {
+                if (money.Count > 0)
+                {
+                    sr.Append(String.Format("{0} {1},", money.Count, money.Name));
+                }
+            }
 
-        public void AddMoney(decimal value)
-        {
-            //todo Using the "Bills" and "Coins", we can
-            //todo  we can add the proper amount of bills and coins from
-            //todo  the decimal equivilent
-            throw new System.NotImplementedException();
+            if (sr.Length == 0)
+                return "No Change Due.";  // not part of the requirements, yet exact change is a viable value.
+            else
+                return sr.ToString().Trim(',');
         }
-        public void AddMoney(Money money)
-        {
-            //todo Using the "Bills" and "Coins", we can
-            //todo  we can add the proper amount of bills and coins from
-            //todo  the Money equivilent
-            throw new System.NotImplementedException();
-        }
-
-        //? Possible future enhancement
-        //public decimal CreditLine { get; } 
     }
 }

@@ -6,7 +6,6 @@ namespace CashRegisterConsumer
 {
     public class POSCashRegister : CashRegister
     {
-        public POSCashRegister() { }
-        public POSCashRegister(ICurrency price, ICurrency tender, IChangeCalculator changeCalculator):base(price, tender, changeCalculator) { }
+        public POSCashRegister(ICurrency currency, ITenderStrategy tenderStrategy):base(currency, tenderStrategy) { }
     }
 }

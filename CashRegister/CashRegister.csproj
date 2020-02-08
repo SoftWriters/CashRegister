@@ -6,12 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="CashRegister\Currencies\Bill.cs" />
-    <Compile Remove="CashRegister\Currencies\Coin.cs" />
+    <Compile Remove="Currencies\**" />
+    <EmbeddedResource Remove="Currencies\**" />
+    <None Remove="Currencies\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Currencies\" />
+    <Compile Remove="CashRegister\Currencies\Abstract\IMoney.cs" />
   </ItemGroup>
 
 </Project>
