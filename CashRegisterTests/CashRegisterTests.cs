@@ -19,7 +19,7 @@ namespace CashRegisterTests
         private readonly string EmptyFile = @"C:\Users\plwes\source\repos\CashRegister\CashRegisterTests\Test Input Files\EmptyFile.txt";
         private readonly string EmptyLineFile = @"C:\Users\plwes\source\repos\CashRegister\CashRegisterTests\Test Input Files\EmptyLineFile.txt";
         private readonly string NotEnoughTenderFile = @"C:\Users\plwes\source\repos\CashRegister\CashRegisterTests\Test Input Files\TenderLessThanPrice.txt";
-
+        private readonly string OverflowFile = @"C:\Users\plwes\source\repos\CashRegister\CashRegisterTests\Test Input Files\ValueTests\OverflowTransactionTestFile.txt";
         public CashRegisterTests()
         {
             currencyMock = new Mock<ICurrency>();
@@ -59,6 +59,13 @@ namespace CashRegisterTests
         }
 
         #region Exception Tests
+        [Fact]
+        public void CashRegisterThrowOverflowExceptionGivenInputLargerThanLargestDecimalValue()
+        {
+            currencyMock.Setup(p => p.AllDenominations).Returns(new List<Money>() { new Bill(1m, "testMoney", "testMonies") });
+            CashRegister register = new POSCashRegister(currencyMock.Object, tenderStrategyMock.Object);
+            Assert.Throws<InvalidCurrencyException>(() => register.Tender(OverflowFile));
+        }
 
         [Fact]
         public void CashRegisterThrowsFileNotFoundExceptionGivenEmptyOrNullPath()

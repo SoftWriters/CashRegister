@@ -74,9 +74,9 @@ namespace CashRegisterConsumer
             {
                 throw new FormatException($"The file {path} was not in the correct format", e);
             }
-            catch (Exception) // Is something missed?
+            catch (Exception e) // Is something missed?
             {
-                throw;
+                throw e;
             }
         }
 
@@ -94,13 +94,20 @@ namespace CashRegisterConsumer
                 _price = Decimal.Parse(input.Split(",")[0]);
                 _tender = Decimal.Parse(input.Split(",")[1]);
 
+                if (_tender <= 0 || _price <= 0)
+                    throw new InvalidCurrencyException($"Invalid negative currency. Please review line {_transactionCount} for errors.");
+
                 // ensure there is enough tender for the price. (they can be equal)
                 if (_tender < _price)
                     throw new NotEnoughTenderException($"Tender value less than price. Deficiency: {_price - _tender} on line {_transactionCount}");
             }
-            catch (NotEnoughTenderException)
+            catch (OverflowException e)
             {
-                throw;
+                throw new InvalidCurrencyException($"Invalid input. Please review line {_transactionCount} for errors.", e);
+            }
+            catch (NotEnoughTenderException e)
+            {
+                throw new NotEnoughTenderException($"Please review line {_transactionCount} for errors", e);
             }
             catch (Exception e)
             {
