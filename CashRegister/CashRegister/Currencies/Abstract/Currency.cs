@@ -35,22 +35,5 @@ namespace CashRegisterConsumer
                 money.Clear();
             }
         }
-
-        //public override string ToString()
-        //{
-        //    StringBuilder sr = new StringBuilder();
-        //    foreach (Money money in AllDenominations)
-        //    {
-        //        if (money.Count > 0)
-        //        {
-        //            sr.Append(String.Format("{0} {1},", money.Count, money.Name));
-        //        }
-        //    }
-
-        //    if (sr.Length == 0)
-        //        return "No Change Due.";  // not part of the requirements, yet exact change is a viable value.
-        //    else
-        //        return sr.ToString().Trim(',');
-        //}
     }
 }

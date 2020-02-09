@@ -24,7 +24,7 @@
   <Class Name="CashRegisterConsumer.Currency">
     <Position X="11.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAAAAAEAAAADAAACAAAAAAAAAAACABEAAA=</HashCode>
+      <HashCode>AAAABAAAAAAAAAAAAAAADAAACAAAAAAAAAAACABEAAA=</HashCode>
       <FileName>CashRegister\Currencies\Abstract\Currency.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -75,7 +75,7 @@
   <Class Name="CashRegisterConsumer.TenderStrategy">
     <Position X="2" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CashRegister\Strategies\Abstract\TenderStrategy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -118,7 +118,7 @@
   <Interface Name="CashRegisterConsumer.ITenderStrategy">
     <Position X="3.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CashRegister\Strategies\Abstract\ITenderStrategy.cs</FileName>
     </TypeIdentifier>
   </Interface>

@@ -15,7 +15,6 @@ namespace CashRegisterConsumer
         public string Name { get { return (_count == 1) ? _singleName : _pluralName; } }
         public int Count { get { return _count; } }
 
-        public Money() { } // for Moq
         public Money(decimal denomination, string singleName, string pluralName)
         {
             this._denomination = denomination;
@@ -23,11 +22,8 @@ namespace CashRegisterConsumer
             this._pluralName = pluralName;
             this._count = 0;
         }
-        public Money(decimal denomination, string singleName, string pluralName, int count)
+        public Money(decimal denomination, string singleName, string pluralName, int count):this(denomination,singleName,pluralName)
         {
-            this._denomination = denomination;
-            this._singleName = singleName;
-            this._pluralName = pluralName;
             this._count = count;
         }
 
