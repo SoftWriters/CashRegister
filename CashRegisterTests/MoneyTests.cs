@@ -1,8 +1,5 @@
 ﻿using CashRegisterConsumer;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace MoneyTests
@@ -10,11 +7,12 @@ namespace MoneyTests
     public class MoneyTests
     {
         #region Setup
+
         public MoneyTests()
         {
-
         }
-        #endregion
+
+        #endregion Setup
 
         [Fact]
         public void MoneyConstructionSetsDenominationAccurately()
@@ -24,6 +22,7 @@ namespace MoneyTests
 
             Assert.Equal(expected, money.Denomination);
         }
+
         [Fact]
         public void MoneyConstructionSetsSingularNameAccurately()
         {
@@ -32,6 +31,7 @@ namespace MoneyTests
 
             Assert.Equal(expected, money.Name);
         }
+
         [Fact]
         public void MoneyConstructionSetsPluralNameAccurately()
         {
@@ -40,6 +40,7 @@ namespace MoneyTests
 
             Assert.Equal(expected, money.Name);
         }
+
         [Fact]
         public void MoneyConstructionSetsPluralNameWithZeroCount()
         {
@@ -61,10 +62,11 @@ namespace MoneyTests
             money.Add(-1);
             Assert.Equal(0, money.Count);
         }
+
         [Fact]
         public void MoneySubtractsCorrectAmount()
         {
-            Money money = new MoneyTestMoney(1, "test", "tests",5);
+            Money money = new MoneyTestMoney(1, "test", "tests", 5);
             Assert.Equal(5, money.Count);
 
             money.Subtract(1);
@@ -73,12 +75,12 @@ namespace MoneyTests
             money.Subtract(-1);
             Assert.Equal(5, money.Count);
         }
+
         [Fact]
         public void MoneyClearsCount()
         {
             Money money = new MoneyTestMoney(1, "test", "tests", 5);
             Assert.Equal(5, money.Count);
-
 
             money.Clear();
             Assert.Equal(0, money.Count);
@@ -92,6 +94,7 @@ namespace MoneyTests
 
             Assert.Equal(0, moneyToCompare.Object.CompareTo(moneyToCompareTo.Object));
         }
+
         [Fact]
         public void MoneyCompareToReturnsOneWhenMoreThan()
         {
@@ -100,22 +103,29 @@ namespace MoneyTests
 
             Assert.Equal(1, moneyToCompare.Object.CompareTo(moneyToCompareTo.Object));
         }
+
         [Fact]
         public void MoneyCompareToReturnsMinusOneWhenLessThan()
         {
-            Mock<Money> moneyToCompare = new Mock<Money>(0.5m,"compare","compares");
+            Mock<Money> moneyToCompare = new Mock<Money>(0.5m, "compare", "compares");
             Mock<Money> moneyToCompareTo = new Mock<Money>(1m, "compare", "compares");
 
             Assert.Equal(-1, moneyToCompare.Object.CompareTo(moneyToCompareTo.Object));
         }
     }
 
-
     #region MoneyTestClass
+
     public class MoneyTestMoney : Money
     {
-        public MoneyTestMoney(decimal denomination, string singleName, string pluralName) : base(denomination, singleName, pluralName) { }
-        public MoneyTestMoney(decimal denomination, string singleName, string pluralName, int count) : base(denomination, singleName, pluralName, count) { }
+        public MoneyTestMoney(decimal denomination, string singleName, string pluralName) : base(denomination, singleName, pluralName)
+        {
+        }
+
+        public MoneyTestMoney(decimal denomination, string singleName, string pluralName, int count) : base(denomination, singleName, pluralName, count)
+        {
+        }
     }
-    #endregion
+
+    #endregion MoneyTestClass
 }

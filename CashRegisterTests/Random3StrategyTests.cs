@@ -1,8 +1,6 @@
 ﻿using CashRegisterConsumer;
 using Moq;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace TenderStrategyTests
@@ -10,17 +8,20 @@ namespace TenderStrategyTests
     public class Random3StrategyTests
     {
         #region Setup
+
         private readonly Mock<ICurrency> mockCurrency;
+
         public Random3StrategyTests()
         {
             mockCurrency = new Mock<ICurrency>();
         }
-        #endregion
+
+        #endregion Setup
 
         [Fact]
         public void Random3TenderStrategyCalculatesChangeCorrectlyBasedOnPriceAndTenderDifference()
         {
-            mockCurrency.Setup(p => p.AllDenominations).Returns(new List<Money>() 
+            mockCurrency.Setup(p => p.AllDenominations).Returns(new List<Money>()
                                                                     { new Bill(10, "ten", "tens"),
                                                                       new Bill(5, "five", "fives"),
                                                                       new Bill(1, "dollar", "dollars"),
@@ -34,10 +35,9 @@ namespace TenderStrategyTests
             var result = tenderStrategy.Calculate(mockCurrency.Object, 123.03m, 3124.53m); // 3001.50 in change
             foreach (Money money in mockCurrency.Object.AllDenominations)
             {
-                actual += (money.Count*money.Denomination);
+                actual += (money.Count * money.Denomination);
             }
             Assert.Equal(expected, actual);
-
 
             foreach (Money money in mockCurrency.Object.AllDenominations)
             {
@@ -52,8 +52,8 @@ namespace TenderStrategyTests
                 actual += (money.Count * money.Denomination);
             }
             Assert.Equal(expected, actual);
-
         }
+
         [Fact]
         public void Random3CalculatesExactTenderCorrectly()
         {
@@ -75,6 +75,7 @@ namespace TenderStrategyTests
             }
             Assert.Equal(expected, actual);
         }
+
         [Fact]
         public void Random3CalculatesZeroTenderWhenTenderIsLessThanPrice()
         {
@@ -111,6 +112,7 @@ namespace TenderStrategyTests
                 Assert.Equal(2, money.Count); // price - tender = 2 dollars in change
             }
         }
+
         [Fact]
         public void Random3TenderStrategySubtractsCorrectlyFromThePriceBasedOnDecimalDenominationsAndRandomReturn()
         {
@@ -123,6 +125,7 @@ namespace TenderStrategyTests
                 Assert.Equal(10, money.Count); // price - tender = 10 pennies in change
             }
         }
+
         [Fact]
         public void Random3TenderStrategySubtractsCorrectlyFromThePriceBasedOnOddDecimalDenominationsAndRandomReturn()
         {
@@ -145,9 +148,10 @@ namespace TenderStrategyTests
 
             foreach (Money money in actual.AllDenominations) // mockCurrency.Object.AllDenominations)
             {
-                Assert.Equal(0, money.Count);   // due to the "ToString" override being used, we have to test the counts. 
+                Assert.Equal(0, money.Count);   // due to the "ToString" override being used, we have to test the counts.
             }                                   // Consider refactoring ToString. Hard testing indicates a design flaw.
         }
+
         [Fact]
         public void Random3TenderStrategySubtractsCorrectlyFromThePriceBasedOnNonDecimalDenominationsAndNonRandomReturn()
         {
@@ -162,6 +166,7 @@ namespace TenderStrategyTests
                 Assert.Equal(2, money.Count); // price - tender = 2 dollars in change
             }
         }
+
         [Fact]
         public void Random3TenderStrategySubtractsCorrectlyFromThePriceBasedOnDecimalDenominationsAndNonRandomReturn()
         {
@@ -174,6 +179,7 @@ namespace TenderStrategyTests
                 Assert.Equal(10, money.Count); // price - tender = 10 pennies in change
             }
         }
+
         [Fact]
         public void Random3TenderStrategySubtractsCorrectlyFromThePriceBasedOnOddDecimalDenominationsAndNonRandomReturn()
         {
@@ -188,6 +194,7 @@ namespace TenderStrategyTests
         }
 
         #region Exception Testing
+
         [Fact]
         public void Random3TenderStrategyCalculateThrowsInvalidCurrencyExceptionWhenNoDenominationsFound()
         {
@@ -195,7 +202,7 @@ namespace TenderStrategyTests
             ITenderStrategy tenderStrategy = new Random3Strategy();
             Assert.Throws<InvalidCurrencyException>(() => tenderStrategy.Calculate(mockCurrency.Object, 0, 0));
         }
-        #endregion
 
+        #endregion Exception Testing
     }
 }

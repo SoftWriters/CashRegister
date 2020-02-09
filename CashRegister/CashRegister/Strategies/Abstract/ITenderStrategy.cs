@@ -3,7 +3,7 @@
     public interface ITenderStrategy
     {
         ICurrency Calculate(ICurrency currency, decimal price, decimal tender);
-        string Display(ICurrency currency);
 
+        string Display(ICurrency currency);
     }
 }

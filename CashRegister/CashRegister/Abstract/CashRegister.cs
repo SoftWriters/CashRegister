@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -15,11 +14,12 @@ namespace CashRegisterConsumer
         public decimal PriceValue { get { return _price; } set { _price = value; } }
         public decimal TenderValue { get { return _tender; } set { _tender = value; } }
 
-        public CashRegister(ICurrency currency, ITenderStrategy tenderStrategy) 
+        public CashRegister(ICurrency currency, ITenderStrategy tenderStrategy)
         {
             RegisterCurrency(currency);
             RegisterTenderStrategy(tenderStrategy);
         }
+
         public virtual void RegisterCurrency(ICurrency currency)
         {
             if (currency == null)
@@ -29,6 +29,7 @@ namespace CashRegisterConsumer
 
             this._currency = currency;
         }
+
         public virtual void RegisterTenderStrategy(ITenderStrategy tenderStrategy)
         {
             if (tenderStrategy == null)
@@ -56,7 +57,6 @@ namespace CashRegisterConsumer
 
                     while (!sr.EndOfStream)
                     {
-
                         // log transaction count (for exception handling)
                         _transactionCount++;
                         // setup the _price and _tender for this transaction
@@ -79,8 +79,9 @@ namespace CashRegisterConsumer
                 throw;
             }
         }
+
         private void SetTransactionAmounts(StreamReader sr)
-        { 
+        {
             try
             {
                 // reset for new transaction
@@ -106,6 +107,5 @@ namespace CashRegisterConsumer
                 throw new FormatException(String.Format("{0} : Line {1}", e.Message, _transactionCount));
             }
         }
-
     }
 }

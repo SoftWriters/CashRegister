@@ -1,8 +1,6 @@
 ﻿using CashRegisterConsumer;
 using Moq;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace TenderStrategyTests
@@ -10,13 +8,15 @@ namespace TenderStrategyTests
     public class StandardTenderStrategyTests
     {
         #region Setup
+
         private readonly Mock<ICurrency> mockCurrency;
+
         public StandardTenderStrategyTests()
         {
             mockCurrency = new Mock<ICurrency>();
         }
-        #endregion
 
+        #endregion Setup
 
         [Fact]
         public void StandardCalculatesZeroTenderWhenTenderIsLessThanPrice()
@@ -39,18 +39,20 @@ namespace TenderStrategyTests
             }
             Assert.Equal(expected, actual);
         }
+
         [Fact]
         public void StandardTenderStrategyReturnsCurrentyWithNoMoneyValues()
         {
-            mockCurrency.Setup(p => p.AllDenominations).Returns(new List<Money>() { new Bill(1,"test","tests") });
+            mockCurrency.Setup(p => p.AllDenominations).Returns(new List<Money>() { new Bill(1, "test", "tests") });
             ITenderStrategy tenderStrategy = new StandardTenderStrategy();
             var actual = tenderStrategy.Calculate(mockCurrency.Object, 0, 0);
 
             foreach (Money money in actual.AllDenominations)// mockCurrency.Object.AllDenominations)
             {
-                Assert.Equal(0, money.Count);   // due to the "ToString" override being used, we have to test the counts. 
+                Assert.Equal(0, money.Count);   // due to the "ToString" override being used, we have to test the counts.
             }                                   // Consider refactoring ToString. Hard testing indicates a design flaw.
         }
+
         [Fact]
         public void StandardTenderStrategySubtractsCorrectlyFromThePriceBasedOnNonDecimalDenominations()
         {
@@ -65,6 +67,7 @@ namespace TenderStrategyTests
                 Assert.Equal(2, money.Count); // price - tender = 2 dollars in change
             }
         }
+
         [Fact]
         public void StandardTenderStrategySubtractsCorrectlyFromThePriceBasedOnDecimalDenominations()
         {
@@ -77,6 +80,7 @@ namespace TenderStrategyTests
                 Assert.Equal(10, money.Count); // price - tender = 10 pennies in change
             }
         }
+
         [Fact]
         public void StandardTenderStrategySubtractsCorrectlyFromThePriceBasedOnOddDecimalDenominations()
         {
@@ -91,6 +95,7 @@ namespace TenderStrategyTests
         }
 
         #region Exception Testing
+
         [Fact]
         public void StandardTenderStrategyCalculateThrowsInvalidCurrencyExceptionWhenNoDenominationsFound()
         {
@@ -98,6 +103,7 @@ namespace TenderStrategyTests
             ITenderStrategy tenderStrategy = new StandardTenderStrategy();
             Assert.Throws<InvalidCurrencyException>(() => tenderStrategy.Calculate(mockCurrency.Object, 0, 0));
         }
-        #endregion
+
+        #endregion Exception Testing
     }
 }

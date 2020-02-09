@@ -1,30 +1,32 @@
 using CashRegisterConsumer;
-using System;
-using Xunit;
 using Moq;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using Xunit;
 
 namespace CashRegisterTests
 {
     public class CashRegisterTests
     {
         #region SETUP
+
         private readonly Mock<ICurrency> currencyMock;
         private readonly Mock<ITenderStrategy> tenderStrategyMock;
-
 
         private readonly string TenderValueTestFile = @"C:\Users\plwes\source\repos\CashRegister\CashRegisterTests\Test Input Files\ValueTests\TenderValueTestFile.txt";
         private readonly string PriceValueTestFile = @"C:\Users\plwes\source\repos\CashRegister\CashRegisterTests\Test Input Files\ValueTests\PriceValueTestFile.txt";
         private readonly string EmptyFile = @"C:\Users\plwes\source\repos\CashRegister\CashRegisterTests\Test Input Files\EmptyFile.txt";
         private readonly string EmptyLineFile = @"C:\Users\plwes\source\repos\CashRegister\CashRegisterTests\Test Input Files\EmptyLineFile.txt";
         private readonly string NotEnoughTenderFile = @"C:\Users\plwes\source\repos\CashRegister\CashRegisterTests\Test Input Files\TenderLessThanPrice.txt";
+
         public CashRegisterTests()
         {
             currencyMock = new Mock<ICurrency>();
             tenderStrategyMock = new Mock<ITenderStrategy>();
         }
-        #endregion
+
+        #endregion SETUP
 
         [Fact]
         public void CashRegisterPriceValueIsAccuratelySetBasedOnTextFileInput()
@@ -40,6 +42,7 @@ namespace CashRegisterTests
             // are they equal????
             Assert.Equal(expected, register.PriceValue);
         }
+
         [Fact]
         public void CashRegisterTenderValueIsAccuratelySetBasedOnTextFileInput()
         {
@@ -55,8 +58,8 @@ namespace CashRegisterTests
             Assert.Equal(expected, register.TenderValue);
         }
 
-
         #region Exception Tests
+
         [Fact]
         public void CashRegisterThrowsFileNotFoundExceptionGivenEmptyOrNullPath()
         {
@@ -64,6 +67,7 @@ namespace CashRegisterTests
             CashRegister register = new POSCashRegister(currencyMock.Object, tenderStrategyMock.Object);
             Assert.Throws<FileNotFoundException>(() => register.Tender(""));
         }
+
         [Fact]
         public void CashRegisterThrowsFileNotFoundExceptionGivenNullPath()
         {
@@ -71,13 +75,15 @@ namespace CashRegisterTests
             CashRegister register = new POSCashRegister(currencyMock.Object, tenderStrategyMock.Object);
             Assert.Throws<FileNotFoundException>(() => register.Tender(null));
         }
+
         [Fact]
-        public void CashRegisterThrowsFormatExceptionWhenEmptyFileIsProvided() 
+        public void CashRegisterThrowsFormatExceptionWhenEmptyFileIsProvided()
         {
             currencyMock.Setup(p => p.AllDenominations).Returns(new List<Money>() { new Bill(1m, "testMoney", "testMonies") });
             CashRegister register = new POSCashRegister(currencyMock.Object, tenderStrategyMock.Object);
             Assert.Throws<FormatException>(() => register.Tender(EmptyFile));
         }
+
         [Fact]
         public void CashRegisterThrowsFormatExceptionWhenEmptyLineFoundInFileProvided()
         {
@@ -85,6 +91,7 @@ namespace CashRegisterTests
             CashRegister register = new POSCashRegister(currencyMock.Object, tenderStrategyMock.Object);
             Assert.Throws<FormatException>(() => register.Tender(EmptyLineFile));
         }
+
         [Fact]
         public void CashRegisterThrowsNotEnoughTenderExceptionWhenTenderIsLessThanPrice()
         {
@@ -92,24 +99,26 @@ namespace CashRegisterTests
             CashRegister register = new POSCashRegister(currencyMock.Object, tenderStrategyMock.Object);
             Assert.Throws<NotEnoughTenderException>(() => register.Tender(NotEnoughTenderFile));
         }
+
         [Fact]
         public void CashRegisterThrowsInvalidCurrencyExceptionWhenNoDenominationsFound()
         {
             currencyMock.Setup(p => p.AllDenominations).Returns(new List<Money>());
             Assert.Throws<InvalidCurrencyException>(() => new POSCashRegister(currencyMock.Object, tenderStrategyMock.Object));
         }
+
         [Fact]
         public void CashRegisterThrowsNullReferenceExceptionWhenAttemptingToRegisterNullCurrency()
         {
             Assert.Throws<NullReferenceException>(() => new POSCashRegister(null, tenderStrategyMock.Object));
         }
+
         [Fact]
         public void CashRegisterThrowsNullReferenceExceptionWhenAttemptingToRegisterNullTenderStrategy()
         {
             Assert.Throws<NullReferenceException>(() => new POSCashRegister(currencyMock.Object, null));
         }
-        #endregion
 
-
+        #endregion Exception Tests
     }
 }

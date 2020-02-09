@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace CashRegisterConsumer
 {
@@ -22,7 +21,8 @@ namespace CashRegisterConsumer
             this._pluralName = pluralName;
             this._count = 0;
         }
-        public Money(decimal denomination, string singleName, string pluralName, int count):this(denomination,singleName,pluralName)
+
+        public Money(decimal denomination, string singleName, string pluralName, int count) : this(denomination, singleName, pluralName)
         {
             this._count = count;
         }
@@ -31,14 +31,17 @@ namespace CashRegisterConsumer
         {
             _count += count;
         }
+
         public void Subtract(int count)
         {
             _count -= count;
         }
+
         public void Clear()
         {
             _count = 0;
         }
+
         public int CompareTo(object other)
         {
             if (other == null) return 1;
@@ -49,6 +52,5 @@ namespace CashRegisterConsumer
             else
                 throw new ArgumentException("Object is not Money");
         }
-
     }
 }

@@ -2,7 +2,6 @@
 using Moq;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace TenderStrategyTests
@@ -10,12 +9,15 @@ namespace TenderStrategyTests
     public class TenderStrategyTests
     {
         #region Setup
+
         private readonly Mock<ICurrency> currencyMock;
+
         public TenderStrategyTests()
         {
             currencyMock = new Mock<ICurrency>();
         }
-        #endregion
+
+        #endregion Setup
 
         [Fact]
         public void TenderStrategyDisplayReturnsProperlyFormattedStringValueForSingularCount()
@@ -28,6 +30,7 @@ namespace TenderStrategyTests
 
             Assert.Equal(expected, actual);
         }
+
         [Fact]
         public void TenderStrategyDisplayReturnsProperlyFormattedStringValueForMultipleCount()
         {
@@ -39,6 +42,7 @@ namespace TenderStrategyTests
 
             Assert.Equal(expected, actual);
         }
+
         [Fact]
         public void TenderStrategyDisplayReturnsProperlyFormattedStringValueForZeroCount()
         {
@@ -50,10 +54,11 @@ namespace TenderStrategyTests
 
             Assert.Equal(expected, actual);
         }
+
         [Fact]
         public void TenderStrategyDisplayReturnsProperStringValueForMultipleDenominations()
         {
-            currencyMock.Setup(p => p.AllDenominations).Returns(new List<Money>() { 
+            currencyMock.Setup(p => p.AllDenominations).Returns(new List<Money>() {
                                                                                     new Bill(5, "five dollar", "five dollars", 10),
                                                                                     new Bill(1, "dollar", "dollars", 1),
                                                                                     new Coin(.01m, "dime", "dimes",3),
@@ -66,10 +71,10 @@ namespace TenderStrategyTests
 
             Assert.Equal(expected, actual);
         }
-
     }
 
     #region MockTenderStrategy Abstract
+
     internal class TenderStrategyTestMock : TenderStrategy
     {
         public override ICurrency Calculate(ICurrency currency, decimal price, decimal tender)
@@ -77,5 +82,6 @@ namespace TenderStrategyTests
             throw new NotImplementedException();
         }
     }
-    #endregion
+
+    #endregion MockTenderStrategy Abstract
 }

@@ -1,21 +1,19 @@
 ﻿using CashRegisterConsumer;
-using System;
-using Xunit;
-using Moq;
 using System.Collections.Generic;
-using System.IO;
-
+using Xunit;
 
 namespace CurrencyTests
 {
     public class CurrencyTests
     {
         #region Setup
+
         public CurrencyTests()
         {
-
         }
-        #endregion
+
+        #endregion Setup
+
         [Fact]
         public void CurrencyClearClearsMoneyCountForBills()
         {
@@ -28,8 +26,8 @@ namespace CurrencyTests
             {
                 Assert.True(bill.Count == 0);
             }
-
         }
+
         [Fact]
         public void CurrencyClearClearsMoneyCountForCoins()
         {
@@ -42,22 +40,21 @@ namespace CurrencyTests
             {
                 Assert.True(coin.Count == 0);
             }
-
         }
+
         [Fact]
         public void CurrencyAllDenominationsReturnsConcatForBillsAndCoins()
         {
-
-            // this also effectively tests the "sort/reverse" functionality of the InitializeCurrency method 
+            // this also effectively tests the "sort/reverse" functionality of the InitializeCurrency method
             //  so creating a new method for that would be redundent (not necessarily bad though)
             Currency currency = new CurrencyTestPluralNameCurrencyNoMoney();
 
-            for (int i = 0; i < currency.Bills.Count-1; i++)
+            for (int i = 0; i < currency.Bills.Count - 1; i++)
             {
                 Assert.Equal(currency.Bills[i], currency.AllDenominations[i]);
             }
 
-            for (int i = 0; i < currency.Coins.Count-1; i++)
+            for (int i = 0; i < currency.Coins.Count - 1; i++)
             {
                 Assert.Equal(currency.Coins[i], currency.AllDenominations[i + currency.Bills.Count]); // coins should start after bills due to the sort/reverse (denomination based)
             }
@@ -65,9 +62,12 @@ namespace CurrencyTests
     }
 
     #region CurrecyTestClass
+
     public class CurrencyTestSortReverseCurrency : Currency
     {
-        public CurrencyTestSortReverseCurrency():base() { }
+        public CurrencyTestSortReverseCurrency() : base()
+        {
+        }
 
         protected override void InitializeCurrency()
         {
@@ -93,6 +93,7 @@ namespace CurrencyTests
             };
         }
     }
+
     public class CurrencyTestSingularNameCurrency : Currency
     {
         protected override void InitializeCurrency()
@@ -119,6 +120,7 @@ namespace CurrencyTests
             };
         }
     }
+
     public class CurrencyTestPluralNameCurrency : Currency
     {
         protected override void InitializeCurrency()
@@ -145,6 +147,7 @@ namespace CurrencyTests
             };
         }
     }
+
     public class CurrencyTestPluralNameCurrencyNoMoney : Currency
     {
         protected override void InitializeCurrency()
@@ -171,5 +174,6 @@ namespace CurrencyTests
             };
         }
     }
-    #endregion
+
+    #endregion CurrecyTestClass
 }
