@@ -19,7 +19,7 @@ namespace CashRegisterConsumer
 
 
             CashRegister register = new POSCashRegister(new USD(), new Random3Strategy());
-            var result = register.Tender(@"C:\Users\plwes\source\repos\CashRegister\CashRegister\Input\USD Input File.txt");
+            var result = register.Tender(@"C:\Users\plwes\source\repos\CashRegister\CashRegister\CashRegisterInputFiles\USD Input File.txt");
             Console.WriteLine(result);
 
             // for example (change the register to use YEN with a Standard Tender Strategy note that the demoniations are different so

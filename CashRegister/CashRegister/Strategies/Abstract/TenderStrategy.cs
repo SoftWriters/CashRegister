@@ -20,9 +20,9 @@ namespace CashRegisterConsumer
             }
 
             if (sr.Length == 0)
-                return "No Change Due.";  // not part of the requirements, yet exact change is a viable value.
+                return String.Format("{0}\n", "No Change Due.");  // not part of the requirements, yet exact change is a viable value.
             else
-                return sr.ToString().Trim(',');
+                return String.Format("{0}\n", sr.ToString().Trim(','));
         }
 
         public abstract ICurrency Calculate(ICurrency currency, decimal price, decimal tender);

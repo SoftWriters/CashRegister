@@ -9,7 +9,7 @@ namespace CashRegisterTests
 {
     public class CashRegisterTests
     {
-#region SETUP
+        #region SETUP
         private readonly Mock<ICurrency> currencyMock;
         private readonly Mock<ITenderStrategy> tenderStrategyMock;
 
@@ -23,42 +23,6 @@ namespace CashRegisterTests
         {
             currencyMock = new Mock<ICurrency>();
             tenderStrategyMock = new Mock<ITenderStrategy>();
-        }
-        private void SetupUSDMockCurrency()
-        {
-            currencyMock.Setup(p => p.Bills).Returns(new List<Money>() {
-                new Bill(100000, "one hundred thousand", "one hundred thousands"),
-                new Bill(10000, "ten thousand", "ten thousands"),
-                new Bill(5000, "five thousand", "five thousands"),
-                new Bill(1000, "thousand", "thousands"),
-                new Bill(500, "five hundred", "five hundreds"),
-                new Bill(100, "hundred", "hundreds"),
-                new Bill(50, "fifty", "fifties"),
-                new Bill(20, "twenty", "twenties"),
-                new Bill(5, "five", "fives"),
-                new Bill(1, "dollar", "dollars")
-            });
-            currencyMock.Setup(p => p.Coins).Returns(new List<Money>() {
-                new Coin(.25m, "quarter", "quarters"),
-                new Coin(.10m, "dime", "dimes"),
-                new Coin(.05m, "nickel", "nickels"),
-                new Coin(.01m, "penny","pennies")
-            });
-            currencyMock.Setup(p => p.AllDenominations).Returns(new List<Money>(){new Bill(100000, "one hundred thousand", "one hundred thousands"),
-                new Bill(10000, "ten thousand", "ten thousands"),
-                new Bill(5000, "five thousand", "five thousands"),
-                new Bill(1000, "thousand", "thousands"),
-                new Bill(500, "five hundred", "five hundreds"),
-                new Bill(100, "hundred", "hundreds"),
-                new Bill(50, "fifty", "fifties"),
-                new Bill(20, "twenty", "twenties"),
-                new Bill(5, "five", "fives"),
-                new Bill(1, "dollar", "dollars"),
-                new Coin(.25m, "quarter", "quarters"),
-                new Coin(.10m, "dime", "dimes"),
-                new Coin(.05m, "nickel", "nickels"),
-                new Coin(.01m, "penny","pennies")
-            });
         }
         #endregion
 
@@ -90,6 +54,7 @@ namespace CashRegisterTests
             // are they equal????
             Assert.Equal(expected, register.TenderValue);
         }
+
 
         #region Exception Tests
         [Fact]
