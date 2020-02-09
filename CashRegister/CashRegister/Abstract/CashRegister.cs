@@ -62,7 +62,8 @@ namespace CashRegisterConsumer
                         // setup the _price and _tender for this transaction
                         SetTransactionAmounts(sr);
                         // add the transaction calculation based on the strategy to the return string
-                        tenderedValues.Append(_tenderStrategy.Calculate(_currency, _price, _tender) + "\n");
+                        var results = _tenderStrategy.Calculate(_currency, _price, _tender);
+                        tenderedValues.Append(_tenderStrategy.Display(_currency));
                     };
                 }
 

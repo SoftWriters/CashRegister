@@ -44,9 +44,9 @@ namespace TenderStrategyTests
         {
             mockCurrency.Setup(p => p.AllDenominations).Returns(new List<Money>() { new Bill(1,"test","tests") });
             ITenderStrategy tenderStrategy = new StandardTenderStrategy();
-            string actual = tenderStrategy.Calculate(mockCurrency.Object, 0, 0);
+            var actual = tenderStrategy.Calculate(mockCurrency.Object, 0, 0);
 
-            foreach (Money money in mockCurrency.Object.AllDenominations)
+            foreach (Money money in actual.AllDenominations)// mockCurrency.Object.AllDenominations)
             {
                 Assert.Equal(0, money.Count);   // due to the "ToString" override being used, we have to test the counts. 
             }                                   // Consider refactoring ToString. Hard testing indicates a design flaw.
@@ -56,11 +56,11 @@ namespace TenderStrategyTests
         {
             mockCurrency.Setup(p => p.AllDenominations).Returns(new List<Money>() { new Bill(1, "dollar", "dollars") });
             ITenderStrategy tenderStrategy = new StandardTenderStrategy();
-            string actual = tenderStrategy.Calculate(mockCurrency.Object, 1, 3);
+            var actual = tenderStrategy.Calculate(mockCurrency.Object, 1, 3);
 
             // test that our "1 dollar bill" is added 2 times during the process for standard strategy for change
             // (meaning that the price is recuded each time accordingly)
-            foreach (Money money in mockCurrency.Object.AllDenominations)
+            foreach (Money money in actual.AllDenominations) // mockCurrency.Object.AllDenominations)
             {
                 Assert.Equal(2, money.Count); // price - tender = 2 dollars in change
             }
@@ -70,9 +70,9 @@ namespace TenderStrategyTests
         {
             mockCurrency.Setup(p => p.AllDenominations).Returns(new List<Money>() { new Bill(.01m, "penny", "pennies") });
             ITenderStrategy tenderStrategy = new StandardTenderStrategy();
-            string actual = tenderStrategy.Calculate(mockCurrency.Object, 1, 1.10m);
+            var actual = tenderStrategy.Calculate(mockCurrency.Object, 1, 1.10m);
 
-            foreach (Money money in mockCurrency.Object.AllDenominations)
+            foreach (Money money in actual.AllDenominations) // mockCurrency.Object.AllDenominations)
             {
                 Assert.Equal(10, money.Count); // price - tender = 10 pennies in change
             }
@@ -82,9 +82,9 @@ namespace TenderStrategyTests
         {
             mockCurrency.Setup(p => p.AllDenominations).Returns(new List<Money>() { new Bill(.25m, "quarter", "quarters") });
             ITenderStrategy tenderStrategy = new StandardTenderStrategy();
-            string actual = tenderStrategy.Calculate(mockCurrency.Object, 1, 2.00m);
+            var actual = tenderStrategy.Calculate(mockCurrency.Object, 1, 2.00m);
 
-            foreach (Money money in mockCurrency.Object.AllDenominations)
+            foreach (Money money in actual.AllDenominations) // mockCurrency.Object.AllDenominations)
             {
                 Assert.Equal(4, money.Count); // price - tender = 4 quarters in change
             }

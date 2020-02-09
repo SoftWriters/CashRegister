@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="CashRegisterConsumer.CashRegister">
-    <Position X="7.5" Y="1" Width="2.25" />
+    <Position X="6.25" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAEAAAAIAAIABAAQAAAAAAgIAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAEAAAAIAAIABBAAAIAAAAgIAAAEAAAAg=</HashCode>
       <FileName>CashRegister\Abstract\CashRegister.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -12,14 +15,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CashRegisterConsumer.POSCashRegister">
-    <Position X="5.5" Y="4.75" Width="2.5" />
+    <Position X="5.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CashRegister\Concrete\POSCashRegister.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CashRegisterConsumer.Currency">
-    <Position X="13.25" Y="1" Width="1.5" />
+    <Position X="11.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAAEAAAADAAACAAAAAAAAAAACABEAAA=</HashCode>
       <FileName>CashRegister\Currencies\Abstract\Currency.cs</FileName>
@@ -30,73 +33,90 @@
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="CashRegisterConsumer.Money">
+    <Position X="14.25" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ABIAAAAAAAAAAEQAAAACAAQAAAAAAAAABACAAABBAAA=</HashCode>
+      <FileName>CashRegister\Currencies\Abstract\Money.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CashRegisterConsumer.Bill">
+    <Position X="17" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CashRegister\Currencies\Concrete\Bill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CashRegisterConsumer.Coin">
+    <Position X="17" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CashRegister\Currencies\Concrete\Coin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="CashRegisterConsumer.USD">
-    <Position X="12" Y="5.25" Width="1.5" />
+    <Position X="13.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>CashRegister\Currencies\Concrete\USD.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CashRegisterConsumer.YEN">
-    <Position X="14.5" Y="5.25" Width="1.5" />
+    <Position X="10" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>CashRegister\Currencies\Concrete\YEN.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CashRegisterConsumer.TenderStrategy">
-    <Position X="2" Y="1" Width="2.25" />
+    <Position X="2" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CashRegister\Strategies\Abstract\TenderStrategy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CashRegisterConsumer.Money">
-    <Position X="16" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ABIAAAAAAAAAAEQAAAACAAQAAAAAAAAABACgAABAAAA=</HashCode>
-      <FileName>CashRegister\Currencies\Abstract\Money.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CashRegisterConsumer.Random3Stragegy">
-    <Position X="3.25" Y="2.75" Width="2.25" />
+  <Class Name="CashRegisterConsumer.Random3Strategy">
+    <Position X="3.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CashRegister\Strategies\Concrete\Random3Stragegy.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CashRegisterConsumer.Bill" Collapsed="true">
-    <Position X="18.25" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CashRegister\Currencies\Concrete\Bill.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CashRegisterConsumer.Coin" Collapsed="true">
-    <Position X="18.25" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CashRegister\Currencies\Concrete\Coin.cs</FileName>
+      <FileName>CashRegister\Strategies\Concrete\Random3Strategy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CashRegisterConsumer.StandardTenderStrategy">
-    <Position X="1" Y="2.75" Width="2" />
+    <Position X="0.75" Y="2.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CashRegister\Strategies\Concrete\StandardTenderStrategy.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="CashRegisterConsumer.InvalidCurrencyException">
+    <Position X="0.5" Y="6" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Custom Exceptions\InvalidCurrencyException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CashRegisterConsumer.NotEnoughTenderException">
+    <Position X="0.5" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Custom Exceptions\NotEnoughTenderException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="CashRegisterConsumer.ICurrency">
-    <Position X="10.75" Y="1" Width="1.5" />
+    <Position X="9.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>CashRegister\Currencies\Abstract\ICurrency.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="CashRegisterConsumer.ITenderStrategy" Collapsed="true">
-    <Position X="4.5" Y="1" Width="1.5" />
+  <Interface Name="CashRegisterConsumer.ITenderStrategy">
+    <Position X="3.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CashRegister\Strategies\Abstract\ITenderStrategy.cs</FileName>
