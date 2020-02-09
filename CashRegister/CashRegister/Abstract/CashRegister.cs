@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -9,17 +8,18 @@ namespace CashRegisterConsumer
     {
         private ICurrency _currency;
         private decimal _price, _tender;
-        private int _transactionCount;
+        private int _transactionCount; // for future use and current exception handling
         private ITenderStrategy _tenderStrategy;
 
         public decimal PriceValue { get { return _price; } set { _price = value; } }
         public decimal TenderValue { get { return _tender; } set { _tender = value; } }
 
-        public CashRegister(ICurrency currency, ITenderStrategy tenderStrategy) 
+        public CashRegister(ICurrency currency, ITenderStrategy tenderStrategy)
         {
             RegisterCurrency(currency);
             RegisterTenderStrategy(tenderStrategy);
         }
+
         public virtual void RegisterCurrency(ICurrency currency)
         {
             if (currency == null)
@@ -29,6 +29,7 @@ namespace CashRegisterConsumer
 
             this._currency = currency;
         }
+
         public virtual void RegisterTenderStrategy(ITenderStrategy tenderStrategy)
         {
             if (tenderStrategy == null)
@@ -56,13 +57,13 @@ namespace CashRegisterConsumer
 
                     while (!sr.EndOfStream)
                     {
-
                         // log transaction count (for exception handling)
                         _transactionCount++;
                         // setup the _price and _tender for this transaction
                         SetTransactionAmounts(sr);
                         // add the transaction calculation based on the strategy to the return string
-                        tenderedValues.Append(_tenderStrategy.Calculate(_currency, _price, _tender) + "\n");
+                        var results = _tenderStrategy.Calculate(_currency, _price, _tender);
+                        tenderedValues.Append(_tenderStrategy.Display(_currency));
                     };
                 }
 
@@ -73,13 +74,14 @@ namespace CashRegisterConsumer
             {
                 throw new FormatException($"The file {path} was not in the correct format", e);
             }
-            catch (Exception) // Is something missed?
+            catch (Exception e) // Is something missed?
             {
-                throw;
+                throw e;
             }
         }
+
         private void SetTransactionAmounts(StreamReader sr)
-        { 
+        {
             try
             {
                 // reset for new transaction
@@ -92,19 +94,25 @@ namespace CashRegisterConsumer
                 _price = Decimal.Parse(input.Split(",")[0]);
                 _tender = Decimal.Parse(input.Split(",")[1]);
 
+                if (_tender <= 0 || _price <= 0)
+                    throw new InvalidCurrencyException($"Invalid negative currency. Please review line {_transactionCount} for errors.");
+
                 // ensure there is enough tender for the price. (they can be equal)
                 if (_tender < _price)
                     throw new NotEnoughTenderException($"Tender value less than price. Deficiency: {_price - _tender} on line {_transactionCount}");
             }
-            catch (NotEnoughTenderException)
+            catch (OverflowException e)
             {
-                throw;
+                throw new InvalidCurrencyException($"Invalid input. Please review line {_transactionCount} for errors.", e);
+            }
+            catch (NotEnoughTenderException e)
+            {
+                throw new NotEnoughTenderException($"Please review line {_transactionCount} for errors", e);
             }
             catch (Exception e)
             {
                 throw new FormatException(String.Format("{0} : Line {1}", e.Message, _transactionCount));
             }
         }
-
     }
 }

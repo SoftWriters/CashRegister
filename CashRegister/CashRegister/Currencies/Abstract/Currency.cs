@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace CashRegisterConsumer
 {
@@ -16,12 +14,13 @@ namespace CashRegisterConsumer
 
         public Currency()
         {
+            // initialize lists
             this._bills = new List<Money>();
             this._coins = new List<Money>();
 
-            InitializeCurrency();
-            this._bills.Sort();
-            this._bills.Reverse();
+            InitializeCurrency(); // load currency "money" based on inherited implementation
+            this._bills.Sort(); // ensure that we have the correct order of money
+            this._bills.Reverse(); // since the sort will make it small to large, we want large to small so foreach works easier.
             this._coins.Sort();
             this._coins.Reverse();
         }
@@ -34,23 +33,6 @@ namespace CashRegisterConsumer
             {
                 money.Clear();
             }
-        }
-
-        public override string ToString()
-        {
-            StringBuilder sr = new StringBuilder();
-            foreach (Money money in AllDenominations)
-            {
-                if (money.Count > 0)
-                {
-                    sr.Append(String.Format("{0} {1},", money.Count, money.Name));
-                }
-            }
-
-            if (sr.Length == 0)
-                return "No Change Due.";  // not part of the requirements, yet exact change is a viable value.
-            else
-                return sr.ToString().Trim(',');
         }
     }
 }

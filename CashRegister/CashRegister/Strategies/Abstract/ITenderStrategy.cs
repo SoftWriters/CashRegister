@@ -2,6 +2,8 @@
 {
     public interface ITenderStrategy
     {
-        string Calculate(ICurrency currency, decimal price, decimal tender);
+        ICurrency Calculate(ICurrency currency, decimal price, decimal tender);
+
+        string Display(ICurrency currency);
     }
 }

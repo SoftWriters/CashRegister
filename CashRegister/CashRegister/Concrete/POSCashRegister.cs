@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CashRegisterConsumer
+﻿namespace CashRegisterConsumer
 {
     public class POSCashRegister : CashRegister
     {
-        public POSCashRegister(ICurrency currency, ITenderStrategy tenderStrategy):base(currency, tenderStrategy) { }
+        public POSCashRegister(ICurrency currency, ITenderStrategy tenderStrategy) : base(currency, tenderStrategy)
+        {
+        }
     }
 }
