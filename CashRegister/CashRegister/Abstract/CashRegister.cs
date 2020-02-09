@@ -8,7 +8,7 @@ namespace CashRegisterConsumer
     {
         private ICurrency _currency;
         private decimal _price, _tender;
-        private int _transactionCount;
+        private int _transactionCount; // for future use and current exception handling
         private ITenderStrategy _tenderStrategy;
 
         public decimal PriceValue { get { return _price; } set { _price = value; } }

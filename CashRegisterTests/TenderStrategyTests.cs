@@ -47,7 +47,7 @@ namespace TenderStrategyTests
         public void TenderStrategyDisplayReturnsProperlyFormattedStringValueForZeroCount()
         {
             currencyMock.Setup(p => p.AllDenominations).Returns(new List<Money>() { new Bill(1, "dollar", "dollars", 0) });
-            string expected = "No Change Due.\n";
+            string expected = "No Change Due\n";
 
             TenderStrategy tenderStrategy = new TenderStrategyTestMock();
             var actual = tenderStrategy.Display(currencyMock.Object);

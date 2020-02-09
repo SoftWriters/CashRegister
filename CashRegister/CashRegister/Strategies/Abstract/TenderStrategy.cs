@@ -18,13 +18,13 @@ namespace CashRegisterConsumer
             //    }
             //}
 
-            // METHOD 2 - Using LINQ.. both one line and 2.. 1 line code commented out due to complexity
+            // METHOD 2 - Using LINQ.. both one line and 2 line versions. 1 line version commented out due to complexity and clarity
             var money = currency.AllDenominations.Where(x => x.Count > 0);
             var sr = money.Aggregate(new StringBuilder(), (x, y) => x.Append(String.Format("{0} {1},", y.Count, y.Name)));
             //var sr = currency.AllDenominations.Where(x => x.Count > 0).Aggregate(new StringBuilder(), (x, y) => x.Append(String.Format("{0} {1},", y.Count, y.Name)));
 
             if (sr.Length == 0)
-                return String.Format("{0}\n", "No Change Due.");  // not part of the requirements, yet exact change is a viable value.
+                return String.Format("{0}\n", "No Change Due");  // not part of the requirements, yet exact change is a viable value.
             else
                 return String.Format("{0}\n", sr.ToString().Trim(','));
         }

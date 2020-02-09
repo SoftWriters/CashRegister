@@ -3,6 +3,9 @@ using System.Runtime.Serialization;
 
 namespace CashRegisterConsumer
 {
+    /// <summary>
+    /// Custom exception for clarity of code and exception handling
+    /// </summary>
     [Serializable]
     public class NotEnoughTenderException : Exception
     {

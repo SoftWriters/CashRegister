@@ -8,12 +8,13 @@ comments are important, but are best used sparingly. It is more important to use
 easily, then to trash code with a bunch of comments that with time may not be updated to reflect the actual working of the software. Code itself
 should be the documentation.
 
-If there are any questions or comments please email me at plwest.axiom@gmail.com and I will respond at the earliest possible time. I appreciate
-your evaluation and giving me this oppritunity.  Thank you.
+If there are any questions or comments please email me at plwest.axiom@gmail.com and I will respond at the earliest possible time. I can also provide
+you with photos of my paperwork that includes my initial design notes, revision notes, and just my thoughts as I was working through this project.
+
+I appreciate your evaluation and giving me this oppritunity.  Thank you.
 
 
 
-
-Press any button to continue with using the CashRegister Module. (Simulates POS ""Tender"" actions).
+Press any button to continue with using the CashRegister Module. (Simulates POS ""Tender"" action).
 
 

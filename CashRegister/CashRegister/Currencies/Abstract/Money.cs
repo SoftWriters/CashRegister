@@ -42,6 +42,12 @@ namespace CashRegisterConsumer
             _count = 0;
         }
 
+        /// <summary>
+        /// IComparable override. Used for sorting and reversing the currency to ensure the list of Money is
+        /// from largest denomination to smallest.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public int CompareTo(object other)
         {
             if (other == null) return 1;
