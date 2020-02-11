@@ -1,5 +1,6 @@
 ﻿using CashRegisterConsumer;
 using Moq;
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -39,10 +40,7 @@ namespace TenderStrategyTests
             }
             Assert.Equal(expected, actual);
 
-            foreach (Money money in mockCurrency.Object.AllDenominations)
-            {
-                money.Clear();
-            }
+            ClearCurrency(result);
             expected = 0.0m;
             actual = 0.0m;
 
@@ -124,6 +122,29 @@ namespace TenderStrategyTests
             {
                 Assert.Equal(10, money.Count); // price - tender = 10 pennies in change
             }
+
+
+            ClearCurrency(actual);
+            actual = tenderStrategy.Calculate(mockCurrency.Object, 3.00m, 5.00m);
+            foreach (Money money in actual.AllDenominations) // mockCurrency.Object.AllDenominations)
+            {
+                Assert.Equal(200, money.Count); // price - tender = 200 pennies in change
+            }
+
+            ClearCurrency(actual);
+            actual = tenderStrategy.Calculate(mockCurrency.Object, 6.00m, 7.00m);
+            foreach (Money money in actual.AllDenominations) // mockCurrency.Object.AllDenominations)
+            {
+                Assert.Equal(100, money.Count); // price - tender = 100 pennies in change
+            }
+        }
+
+        private void ClearCurrency(ICurrency currency)
+        {
+            foreach (Money money in currency.AllDenominations)
+            {
+                money.Clear();
+            }
         }
 
         [Fact]
@@ -133,6 +154,20 @@ namespace TenderStrategyTests
             ITenderStrategy tenderStrategy = new Random3Strategy();
             var actual = tenderStrategy.Calculate(mockCurrency.Object, 1.33m, 2.33m);
 
+            foreach (Money money in actual.AllDenominations) // mockCurrency.Object.AllDenominations)
+            {
+                Assert.Equal(4, money.Count); // price - tender = 4 quarters in change
+            }
+
+            ClearCurrency(actual);
+            actual = tenderStrategy.Calculate(mockCurrency.Object, 3.00m, 5.00m);
+            foreach (Money money in actual.AllDenominations) // mockCurrency.Object.AllDenominations)
+            {
+                Assert.Equal(8, money.Count); // price - tender = 8 quarters in change
+            }
+
+            ClearCurrency(actual);
+            actual = tenderStrategy.Calculate(mockCurrency.Object, 6.00m, 7.00m);
             foreach (Money money in actual.AllDenominations) // mockCurrency.Object.AllDenominations)
             {
                 Assert.Equal(4, money.Count); // price - tender = 4 quarters in change
@@ -192,6 +227,7 @@ namespace TenderStrategyTests
                 Assert.Equal(4, money.Count); // price - tender = 4 quarters in change
             }
         }
+
 
         #region Exception Testing
 
