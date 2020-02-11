@@ -36,8 +36,7 @@ namespace CashRegisterConsumer
             }
             else
             {
-                // when not using the "random", we can just use the standard strategy
-                return new StandardTenderStrategy().Calculate(currency, price, tender);
+                return base.Calculate(currency, price, tender);
             }
         }
     }
