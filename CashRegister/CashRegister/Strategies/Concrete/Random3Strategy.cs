@@ -10,7 +10,7 @@ namespace CashRegisterConsumer
             if (currency.AllDenominations.Count == 0)
                 throw new InvalidCurrencyException("No currency denominations found");
 
-            if (Math.Abs(((price * 100) % 10)) == 3)
+            if (Math.Abs(((price * 100) % 3)) == 0)
             {
                 Random random = new Random();
                 int count;
