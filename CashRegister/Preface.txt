@@ -1,0 +1,20 @@
+﻿I have created this project with the idea that the console is the consumer of a CashRegister system that allows for the injection
+of both the Currency type (USD, YEN, etc...) along with the strategy for change calculation. Future development would be able to allow
+for different strategies to be injected using IOC containers in a configuration to quickly change the functionality and currency of the
+CashRegister system.
+
+I have put more comments in this code than I normally do in production code as too many comments can be a code smell.  I understand that
+comments are important, but are best used sparingly. It is more important to use correct naming conventions and clear code that can be read
+easily, then to trash code with a bunch of comments that with time may not be updated to reflect the actual working of the software. Code itself
+should be the documentation.
+
+If there are any questions or comments please email me at plwest.axiom@gmail.com and I will respond at the earliest possible time. I can also provide
+you with photos of my paperwork that includes my initial design notes, revision notes, and just my thoughts as I was working through this project.
+
+I appreciate your evaluation and giving me this oppritunity.  Thank you.
+
+
+
+Press any button to continue with using the CashRegister Module. (Simulates POS ""Tender"" action).
+
+
