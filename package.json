@@ -1,0 +1,19 @@
+{
+  "name": "cashregister",
+  "version": "1.0.0",
+  "description": "Cash register service that will parse a flat file, perform logic to get the value of change owed to customer, convert value to change denominations equaling that value, write a new file to disk with that value.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solarsnail/CashRegister.git"
+  },
+  "author": "Greg Goodhile",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/solarsnail/CashRegister/issues"
+  },
+  "homepage": "https://github.com/solarsnail/CashRegister#readme"
+}
