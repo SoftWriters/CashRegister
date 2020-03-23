@@ -8,8 +8,8 @@ const fs = require( 'fs' );
 
 /*
 Read input file
-path <string>
-Returns <string>
+path <String>
+Returns <String>
 */
 const readFile = ( path ) => {
 	try {
@@ -23,8 +23,8 @@ const readFile = ( path ) => {
 
 /*
 write output file
-path <string>
-Returns <string>
+path <String>
+Returns <String>
 */
 const writeFile = ( path, data ) => {
 	try {

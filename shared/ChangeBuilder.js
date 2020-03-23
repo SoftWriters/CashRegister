@@ -6,13 +6,13 @@ Author: Greg Goodhile
 
 /*
 Parse data as a list of records and evaluate the change owed back to customer.
-data <string>
-Returns <array>
+data <String>
+Returns <Array>
 */
 const parseRecords = ( data ) => {
 	// Convert "number" string into cents/pennies; this removes a decimal point from the string; no need to worry about math precision using float numbers.
 	// Removing decimal from "number" string emulates multiplying a number by 100 to get cents/pennies.
-	// v <string>
+	// v <String>
 	// Returns <Number> | <NaN>
 	const toCents = ( v ) => {
 		// length must be at least 3 which signifies a valid currency decimal, ex: .45
@@ -52,7 +52,9 @@ const parseRecords = ( data ) => {
 };
 
 /*
-
+	Create a comma-separated change denomination phrase
+	cents <Number>
+	Returns <String>
 */
 const makeChangePhrase = ( cents ) => {
 	// Mapping for change quantity phrases
