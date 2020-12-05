@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "cash-register",
+    "name": "Cash Register",
     "slug": "cash-register",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.creativecashdraw.cashregister"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"

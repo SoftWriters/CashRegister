@@ -1,7 +1,5 @@
 import React, { ReactElement } from 'react';
 import pluralize from 'pluralize';
-import { USCurrencyDenom } from '../enums/us-currency-denom.enum';
-import { US_DENOMS_BY_CENTS } from '../utils/cash-register.util';
 import {
     View,
     Text,
@@ -9,20 +7,18 @@ import {
 } from 'react-native';
 
 interface Props {
-    totalDue: number,
-    amountPaid: number,
-    change: Map<string, number>
+    changeDue: string,
+    changeReceived: Map<string, number>
 }
 
-const ChangeResults: React.FC<Props> = ({ change, totalDue, amountPaid }): ReactElement => {
-    const centsPerDollar = US_DENOMS_BY_CENTS.find(d => d.name === USCurrencyDenom.Dollar).value;
+const ChangeResults: React.FC<Props> = ({ changeDue, changeReceived }): ReactElement => {
     return (
         <View style={styles.viewParent}>
             <Text style={styles.changeDueText}>
-                Change Due: ${((amountPaid - totalDue) / centsPerDollar).toFixed(2)}
+                Change Due: {changeDue}
             </Text>
             <View style={styles.changeDenom}>
-                {[...change].map(([ denom, qty ]) => (
+                {[...changeReceived].map(([ denom, qty ]) => (
                     <Text style={styles.changeDenomInfo} key={denom}>{qty} {pluralize(denom, qty)}</Text>
                 ))}
             </View>

@@ -1,4 +1,3 @@
-import { getRandomInt } from './helpers.util';
 import { USCurrencyDenom } from '../enums/us-currency-denom.enum';
 
 interface Denom {
@@ -8,7 +7,7 @@ interface Denom {
 
 /**
  * Const array representing US currency denominations.
- * Values are in cents to avoid floating point rounding weirdness.
+ * Values are in cents to avoid float rounding weirdness.
  */
 export const US_DENOMS_BY_CENTS: Denom[] = [
     { name: USCurrencyDenom.Dollar, value: 100 },
@@ -89,5 +88,11 @@ const getDenomQtyForChange = (change: number, denom: Denom, randomizeDenomQty: b
     const maxPossible = Math.floor(change / denom.value);
     return randomizeDenomQty ? getRandomInt(maxPossible) : maxPossible;
 }
+
+/**
+ * Generates a pseudo random integer between a range of zero to a given max integer.
+ * @param {number} max - The max possible integer
+ */
+const getRandomInt = (max: number): number => Math.floor(Math.random() * Math.floor(max));
 
 export { calculateChange }
