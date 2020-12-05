@@ -1,7 +1,7 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import CashRegisterScreen from './src/screens/CashRegisterScreen';
+import CashRegisterScreen from './src/screens/CashRegister.screen';
 
 const navigator = createStackNavigator({
     CashRegister: CashRegisterScreen

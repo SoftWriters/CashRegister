@@ -40,7 +40,7 @@ describe('Cash Register utility', () => {
         expect(consoleWarnSpy).not.toHaveBeenCalled();
     });
 
-    describe('when the total change due in cents is divisible by 3', () => {
+    describe('when the total change due in cents is divisible by three', () => {
         const changeDenomQtysAreDifferent = (currMap: Map<string, number>, prevMap: Map<string, number>): boolean => {
             const currMapQtys = [...currMap].map(([denom, qty]) => qty);
             const prevMapQtys = [...prevMap].map(([denom, qty]) => qty);
@@ -80,7 +80,7 @@ describe('Cash Register utility', () => {
         });
     });
 
-    describe('when the total change due in cents is not divisible by 3', () => {
+    describe('when the total change due in cents is not divisible by three', () => {
         const assertNormalDenoms = (
             totalDue: number, 
             amountPaid: number, 
