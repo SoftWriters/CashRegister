@@ -14,7 +14,7 @@ describe('Cash Register utility', () => {
     });
 
     test('returns null if amount paid does not cover total due', () => {
-        expect(calculateChange(28.00, 7.00)).toBeNull();
+        expect(calculateChange(2800, 700)).toBeNull();
     });
 
     test('throws a warning if totalDue and/or amountPaid are not integers', () => {
@@ -54,6 +54,14 @@ describe('Cash Register utility', () => {
             return false;
         };
 
+        /**
+         * Make change twice, and assert the change generated is correct each time.
+         * Then, compare the denom qtys from both sets of change, and assert that they're different.
+         * 
+         * In theory, there is a very small chance the change qtys could be the same both times...
+         * Given the possible denom combinations in the test cases we're using, it seems unlikely to happen.
+         * Just worth noting here, though. Not sure how to best address that given the nature of the requirements.
+         */
         const assertRandomDenoms = (totalDue: number, amountPaid: number): void => {
             let previousChangeMap: Map<string, number>;
             let changeMap: Map<string, number> = calculateChange(totalDue, amountPaid);
@@ -72,8 +80,8 @@ describe('Cash Register utility', () => {
             // 50.68 - 25.00 = 25.68
             assertRandomDenoms(2500, 5068);
 
-            // 1.33 - 0.34 = 0.99
-            assertRandomDenoms(34, 133);
+            // 4.33 - 0.34 = 3.99
+            assertRandomDenoms(34, 433);
 
             // 1253.54 - 560.30 = 693.24
             assertRandomDenoms(56030, 125354);
@@ -91,7 +99,7 @@ describe('Cash Register utility', () => {
             expect(changeMap).toEqual(expectedChangeMap);
         };
 
-        test('returns expected normal sets of denominations that give correct change', () => {
+        test('returns expected static sets of denominations that give correct change', () => {
             // 28.00 - 7.59 = 20.41
             assertNormalDenoms(759, 2800, new Map([
                 [USCurrencyDenom.Dollar, 20],

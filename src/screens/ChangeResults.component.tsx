@@ -18,8 +18,10 @@ const ChangeResults: React.FC<Props> = ({ changeDue, changeReceived }): ReactEle
                 Change Due: {changeDue}
             </Text>
             <View style={styles.changeDenom}>
-                {[...changeReceived].map(([ denom, qty ]) => (
-                    <Text style={styles.changeDenomInfo} key={denom}>{qty} {pluralize(denom, qty)}</Text>
+                {[...changeReceived]
+                    .filter(([ denom, qty ]) => qty > 0)
+                    .map(([ denom, qty ]) => (
+                        <Text style={styles.changeDenomInfo} key={denom}>{qty} {pluralize(denom, qty)}</Text>
                 ))}
             </View>
         </View>

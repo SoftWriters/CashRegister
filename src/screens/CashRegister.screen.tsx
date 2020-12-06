@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import ChangeInput from './ChangeInput.component';
 import ChangeResults from './ChangeResults.component';
-import { convertToCents } from '../utils/helpers.util';
+import { currencyStringToInt } from '../utils/helpers.util';
 import { USCurrencyDenom } from '../enums/us-currency-denom.enum';
 import { calculateChange, US_DENOMS_BY_CENTS } from '../utils/cash-register.util';
 
@@ -26,19 +26,22 @@ enum Action {
 type Actions =
     { type: Action.SetTotalDue, payload: string } |
     { type: Action.SetAmountPaid, payload: string } |
-    { type: Action.CalculateChange, payload: Map<string, number> } |
+    { type: Action.CalculateChange } |
     { type: Action.Reset };
 
 type State = {
     totalDue: string,
     amountPaid: string,
-    changeDue: string,
     paidInFull: boolean,
-    change: Map<string, number>
+    changeDue: string,
+    changeReceived: Map<string, number>
 };
 
 const totalDueMet = (totalDue: string, amountPaid: string) => 
-    convertToCents(amountPaid) >= convertToCents(totalDue);
+    currencyStringToInt(amountPaid) >= currencyStringToInt(totalDue);
+
+const inputsFilledIn = (totalDue: string, amountPaid: string) =>
+    totalDue.length && amountPaid.length;
 
 const reducer = (state: State, action: Actions): State => {
     switch (action.type) {
@@ -47,24 +50,31 @@ const reducer = (state: State, action: Actions): State => {
             return { 
                 ...state, 
                 totalDue: newTotalDue,
-                paidInFull: newTotalDue && state.amountPaid && totalDueMet(newTotalDue, state.amountPaid)
+                paidInFull: inputsFilledIn(newTotalDue, state.amountPaid) && totalDueMet(newTotalDue, state.amountPaid)
             };
         case Action.SetAmountPaid:
             const newAmountPaid = action.payload;
             return { 
                 ...state, 
                 amountPaid: newAmountPaid,
-                paidInFull: state.totalDue && newAmountPaid && totalDueMet(state.totalDue, newAmountPaid)
+                paidInFull: inputsFilledIn(state.totalDue, newAmountPaid) && totalDueMet(state.totalDue, newAmountPaid)
             };
         case Action.CalculateChange:
             const centsPerDollar = US_DENOMS_BY_CENTS.find(d => d.name === USCurrencyDenom.Dollar).value;
-            const newChangeDue = convertToCents(state.amountPaid) - convertToCents(state.totalDue);
+            const amountPaidInCents = currencyStringToInt(state.amountPaid);
+            const totalDueInCents = currencyStringToInt(state.totalDue);
+
+            const newChangeDue = amountPaidInCents - totalDueInCents;
 
             Keyboard.dismiss();
             
-            return { ...state, changeDue: `$${(newChangeDue / centsPerDollar).toFixed(2)}`, change: action.payload };
+            return { 
+                ...state, 
+                changeDue: `$${(newChangeDue / centsPerDollar).toFixed(2)}`, 
+                changeReceived: calculateChange(totalDueInCents, amountPaidInCents) 
+            };
         case Action.Reset:
-            return { amountPaid: '', totalDue: '', changeDue: '', paidInFull: false, change: null };
+            return { amountPaid: '', totalDue: '', changeDue: '', paidInFull: false, changeReceived: null };
         default:
             return state;
     }
@@ -72,44 +82,40 @@ const reducer = (state: State, action: Actions): State => {
 
 const CashRegisterScreen: React.FC = (): ReactElement => {
     const [state, dispatch] = useReducer(reducer, {
-        amountPaid: '',
         totalDue: '',
-        changeDue: '',
+        amountPaid: '',
         paidInFull: false,
-        change: null
+        changeDue: '',
+        changeReceived: null
     });
-    const { amountPaid, totalDue, changeDue, paidInFull, change } = state;
+    const { totalDue, amountPaid, paidInFull, changeDue, changeReceived } = state;
 
     const displayInputErrorMsg = () => {
-        if (!totalDue || !amountPaid) {
-            return '';
-        }
-
-        return totalDueMet(totalDue, amountPaid) ? '' : 'Amount Paid must be equal to/greater than Total Due.';
+        return inputsFilledIn(totalDue, amountPaid) && !totalDueMet(totalDue, amountPaid) ? 
+            'Amount Paid must be equal to/greater than Total Due.' : 
+            '';
     };
 
-    const setDisabledStyles = (mainStyle: TextStyle, disabledStyle: ViewStyle) => {
-        return paidInFull ? mainStyle : { ...mainStyle, ...disabledStyle };
+    const setDisabledStyles = (mainStyle: TextStyle, disabledStyle: ViewStyle, isDisabled: boolean) => {
+        return isDisabled ? { ...mainStyle, ...disabledStyle } : mainStyle;
     };
 
     return (
         <View style={styles.viewParent}>
             <ChangeInput 
+                label="Total Due"
                 placeholder="Enter total due"
                 value={totalDue}
                 onInputChange={(newTotalDue) => dispatch({ type: Action.SetTotalDue, payload: newTotalDue })}
             />
 
-            <ChangeInput 
+            <ChangeInput
+                label="Amount Paid"
                 placeholder="Enter amount paid"
                 value={amountPaid}
                 onInputChange={(newAmountPaid) => dispatch({ type: Action.SetAmountPaid, payload: newAmountPaid })}
-                onSubmitEditing={() => paidInFull ? dispatch({
-                    type: Action.CalculateChange, 
-                    payload: calculateChange(
-                        convertToCents(state.totalDue), 
-                        convertToCents(state.amountPaid)
-                    )}) : null
+                onSubmitEditing={
+                    () => paidInFull ? dispatch({ type: Action.CalculateChange }) : null
                 }
             />
 
@@ -118,36 +124,43 @@ const CashRegisterScreen: React.FC = (): ReactElement => {
             </Text>
             
             <TouchableOpacity
+                disabled={!inputsFilledIn(amountPaid, totalDue)}
                 activeOpacity={0.75}
-                style={styles.buttonResetParent}
+                style={
+                    setDisabledStyles(
+                        styles.buttonResetParent, 
+                        styles.buttonDisabled, 
+                        !inputsFilledIn(amountPaid, totalDue)
+                    )}
                 onPress={() => dispatch({ type: Action.Reset })} 
             >
-                <Text style={styles.buttonReset}>Reset</Text>
+                <Text style={
+                    setDisabledStyles(
+                        styles.buttonReset, 
+                        styles.buttonDisabled, 
+                        !inputsFilledIn(amountPaid, totalDue)
+                    )}>
+                    Reset
+                </Text>
             </TouchableOpacity>
             
             <TouchableOpacity
                 disabled={!paidInFull}
                 activeOpacity={0.75}
-                style={setDisabledStyles(styles.buttonSubmitParent, styles.buttonDisabled)}
-                onPress={() => dispatch({
-                    type: Action.CalculateChange, 
-                    payload: calculateChange(
-                        convertToCents(state.totalDue), 
-                        convertToCents(state.amountPaid)
-                    )}
-                )} 
+                style={setDisabledStyles(styles.buttonSubmitParent, styles.buttonDisabled, !paidInFull)}
+                onPress={() => dispatch({ type: Action.CalculateChange })} 
             >
-                <Text style={setDisabledStyles(styles.buttonSubmit, styles.buttonDisabled)}>
+                <Text style={setDisabledStyles(styles.buttonSubmit, styles.buttonDisabled, !paidInFull)}>
                     Get Change
                 </Text>
             </TouchableOpacity>
 
             { 
-                change ? 
+                changeReceived ? 
                     <KeyboardAvoidingView 
-                        style={{ flex: Platform.OS == "android" ? 1 : null }} >
+                        style={{ flex: Platform.OS === 'android' ? 1 : null }} >
                         <ChangeResults 
-                            changeReceived={change}
+                            changeReceived={changeReceived}
                             changeDue={changeDue}
                         />
                     </KeyboardAvoidingView> : 
@@ -159,7 +172,7 @@ const CashRegisterScreen: React.FC = (): ReactElement => {
 
 const styles = StyleSheet.create({
     viewParent: {
-        marginTop: 25,
+        marginTop: 5,
         justifyContent: 'space-around',
         alignItems: 'stretch'
     },
