@@ -15,7 +15,7 @@ The input and output files are passed via command line in the following manner:
 
 CashRegisterSabotta.exe [input file path] [output file path]
 
-Default paths have been set in the solution for ..\..\..\inputFile.txt and ..\..\..\outputFile.txt, but these can be altered to suit testing.
+Default paths have been set in the solution for `..\..\..\inputFile.txt` and `..\..\..\outputFile.txt`, but these can be altered to suit testing.
 
 If any errors occur during the operation of the program through a command window, error information will be printed to the console for easy debugging.
 If errors occur while debugging in Visual Studio, error information will be printed to the output window for easy debugging.
