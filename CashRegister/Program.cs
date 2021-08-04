@@ -8,7 +8,7 @@ namespace CashRegister
         {
             Console.WriteLine("Hello World!");
             CashRegister cr = new CashRegister();
-            int[] ans = cr.GetChange(1.27M);
+            Change change = cr.GetChange(1.27M);
         }
     }
 }

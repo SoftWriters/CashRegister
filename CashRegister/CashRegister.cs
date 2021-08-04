@@ -6,49 +6,108 @@ namespace CashRegister
 {
     public class CashRegister
     {
-        private decimal Dollar { get; } = 1.00M;
-        private decimal Quarter { get; } = 0.25M;
-        private decimal Dime { get; } = 0.10M;
-        private decimal Nickel { get; } = 0.05M;
-        private decimal Penny { get; } = 0.01M;
+        private decimal RunningTotal;
+        public Change ChangeReturn = new Change();
 
-        private int[] Change = { 0, 0, 0, 0, 0};
-
-        public int[] GetChange(decimal amount)
+        public Change GetChange(decimal amount)
         {
-            //if(amount % 3 == 0)
-            //{
-                //Return Random Change
-            //} else
-            //{
-                while(amount > 0)
-                {
-                    if(amount >= 1.00M)
-                    {
-                        Change[0]++;
-                        amount -= 1.00M;
-                    } else if(amount >= 0.25M)
-                    {
-                        Change[1]++;
-                        amount -= 0.25M;
-                    } else if(amount >= 0.10M)
-                    {
-                        Change[2]++;
-                        amount -= 0.10M;
-                    } else if(amount >= 0.05M)
-                    {
-                        Change[3]++;
-                        amount -= 0.05M;
-                    } else if(amount >= 0.01M)
-                    {
-                        Change[4]++;
-                        amount -= 0.01M;
-                    }
-                }
-                // Return Regular Change
-            //}
-            
-            return Change;
+            this.RunningTotal = amount;
+            if (RunningTotal % 3 == 0)
+            {
+                RandomChange();
+            }
+            else
+            {
+                RegularChange();
+            }
+
+            return ChangeReturn;
         }
+
+        private Change RandomChange()
+        {
+            int randomNumber;
+            while (RunningTotal > 0)
+            {
+
+                randomNumber = new Random().Next(1, 6);
+
+                switch (randomNumber)
+                {
+                    case 1:
+                        if (RunningTotal >= 1.00M)
+                        {
+                            ChangeReturn.AddDollar();
+                            RunningTotal -= 1.00M;
+                        }
+                        break;
+                    case 2:
+                        if (RunningTotal >= 0.25M)
+                        {
+                            ChangeReturn.AddQuarter();
+                            RunningTotal -= 0.25M;
+                        }
+                        break;
+                    case 3:
+                        if (RunningTotal >= 0.10M)
+                        {
+                            ChangeReturn.AddDime();
+                            RunningTotal -= 0.10M;
+                        }
+                        break;
+                    case 4:
+                        if (RunningTotal >= 0.05M)
+                        {
+                            ChangeReturn.AddNickel();
+                            RunningTotal -= 0.05M;
+                        }
+                        break;
+                    case 5:
+                        if (RunningTotal >= 0.01M)
+                        {
+                            ChangeReturn.AddPenny();
+                            RunningTotal -= 0.01M;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return ChangeReturn;
+        }
+
+        private Change RegularChange()
+        {
+            while (RunningTotal > 0)
+            {
+                if (RunningTotal >= 1.00M)
+                {
+                    ChangeReturn.AddDollar();
+                    RunningTotal -= 1.00M;
+                }
+                else if (RunningTotal >= 0.25M)
+                {
+                    ChangeReturn.AddQuarter();
+                    RunningTotal -= 0.25M;
+                }
+                else if (RunningTotal >= 0.10M)
+                {
+                    ChangeReturn.AddDime();
+                    RunningTotal -= 0.10M;
+                }
+                else if (RunningTotal >= 0.05M)
+                {
+                    ChangeReturn.AddNickel();
+                    RunningTotal -= 0.05M;
+                }
+                else if (RunningTotal >= 0.01M)
+                {
+                    ChangeReturn.AddPenny();
+                    RunningTotal -= 0.01M;
+                }
+            }
+            return ChangeReturn;
+        } 
     }
 }
