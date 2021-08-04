@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CashRegister
 {
@@ -6,9 +7,16 @@ namespace CashRegister
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
             CashRegister cr = new CashRegister();
-            Change change = cr.GetChange(1.27M);
+            ReadService reader = new ReadService();
+            WriteService writer = new WriteService();
+
+            List<decimal> ouput = reader.ReadFile();
+            
+            Change change = cr.GetChange(3.33M);
+            writer.WriteFile(change);
+
         }
     }
 }
