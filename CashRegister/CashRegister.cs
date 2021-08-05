@@ -6,28 +6,27 @@ namespace CashRegister
 {
     public class CashRegister
     {
-        private decimal RunningTotal;
-        public Change ChangeReturn = new Change();
+        private decimal Change;
 
-        public Change GetChange(decimal amount)
+        public Change GetChange(decimal price, decimal totalPaid)
         {
-            this.RunningTotal = amount;
-            if (RunningTotal % 3 == 0)
+            this.Change = totalPaid - price;
+            if ((price * 100) % 3 == 0)
             {
-                RandomChange();
+                return RandomChange();
             }
             else
             {
-                RegularChange();
+                return RegularChange();
             }
 
-            return ChangeReturn;
         }
 
         private Change RandomChange()
         {
+            Change ChangeReturn = new Change();
             int randomNumber;
-            while (RunningTotal > 0)
+            while (Change > 0)
             {
 
                 randomNumber = new Random().Next(1, 6);
@@ -35,38 +34,38 @@ namespace CashRegister
                 switch (randomNumber)
                 {
                     case 1:
-                        if (RunningTotal >= 1.00M)
+                        if (Change >= 1.00M)
                         {
                             ChangeReturn.AddDollar();
-                            RunningTotal -= 1.00M;
+                            Change -= 1.00M;
                         }
                         break;
                     case 2:
-                        if (RunningTotal >= 0.25M)
+                        if (Change >= 0.25M)
                         {
                             ChangeReturn.AddQuarter();
-                            RunningTotal -= 0.25M;
+                            Change -= 0.25M;
                         }
                         break;
                     case 3:
-                        if (RunningTotal >= 0.10M)
+                        if (Change >= 0.10M)
                         {
                             ChangeReturn.AddDime();
-                            RunningTotal -= 0.10M;
+                            Change -= 0.10M;
                         }
                         break;
                     case 4:
-                        if (RunningTotal >= 0.05M)
+                        if (Change >= 0.05M)
                         {
                             ChangeReturn.AddNickel();
-                            RunningTotal -= 0.05M;
+                            Change -= 0.05M;
                         }
                         break;
                     case 5:
-                        if (RunningTotal >= 0.01M)
+                        if (Change >= 0.01M)
                         {
                             ChangeReturn.AddPenny();
-                            RunningTotal -= 0.01M;
+                            Change -= 0.01M;
                         }
                         break;
                     default:
@@ -79,32 +78,33 @@ namespace CashRegister
 
         private Change RegularChange()
         {
-            while (RunningTotal > 0)
+            Change ChangeReturn = new Change();
+            while (Change > 0)
             {
-                if (RunningTotal >= 1.00M)
+                if (Change >= 1.00M)
                 {
                     ChangeReturn.AddDollar();
-                    RunningTotal -= 1.00M;
+                    Change -= 1.00M;
                 }
-                else if (RunningTotal >= 0.25M)
+                else if (Change >= 0.25M)
                 {
                     ChangeReturn.AddQuarter();
-                    RunningTotal -= 0.25M;
+                    Change -= 0.25M;
                 }
-                else if (RunningTotal >= 0.10M)
+                else if (Change >= 0.10M)
                 {
                     ChangeReturn.AddDime();
-                    RunningTotal -= 0.10M;
+                    Change -= 0.10M;
                 }
-                else if (RunningTotal >= 0.05M)
+                else if (Change >= 0.05M)
                 {
                     ChangeReturn.AddNickel();
-                    RunningTotal -= 0.05M;
+                    Change -= 0.05M;
                 }
-                else if (RunningTotal >= 0.01M)
+                else if (Change >= 0.01M)
                 {
                     ChangeReturn.AddPenny();
-                    RunningTotal -= 0.01M;
+                    Change -= 0.01M;
                 }
             }
             return ChangeReturn;
