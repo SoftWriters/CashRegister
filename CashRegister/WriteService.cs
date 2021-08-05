@@ -11,13 +11,18 @@ namespace CashRegister
         private static string Directory { get; } = Environment.CurrentDirectory;
         private readonly string FilePath = Path.Combine(Directory, FileName);
 
-        public void WriteFile(Change change)
+        public void WriteFile(List<Change> changeList)
         {
             try
             {
                 using(StreamWriter streamWriter = new StreamWriter(FilePath, true))
                 {
-                    streamWriter.WriteLine($"{change.Dollar } dollar {change.Quarter} quarters {change.Dime} dimes ");
+                    foreach(Change change in changeList)
+                    {
+                        string message = CreateChangeMessage(change);
+                        streamWriter.WriteLine(message);
+                    }
+                    
                 }
             }
             catch (Exception)
@@ -26,5 +31,79 @@ namespace CashRegister
                 throw;
             }
         }
+
+        private string CreateChangeMessage(Change change)
+        {
+            string message = "";
+            if(change.Dollar > 0)
+            {
+                message += change.Dollar + " dollar";
+                if(change.Dollar != 1)
+                {
+                    message += "s";
+                }
+            }
+
+            if(change.Quarter > 0)
+            {
+                if (message.Length != 0)
+                {
+                    message += ", ";
+                }
+                message += change.Quarter + " quarter";
+                if(change.Quarter != 1)
+                {
+                    message += "s";
+                }
+            }
+
+            if(change.Dime > 0)
+            {
+                if (message.Length != 0)
+                {
+                    message += ", ";
+                }
+                message += change.Dime + " dime";
+
+                if(change.Dime != 1)
+                {
+                    message += "s";
+                }
+            }
+
+            if(change.Nickel > 0)
+            {
+                if (message.Length != 0)
+                {
+                    message += ", ";
+                }
+                message += change.Nickel + " nickel";
+
+                if (change.Nickel != 1)
+                {
+                    message += "s";
+                }
+            }
+
+            if(change.Penny > 0)
+            {
+                if (message.Length != 0)
+                {
+                    message += ", ";
+                }
+                message += change.Penny + " penn";
+                if(change.Penny != 1)
+                {
+                    message += "ies";
+                } else
+                {
+                    message += "y";
+                }
+            }
+
+            return message;
+        }
     }
+
+    
 }
