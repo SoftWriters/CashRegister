@@ -1,6 +1,13 @@
 Cash Register
 ============
 
+IMPORTANT USER INSTRUCTIONS****
+-------------------------------
+
+The "input.txt" file must be located in "~/CashRegister" path in order for the program to run correctly. 
+
+The change will be output to the casher via "output.txt" and will be located in the same directory location as input.txt after the program runs for the first time. Subsequent reruns of the program will keep a log of all change dispended in "output.txt" and will not override any previous data.  
+
 The Problem
 -----------
 Creative Cash Draw Solutions is a client who wants to provide something different for the cashiers who use their system. The function of the application is to tell the cashier how much change is owed and what denominations should be used. In most cases the app should return the minimum amount of physical change, but the client would like to add a twist. If the total due in cents is divisible by 3, the app should randomly generate the change denominations (but the math still needs to be right :))
