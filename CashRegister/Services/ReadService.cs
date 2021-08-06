@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace CashRegister
 {
-    public class ReadService
+    public class ReadService : IReadService
     {
         private static string FileName { get; } = "input.txt";
         //private static string Dir { get; } = Environment.CurrentDirectory;

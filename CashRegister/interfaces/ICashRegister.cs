@@ -4,8 +4,8 @@ using System.Text;
 
 namespace CashRegister
 {
-    public class ConsoleService
+    public interface ICashRegister
     {
-
+        public Change GetChange(decimal price, decimal totalPaid);
     }
 }

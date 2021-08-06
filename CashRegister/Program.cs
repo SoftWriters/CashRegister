@@ -8,11 +8,12 @@ namespace CashRegister
         static void Main(string[] args)
         {
             
-            CashRegister cr = new CashRegister();
-            ReadService reader = new ReadService();
-            WriteService writer = new WriteService();
+            ICashRegister cr = new CashRegister();
+            IReadService reader = new ReadService();
+            IWriteService writer = new WriteService();
 
             List<decimal> output = new List<decimal>();
+            
             try
             {
                 output = reader.ReadFile();

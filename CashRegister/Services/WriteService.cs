@@ -5,7 +5,7 @@ using System.IO;
 
 namespace CashRegister
 {
-    public class WriteService
+    public class WriteService : IWriteService
     {
         private static string FileName { get; } = "output.txt";
         private static readonly string WorkingDirectory = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName).Parent.FullName;

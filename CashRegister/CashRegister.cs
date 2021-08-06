@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CashRegister
 {
-    public class CashRegister
+    public class CashRegister : ICashRegister
     {
         private decimal Change;
 
