@@ -10,9 +10,9 @@ namespace CashRegister
         public void RandomChange()
         {
             CashRegister cr = new CashRegister();
-            Change actualChange = cr.GetChange(3.33M);
+            Change actualChange = cr.GetChange(3.33M, 5.00M);
             decimal actualTotal = GetTotal(actualChange);
-            decimal expectedTotal = 3.33M;
+            decimal expectedTotal = 1.67M;
             Assert.AreEqual(expectedTotal, actualTotal, "Unequal Total");
         }
 
@@ -33,7 +33,7 @@ namespace CashRegister
         public void Return1Dollar()
         {
             CashRegister cr = new CashRegister();
-            Change actual = cr.GetChange(1.00M);
+            Change actual = cr.GetChange(1.00M, 2.00M);
             Change expected = new Change();
             expected.AddDollar();
 
@@ -49,41 +49,84 @@ namespace CashRegister
             Assert.AreEqual(expectedChange.Penny, actualChange.Penny, "Unequal Pennies");
         }
 
-        //[TestMethod]
-        //public void Return1Dollar1Quarter()
-        //{
-        //    CashRegister cr = new CashRegister();
-        //    int[] actual = cr.GetChange(1.25M);
-        //    int[] expected = { 1, 1, 0, 0, 0 };
-        //    CollectionAssert.AreEqual(expected, actual);
-        //}
+        [TestMethod]
+        public void Return1Dollar1Quarter()
+        {
+            CashRegister cr = new CashRegister();
+            Change actual = cr.GetChange(1.25M, 2.50M);
+            Change expected = new Change();
+            expected.AddDollar();
+            expected.AddQuarter();
+            CompareChangeObject(expected, actual);
+        }
 
-        //[TestMethod]
-        //public void Return1Dollar1Quarter1Dime()
-        //{
-        //    CashRegister cr = new CashRegister();
-        //    int[] actual = cr.GetChange(1.35M);
-        //    int[] expected = { 1, 1, 1, 0, 0 };
-        //    CollectionAssert.AreEqual(expected, actual);
-        //}
+        [TestMethod]
+        public void Return1Dollar1Quarter1Dime()
+        {
+            CashRegister cr = new CashRegister();
+            Change actual = cr.GetChange(1.00M, 2.35M);
+            Change expected = new Change();
+            expected.AddDollar();
+            expected.AddQuarter();
+            expected.AddDime();
+            CompareChangeObject(expected, actual);
+        }
 
-        //[TestMethod]
-        //public void Return1Dollar1Quarter1Dime1Nickel()
-        //{
-        //    CashRegister cr = new CashRegister();
-        //    int[] actual = cr.GetChange(1.40M);
-        //    int[] expected = { 1, 1, 1, 1, 0 };
-        //    CollectionAssert.AreEqual(expected, actual);
-        //}
+        [TestMethod]
+        public void Return1Dollar1Quarter1Dime1Nickel()
+        {
+            CashRegister cr = new CashRegister();
+            Change actual = cr.GetChange(1.00M, 2.40M);
+            Change expected = new Change();
+            expected.AddDollar();
+            expected.AddQuarter();
+            expected.AddDime();
+            expected.AddNickel();
+            CompareChangeObject(expected, actual);
+        }
 
-        //[TestMethod]
-        //public void Return1Dollar1Quater1Dime1Nickel4Pennies()
-        //{
-        //    CashRegister cr = new CashRegister();
-        //    int[] actual = cr.GetChange(1.44M);
-        //    int[] expected = { 1, 1, 1, 1, 4 };
-        //    CollectionAssert.AreEqual(expected, actual);
-        //}
+        [TestMethod]
+        public void Return1Dollar1Quater1Dime1Nickel4Pennies()
+        {
+            CashRegister cr = new CashRegister();
+            Change actual = cr.GetChange(1.00M, 2.44M);
+            Change expected = new Change();
+            expected.AddDollar();
+            expected.AddQuarter();
+            expected.AddDime();
+            expected.AddNickel();
+            expected.AddPenny();
+            expected.AddPenny();
+            expected.AddPenny();
+            expected.AddPenny();
+            CompareChangeObject(expected, actual);
+        }
 
+        [TestMethod]
+        public void NegativePriceAndNegativeTotalPaidReturnEmptyChange()
+        {
+            CashRegister cr = new CashRegister();
+            Change actual = cr.GetChange(-1.00M, -2.00M);
+            Change expected = new Change();
+
+            CompareChangeObject(expected, actual);
+        }
+
+        public void NegativePriceAndPositiveTotalPaidReturnEmptyChange()
+        {
+            CashRegister cr = new CashRegister();
+            Change actual = cr.GetChange(-1.00M, 2.00M);
+            Change expected = new Change();
+
+            CompareChangeObject(expected, actual);
+        }
+        public void PositivePriceAndNegativeTotalPaidReturnEmptyChange()
+        {
+            CashRegister cr = new CashRegister();
+            Change actual = cr.GetChange(1.00M, -2.00M);
+            Change expected = new Change();
+
+            CompareChangeObject(expected, actual);
+        }
     }
 }
