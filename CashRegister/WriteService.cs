@@ -8,8 +8,9 @@ namespace CashRegister
     public class WriteService
     {
         private static string FileName { get; } = "output.txt";
-        private static string Directory { get; } = Environment.CurrentDirectory;
-        private readonly string FilePath = Path.Combine(Directory, FileName);
+        private static readonly string WorkingDirectory = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName).Parent.FullName;
+
+        private readonly string FilePath = Path.Combine(WorkingDirectory, FileName);
 
         public void WriteFile(List<Change> changeList)
         {

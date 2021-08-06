@@ -12,7 +12,15 @@ namespace CashRegister
             ReadService reader = new ReadService();
             WriteService writer = new WriteService();
 
-            List<decimal> output = reader.ReadFile();
+            List<decimal> output = new List<decimal>();
+            try
+            {
+                output = reader.ReadFile();
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
 
             List<Change> changeList = new List<Change>();
 

@@ -10,6 +10,11 @@ namespace CashRegister
 
         public Change GetChange(decimal price, decimal totalPaid)
         {
+            // Return Empty Change Object if inputs are less than 0
+            if(price < 0 || totalPaid < 0)
+            {
+                return new Change();
+            }
             this.Change = totalPaid - price;
             if ((price * 100) % 3 == 0)
             {
