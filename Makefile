@@ -6,8 +6,8 @@ OUTPUT = output.txt
 init:
 	python3 -m pip install -r requirements.txt
 
-test:
+test: init
 	python3 -m unittest discover -vs test
 
-run:
+run: init
 	python3 register/register.py ${INPUT} ${OUTPUT}
