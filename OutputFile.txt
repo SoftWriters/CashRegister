@@ -1,0 +1,8 @@
+3 Quarters, 1 Dime
+2 Dollars
+Nickel
+1 Five Dollar Bill, 2 Dollars
+3 Dollars, 2 Dimes
+ERROR
+1 Dime, 1 Nickel, 4 Pennies
+4 Ten Dollar Bills, 2 Quarters, 1 Dime, 3 Pennies
