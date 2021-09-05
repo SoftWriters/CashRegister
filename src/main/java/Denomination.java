@@ -8,5 +8,12 @@ public class Denomination {
         this.value = value;
     }
 
+    public String getTitle(){
+        return this.title;
+    }
+
+    public double getValue(){
+        return this.value;
+    }
 
 }

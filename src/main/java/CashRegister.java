@@ -7,7 +7,7 @@ import java.util.*;
 public class CashRegister {
     Denomination tenDollar = new Denomination("Ten Dollar Bill", 10.00);
     Denomination fiveDollar = new Denomination("Five Dollar Bill", 5.00);
-    Denomination dollar = new Denomination("Dollar", 1.00);
+    Denomination dollar = new Denomination("One Dollar Bill", 1.00);
     Denomination quarter = new Denomination("Quarter", 0.25);
     Denomination nickel = new Denomination("Nickel", 0.05);
     Denomination penny = new Denomination("Penny", 0.01);
@@ -36,9 +36,10 @@ public class CashRegister {
         CashRegister cr = new CashRegister();
         cr.fileReader();
 
+
     }
 
-    // Method for reading from file and writing from file
+    // Method for reading from file and writing to file
     public void fileReader() throws IOException {
 
         File file = new File("InputFile.txt");
@@ -60,7 +61,7 @@ public class CashRegister {
                     printWriter.println("ZERO");
 
                 } else if(cashBack % 3 == 0){
-                    printWriter.println(getRandomCoin().title);
+                    printWriter.println(this.randomCashBack(pp, ch));
                 } else { printWriter.println(this.getCashChange(pp, ch));
                 }
             }
@@ -154,16 +155,91 @@ public class CashRegister {
 
         return change.toString();
         }
+        //Method for finding random cash back
+        public String randomCashBack(double price, double cash){
+        // Some variables are for if you want to combine multiple returns of the same denomination
+         /*   double tenDollars = 0;
+            double fiveDollars = 0;
+            double dollars = 0;
+            double quarters = 0;
+            double dimes = 0;
+            double nickels = 0;
+            double pennies = 0; */
+            Denomination random;
+            double maxRandoms;
+            double chooseRandoms;
 
-        public int randomCashBack(){
-        return 0;
+            double cashBack = cash - price;
+          //  double totalChange = cashBack;
+            StringBuilder change = new StringBuilder();
+
+            while (cashBack > 0) {
+                random = this.getRandomCoin();
+                //Gives us maximum number of randoms
+                maxRandoms = Math.floor(cashBack / random.getValue());
+                chooseRandoms = Math.floor(Math.random() * (maxRandoms + 1));
+
+
+                if(chooseRandoms  > 0){
+                    cashBack -= chooseRandoms * random.getValue();
+                    // Round to 2 decimal places
+                    cashBack = Math.round(cashBack * 100.0) / 100.0;
+
+                    // Could use if you wanted to keep track of totals.
+                /*    switch (random.getTitle()) {
+                        case "Ten Dollar Bill":
+                            tenDollars += chooseRandoms;
+                            break;
+                        case "Five Dollar Bill":
+                            fiveDollars += chooseRandoms;
+                            break;
+                        case "One Dollar Bill":
+                            dollars += chooseRandoms;
+                            break;
+                        case "Quarter":
+                            quarters += chooseRandoms;
+                            break;
+                        case "Dime":
+                            dimes += chooseRandoms;
+                            break;
+                        case "Nickel":
+                            nickels += chooseRandoms;
+                            break;
+                        case "Penny":
+                            pennies += chooseRandoms;
+                            break;
+                        default:
+                            System.out.println("Something went wrong with the random switch");
+                            break;
+                    } */
+
+                    //this is a different way to format there not being a comma on the end of the string builder
+                    if (change.length() == 0) {
+                        change.append((int)chooseRandoms + " " + this.singleOrPlural(random.getTitle(), chooseRandoms));
+                    } else {
+                        change.append(", " + (int)chooseRandoms + " " + this.singleOrPlural(random.getTitle(), chooseRandoms));
+                    }
+                }
+
+            }
+            return change.toString();
         }
 
+        // Helper to decide whether denomination should be printed plural or singular
+        public String singleOrPlural(String title, double amount) {
+            if (amount == 1) {
+                return title;
+            } else {
+                // We hardcoded because we only have one case
+                if (title.equals("Penny")) {
+                    return "Pennies";
+                } else {
+                    return title + "s";
+                }
+            }
 
 
-
-
-
+        }
 }
 
 
