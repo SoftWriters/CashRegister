@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ChangeApplication": {
+      "commandName": "Project",
+      "commandLineArgs": "SampleData\\input-file.txt out.txt"
+    }
+  }
+}
