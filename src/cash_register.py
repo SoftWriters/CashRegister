@@ -1,6 +1,17 @@
 import csv
 from decimal import Decimal
 
+"""
+TO-DO LIST:
+1) Find way to calculate denominations randomly
+2) Write a clear main method
+3) Testing
+4) Probably remove calculate_change() and put it somewhere else
+5) Find way to go through the final_change list and sum up and display the values 
+   how it they ask in the sample output in the readme
+6) Clean up so it adheres to Python coding standards
+"""
+
 # load and read file
 file = csv.reader(open('file.csv'), delimiter = ',')
 
@@ -12,6 +23,7 @@ DENOMINATIONS = {'dollar': Decimal('1.00'),
                 'penny': Decimal('0.01')}
 
 
+# do I really need this method?
 def calculate_change(total, paid):
     change = paid - total
     round(change, 4)
@@ -20,9 +32,9 @@ def calculate_change(total, paid):
 
 def calculate_minimum_denominations(change):
     dynamic_change = change
-    # final_change should be of string type
+    # final_change is a list that keep strack each individual 
     final_change = []
-    
+
     while dynamic_change >= DENOMINATIONS['dollar']:
         final_change.append('dollar')
         dynamic_change = (dynamic_change - DENOMINATIONS['dollar'])
@@ -44,7 +56,7 @@ def calculate_minimum_denominations(change):
 # def calculate_random_denomonations(change):
 #     initial_change = change
 
-
+# convert this to an actual main method
 for line in file:
     (total, paid) = line
     total = Decimal(total)
