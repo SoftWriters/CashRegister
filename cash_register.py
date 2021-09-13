@@ -1,8 +1,6 @@
 class ChangeCalculator():
 
-    # convert_to_float() only still present for the sake of the initial 
-    # tests. All of it's practical functionality has been adapted in 
-    # the change_calculate() function.
+    # converting a str flat file into a list
     def convert_to_float(self, currency):
 
         new_curr = currency.split(",")
@@ -11,29 +9,30 @@ class ChangeCalculator():
 
         return total, amt_given
 
-    def change_calculate(self, currency):
+    def change_calculate(self, total_01, amt_given_01):
 
-        # Gets a string value of total, amount paid
-        new_curr = currency.split(",")          # splits tuple into a list
-        total = float(new_curr[0])              # converts each to floats
-        amt_given = float(new_curr[1])
+        # ***UPDATE***
+        # Actually accessing convert_to_float() and returning
+        # its value to perform operations in this function
 
-        total_01 = int(total * 100)             # multiply both by 100 to avoid
-        amt_given_01 = int(amt_given * 100)     # floating point arithmetic
+        total_01 = int(total_01 * 100)             # multiply both by 100 to avoid
+        amt_given_01 = int(amt_given_01 * 100)     # floating point arithmetic
         
         # returns last to digits to check for divisibility
         total_div_3 = self.get_last_digits(total_01)
 
-        if amt_given < total:
+        if amt_given_01 < total_01:
             return False
         elif total_div_3 % 3 == 0:
             # runs random function
             total_change = amt_given_01 - total_01
-            return self.random_denominations(total_change / 100)
+            change = self.random_denominations(total_change / 100)
+            return change
         else:
             # runs regular conversion function
             total_change = amt_given_01 - total_01
-            return self.change_denominations(total_change / 100)
+            change = self.change_denominations(total_change / 100)
+            return change
 
         
 
@@ -109,6 +108,7 @@ class ChangeCalculator():
         else:
             denoms += f"{penny_amt} penny"
 
+        print(denoms)
         return denoms
 
 
@@ -221,4 +221,5 @@ class ChangeCalculator():
         else:
             denoms += f"{penny_amt} penny"
 
+        print(denoms)
         return denoms
