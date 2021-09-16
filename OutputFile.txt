@@ -1,6 +1,6 @@
 3 Quarters, 1 Dime
 2 Dollars
-2 One Dollar Bills, 17 Nickels, 6 Pennies, 8 Pennies, 1 Penny
+8 Nickels, 260 Pennies
 1 Five Dollar Bill, 2 Dollars
 3 Dollars, 2 Dimes
 ERROR

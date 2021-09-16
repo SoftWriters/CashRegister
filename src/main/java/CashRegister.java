@@ -4,11 +4,14 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+
 public class CashRegister {
     Denomination tenDollar = new Denomination("Ten Dollar Bill", 10.00);
     Denomination fiveDollar = new Denomination("Five Dollar Bill", 5.00);
     Denomination dollar = new Denomination("One Dollar Bill", 1.00);
     Denomination quarter = new Denomination("Quarter", 0.25);
+    // Oh wow, dimes!
+    Denomination dime = new Denomination("Dime", 0.10);
     Denomination nickel = new Denomination("Nickel", 0.05);
     Denomination penny = new Denomination("Penny", 0.01);
 
@@ -19,6 +22,7 @@ public class CashRegister {
         this.fiveDollar = fiveDollar;
         this.dollar = dollar;
         this.quarter = quarter;
+        this.dime = dime;
         this.nickel = nickel;
         this.penny = penny;
         this.denominations = denominations;
@@ -27,6 +31,7 @@ public class CashRegister {
         this.denominations.add(fiveDollar);
         this.denominations.add(dollar);
         this.denominations.add(quarter);
+        this.denominations.add(dime);
         this.denominations.add(nickel);
         this.denominations.add(penny);
     }
@@ -156,26 +161,37 @@ public class CashRegister {
         return change.toString();
         }
         //Method for finding random cash back
+        //Now with dimes!
         public String randomCashBack(double price, double cash){
-        // Some variables are for if you want to combine multiple returns of the same denomination
-         /*   double tenDollars = 0;
+
+            //doubles to track counts of coins selected
+            double tenDollars = 0;
             double fiveDollars = 0;
             double dollars = 0;
             double quarters = 0;
             double dimes = 0;
             double nickels = 0;
-            double pennies = 0; */
+            double pennies = 0;
+            // variables to store data about random selection
             Denomination random;
             double maxRandoms;
             double chooseRandoms;
 
+            // Arraylist to initially store selected coins as strings.
+            // Can contain duplicates and has no order
+            List<String> stringList = new ArrayList();
+
+            // Calculate cashBack required
             double cashBack = cash - price;
-          //  double totalChange = cashBack;
+           //initialize stringbuilder to hold output
             StringBuilder change = new StringBuilder();
 
+            // Main engine
+            // Selects denomination randomly then selects amount of chosen denomination randomly
+            // While loop runs until no more change is required
             while (cashBack > 0) {
                 random = this.getRandomCoin();
-                //Gives us maximum number of randoms
+                // Gives us maximum number of randoms
                 maxRandoms = Math.floor(cashBack / random.getValue());
                 chooseRandoms = Math.floor(Math.random() * (maxRandoms + 1));
 
@@ -184,9 +200,8 @@ public class CashRegister {
                     cashBack -= chooseRandoms * random.getValue();
                     // Round to 2 decimal places
                     cashBack = Math.round(cashBack * 100.0) / 100.0;
-
-                    // Could use if you wanted to keep track of totals.
-                /*    switch (random.getTitle()) {
+                    // Switch to make sure the amount of coins returned is tracked
+                    switch (random.getTitle()) {
                         case "Ten Dollar Bill":
                             tenDollars += chooseRandoms;
                             break;
@@ -211,17 +226,57 @@ public class CashRegister {
                         default:
                             System.out.println("Something went wrong with the random switch");
                             break;
-                    } */
-
-                    //this is a different way to format there not being a comma on the end of the string builder
-                    if (change.length() == 0) {
-                        change.append((int)chooseRandoms + " " + this.singleOrPlural(random.getTitle(), chooseRandoms));
-                    } else {
-                        change.append(", " + (int)chooseRandoms + " " + this.singleOrPlural(random.getTitle(), chooseRandoms));
                     }
+                    // Each time a denomination is selected, a string of that denomination is added
+                    // to the unordered ArrayList (with duplicates)
+                    stringList.add(random.getTitle());
                 }
-
             }
+
+            // Duplicates are removed and a high-to-low order is established
+            // by creating a new ArrayList and iterating through this.denominations
+            // Strings are added if they are contained in the original list 'stringList'
+            List<String> finalList = new ArrayList<>();
+
+            for(int i = 0; i < this.denominations.size(); i++){
+                String coin = this.denominations.get(i).getTitle();
+                if(stringList.contains(coin)) {
+                    finalList.add(coin);
+                }
+            }
+            // Switch used for the StringBuilder
+            // Takes two helper methods singleOrPlural and builderHelper that format output
+            // and reduce repetition, respectively.
+            for(int i = 0; i < finalList.size(); i++) {
+                switch (finalList.get(i)) {
+                    case "Ten Dollar Bill":
+                        change.append(builderHelper(finalList.get(i), tenDollars));
+                        break;
+                    case "Five Dollar Bill":
+                        change.append(builderHelper(finalList.get(i), fiveDollars));
+                        break;
+                    case "One Dollar Bill":
+                        change.append(builderHelper(finalList.get(i), dollars));
+                        break;
+                    case "Quarter":
+                        change.append(builderHelper(finalList.get(i), quarters));
+                        break;
+                    case "Dime":
+                        change.append(builderHelper(finalList.get(i), dimes));
+                        break;
+                    case "Nickel":
+                        change.append(builderHelper(finalList.get(i), nickels));
+                        break;
+                    case "Penny":
+                        change.append(builderHelper(finalList.get(i), pennies));
+                        break;
+                    default:
+                        System.out.println("Something went wrong with the string builder switch");
+                        break;
+                }
+            }
+            // Takes off last comma and space from the StringBuilder
+            change.setLength(change.length() - 2);
             return change.toString();
         }
 
@@ -237,8 +292,10 @@ public class CashRegister {
                     return title + "s";
                 }
             }
-
-
+        }
+        // Reduces repetition in the String Builder switch
+        public String builderHelper(String coinString, double coin){
+        return (int)coin + " " + this.singleOrPlural(coinString, coin) + ", ";
         }
 }
 
