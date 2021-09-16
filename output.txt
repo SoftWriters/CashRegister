@@ -1,0 +1,10 @@
+'Quarters: ', 1.0, ' , Dimes: ', 2.0, ' , Pennies: ', 0.0
+'Dollars: ', 4.0, ' , Quarters: ', 1.0, ' , Dimes: ', 1.0, ' , Nickels: ', 1.0, ' , Pennies: ', 1.0
+'Quarters: ', 3.0, ' , Nickels: ', 1.0, ' , Pennies: ', 5.0
+'Dollars: ', 1.0, ' , Quarters: ', 1.0, ' , Dimes: ', 2.0
+'Dollars: ', 44.0, ' , Pennies: ', 1.0
+'Dollars: ', 39.0, ' , Quarters: ', 2.0, ' , Dimes: ', 2.0, ' , Pennies: ', 0.0
+'Dollars: ', 5.0, ' , Quarters: ', 2.0, ' , Pennies: ', 5.0
+'Dollars: ', 44.0, ' , Quarters: ', 2.0, ' , Dimes: ', 1.0, ' , Nickels: ', 1.0, ' , Pennies: ', 2.0
+'Pennies: ', 5.0
+'Dimes: ', 1.0, ' , Pennies: ', 2.0
