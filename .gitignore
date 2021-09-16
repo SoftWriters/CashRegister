@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/CashRegister/v16/Server/sqlite3
+/SWCashRegisterSB/.vs/SWCashRegisterSB/v16
+/SWCashRegisterSB/bin/Debug
+/SWCashRegisterSB/obj/Debug
+/.vs/slnx.sqlite
