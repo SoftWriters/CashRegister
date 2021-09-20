@@ -3,6 +3,7 @@ package com.softwriters.cashregister.service;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class FlatFileParserService {
@@ -21,7 +22,6 @@ public class FlatFileParserService {
 		
 		//Create a file writer to write to output file
 		FileWriter fileWriter = new FileWriter("output.txt");
-		
 		//While the scanner sees new tokens
 		while(readFile.hasNext()) {
 			
@@ -30,11 +30,16 @@ public class FlatFileParserService {
 			String[] values = currentString.split(",");
 			
 			//Convert two numbers to double values
-			Double totalDue = Double.parseDouble(values[0]);
-			Double paid = Double.parseDouble(values[1]);
+			BigDecimal totalDue = new BigDecimal(values[0]);
+			BigDecimal paid = new BigDecimal(values[1]);
 			
 			//Write change due strings to the file 
-			fileWriter.write("\n"+changeProcessor.calculateChange(totalDue, paid));
+			if(isDivisibleByThree(values[0])) {
+				fileWriter.write("\n"+changeProcessor.calculateRandomChange(totalDue, paid));
+			}
+			else {
+				fileWriter.write("\n"+changeProcessor.calculateChange(totalDue, paid));
+			}
 			
 			//If more input in file, go to next line
 			if(readFile.hasNextLine()) {
@@ -47,5 +52,26 @@ public class FlatFileParserService {
 		readFile.close();
 	
 		return output;
+	}
+	
+	
+	private boolean isDivisibleByThree(String totalDue) {
+		
+		int sumOfDigits = 0;
+		
+		for(int i = 0;i<totalDue.length();i++) {
+			
+			if(totalDue.charAt(i)!='.') {
+				sumOfDigits += (int)totalDue.charAt(i) - '0'; 
+			}
+		}
+		
+		if(sumOfDigits%3==0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
 	}
 }
