@@ -3,15 +3,9 @@ package com.softwriters.cashregister.service;
 import java.math.BigDecimal;
 import java.util.HashSet;
 
-public class ChangeProcessingService {
+import com.softwriters.cashregister.util.ChangeUtil;
 
-	private final BigDecimal[] changeValues = {new BigDecimal("1.00"),new BigDecimal("0.25"),
-			new BigDecimal("0.10"), new BigDecimal("0.05"), new BigDecimal("0.01")};
-	
-	private final String[] changeStringSingle = {"dollar", "quarter","dime", "nickel","penny"};
-	private final String[] changeStringPlural = {"dollars", "quarters","dimes", "nickels","pennies"};
-	
-	private final BigDecimal zero = new BigDecimal("0.00");
+public class ChangeProcessingService {
 	
 	public ChangeProcessingService() {
 		
@@ -23,29 +17,26 @@ public class ChangeProcessingService {
 		//Determine change needed
 		BigDecimal changeNeeded = amountGiven.subtract(totalDue);
 		
-		for(int i=0;i<changeValues.length;i++) {
+		for(int i=0;i<ChangeUtil.change.length;i++) {
 			
 			int numberOfChange = 0;
 			
 			//iterate from highest change value to lowest and subtract till less than zero or zero		
-			while((changeNeeded.subtract(changeValues[i]).compareTo(zero)==1)||
-					(changeNeeded.subtract(changeValues[i]).compareTo(zero)==0)) {
+			while((changeNeeded.subtract(ChangeUtil.change[i].getValue()).compareTo(ChangeUtil.zero)==1)||
+					(changeNeeded.subtract(ChangeUtil.change[i].getValue()).compareTo(ChangeUtil.zero)==0)) {
 				
 				//track number of change denominations and subtract from total change required
 				numberOfChange++;
-				changeNeeded = changeNeeded.subtract(changeValues[i]);
+				changeNeeded = changeNeeded.subtract(ChangeUtil.change[i].getValue());
 			}
 			//create strings for change based on number of change denominations
-			if(numberOfChange == 1) {
-				change += numberOfChange + " " + changeStringSingle[i] + ",";
-			}
-			else if (numberOfChange>1) {
-				change += numberOfChange + " " + changeStringPlural[i] + ",";
-			}
+			if(numberOfChange>0)
+				change += numberOfChange + " " + ChangeUtil.change[i].getCurrencyName(numberOfChange) + ",";
+			
 			
 		}
 		
-		return change;
+		return change.substring(0, change.length()-1);
 	}
 	
 	public String calculateRandomChange(BigDecimal totalDue, BigDecimal amountGiven) {
@@ -59,7 +50,7 @@ public class ChangeProcessingService {
 		HashSet<Integer> indexSet = new HashSet<>();
 		
 		//While all denominations haven't been used and change needed isn't zero
-		while(indexSet.size()!=changeValues.length && changeNeeded.compareTo(zero)!= 0) {
+		while(indexSet.size()!=ChangeUtil.change.length && changeNeeded.compareTo(ChangeUtil.zero)!= 0) {
 			
 			//generate random index
 			int randomIndex = generateRandomIndex();
@@ -72,31 +63,26 @@ public class ChangeProcessingService {
 			int numberOfChange = 0;
 			
 			//subtract change till at zero or less than zero
-			while((changeNeeded.subtract(changeValues[randomIndex]).compareTo(zero)==1)||
-					(changeNeeded.subtract(changeValues[randomIndex]).compareTo(zero)==0)) {
+			while((changeNeeded.subtract(ChangeUtil.change[randomIndex].getValue()).compareTo(ChangeUtil.zero)==1)||
+					(changeNeeded.subtract(ChangeUtil.change[randomIndex].getValue()).compareTo(ChangeUtil.zero)==0)) {
 				
 				numberOfChange++;
-				changeNeeded = changeNeeded.subtract(changeValues[randomIndex]);
+				changeNeeded = changeNeeded.subtract(ChangeUtil.change[randomIndex].getValue());
 			}
 			
-			//create change strings
-			if(numberOfChange == 1) {
-				change += numberOfChange + " " + changeStringSingle[randomIndex] + ",";
-			}
-			else if (numberOfChange>1) {
-				change += numberOfChange + " " + changeStringPlural[randomIndex] + ",";
-			}	
+			if(numberOfChange>0)
+				change += numberOfChange + " " + ChangeUtil.change[randomIndex].getCurrencyName(numberOfChange) + ",";
 			
 			//Add index to set
 			indexSet.add(randomIndex);
 		}
 
 		
-		return change;
+		return change.substring(0, change.length()-1);
 	}
 	
 	private int generateRandomIndex() {
-		int random = (int)(Math.random() * changeValues.length);
+		int random = (int)(Math.random() * ChangeUtil.change.length);
 		return random;
 	}
 }

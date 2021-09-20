@@ -26,4 +26,14 @@ public class ChangeProcessorTest {
 	public void normalChangeTest() {
 		assertEquals("1 dollar,3 quarters,2 pennies,", changeProcessingService.calculateChange(new BigDecimal("3.23"), new BigDecimal("5.00")));
 	}
+	
+	@Test
+	public void normalLargeChangeTest() {
+		assertEquals("1 fifty dollar bill,1 ten dollar bill", changeProcessingService.calculateChange(new BigDecimal("40.00"), new BigDecimal("100.00")));
+	}
+	
+	@Test
+	public void randomLargeChangeTest() {
+		assertNotNull(changeProcessingService.calculateRandomChange(new BigDecimal("333"), new BigDecimal("400")));
+	}
 }
