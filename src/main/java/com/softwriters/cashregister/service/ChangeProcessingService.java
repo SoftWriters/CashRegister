@@ -13,6 +13,10 @@ public class ChangeProcessingService {
 	
 	private final BigDecimal zero = new BigDecimal("0.00");
 	
+	public ChangeProcessingService() {
+		
+	}
+	
 	public String calculateChange(BigDecimal totalDue, BigDecimal amountGiven) {
 		
 		String change = "";

@@ -8,6 +8,10 @@ import java.util.Scanner;
 
 public class FlatFileParserService {
 	
+	public FlatFileParserService() {
+		
+	}
+	
 	public File processFile(File inputFile) throws IOException {
 		
 		//Create Change Processing Service
