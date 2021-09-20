@@ -62,7 +62,7 @@ public class FlatFileParserService {
 	private boolean isDivisibleByThree(String totalDue) {
 		
 		int sumOfDigits = 0;
-		
+		//Add each digit in the string
 		for(int i = 0;i<totalDue.length();i++) {
 			
 			if(totalDue.charAt(i)!='.') {
@@ -70,6 +70,7 @@ public class FlatFileParserService {
 			}
 		}
 		
+		//if the sum mod 3 equals 0 then it is divisible by 3
 		if(sumOfDigits%3==0) {
 			return true;
 		}
