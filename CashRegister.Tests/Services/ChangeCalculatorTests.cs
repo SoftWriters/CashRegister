@@ -1,3 +1,4 @@
+using CashRegister.Exceptions;
 using CashRegister.Services;
 using NUnit.Framework;
 
@@ -36,15 +37,21 @@ namespace CashRegister.Tests.Services
         {
             var cost = -30;
             var paid = 12;
+            var expectedExceptionMessage = "-30 is not able to be negative";
 
-            var result = uut.CalculateChange(cost, paid);
-            Assert.Throws()
+            var thrownException = Assert.Throws<IllegalNegativeException>(() => uut.CalculateChange(cost, paid));
+            Assert.AreEqual(expectedExceptionMessage, thrownException.Message);
         }
 
         [Test]
         public void CalculateChange_ShouldThrow_IfPaidIsANegativeValue()
         {
+            var cost = 30;
+            var paid = -12;
+            var expectedExceptionMessage = "-12 is not able to be negative";
 
+            var thrownException = Assert.Throws<IllegalNegativeException>(() => uut.CalculateChange(cost, paid));
+            Assert.AreEqual(expectedExceptionMessage, thrownException.Message);
         }
     }
 }

@@ -1,3 +1,4 @@
+using CashRegister.Exceptions;
 using CashRegister.Services.Interfaces;
 
 namespace CashRegister.Services
@@ -6,6 +7,15 @@ namespace CashRegister.Services
     {
         public decimal CalculateChange(decimal cost, decimal paid)
         {
+            if (cost < 0)
+            {
+                throw new IllegalNegativeException(cost);
+            }
+
+            if (paid < 0)
+            {
+                throw new IllegalNegativeException(paid);
+            }
             return cost - paid;
         }
 
