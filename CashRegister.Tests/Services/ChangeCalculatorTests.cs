@@ -12,9 +12,9 @@ namespace CashRegister.Tests.Services
         [Test]
         public void CalculateChange_Should_ReturnAdecimal()
         {
-            decimal cost = 5.00m;
-            decimal paid = 1.66m;
-            var result = uut.CalculateChange(cost, paid);
+            decimal paid = 5.00m;
+            decimal cost = 1.66m;
+            var result = uut.CalculateChange(paid, cost);
             Assert.IsInstanceOf<decimal>(result);
         }
 
@@ -23,35 +23,37 @@ namespace CashRegister.Tests.Services
         [TestCase(5.00, 3.99, 1.01)]
         [TestCase(100.67, 88.12, 12.55)]
         public void CalculateChange_Should_ReturnExpectedResult(
-            decimal cost,
             decimal paid,
+            decimal cost,
             decimal expected
         )
         {
-            var result = uut.CalculateChange(cost, paid);
+            var result = uut.CalculateChange(paid, cost);
             Assert.AreEqual(expected, result);
         }
 
         [Test]
         public void CalculateChange_ShouldThrow_IfCostIsANegativeValue()
         {
-            var cost = -30;
-            var paid = 12;
+            var paid = -30;
+            var cost = 12;
             var expectedExceptionMessage = "-30 is not able to be negative";
 
-            var thrownException = Assert.Throws<IllegalNegativeException>(() => uut.CalculateChange(cost, paid));
+            var thrownException = Assert.Throws<IllegalNegativeException>(() => uut.CalculateChange(paid, cost));
             Assert.AreEqual(expectedExceptionMessage, thrownException.Message);
         }
 
         [Test]
         public void CalculateChange_ShouldThrow_IfPaidIsANegativeValue()
         {
-            var cost = 30;
-            var paid = -12;
+            var paid = 30;
+            var cost = -12;
             var expectedExceptionMessage = "-12 is not able to be negative";
 
-            var thrownException = Assert.Throws<IllegalNegativeException>(() => uut.CalculateChange(cost, paid));
+            var thrownException = Assert.Throws<IllegalNegativeException>(() => uut.CalculateChange(paid, cost));
             Assert.AreEqual(expectedExceptionMessage, thrownException.Message);
         }
+
+
     }
 }

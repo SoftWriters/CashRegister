@@ -5,18 +5,18 @@ namespace CashRegister.Services
 {
     public class ChangeCalculator : IChangeCalculator
     {
-        public decimal CalculateChange(decimal cost, decimal paid)
+        public decimal CalculateChange(decimal paid, decimal cost)
         {
-            if (cost < 0)
-            {
-                throw new IllegalNegativeException(cost);
-            }
-
             if (paid < 0)
             {
                 throw new IllegalNegativeException(paid);
             }
-            return cost - paid;
+
+            if (cost < 0)
+            {
+                throw new IllegalNegativeException(cost);
+            }
+            return paid - cost;
         }
 
         public string DetermineChange(decimal changeDue)
