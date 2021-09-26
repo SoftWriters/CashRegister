@@ -2,7 +2,7 @@ namespace CashRegister.Services.Interfaces
 {
     public interface IChangeCalculator
     {
-         public double CalculateChange(double cost, double paid);
-         public string DetermineChange(double changeDue);
+         public decimal CalculateChange(decimal cost, decimal paid);
+         public string DetermineChange(decimal changeDue);
     }
 }

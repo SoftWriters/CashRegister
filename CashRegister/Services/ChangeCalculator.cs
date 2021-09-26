@@ -4,12 +4,12 @@ namespace CashRegister.Services
 {
     public class ChangeCalculator : IChangeCalculator
     {
-        public double CalculateChange(double cost, double paid)
+        public decimal CalculateChange(decimal cost, decimal paid)
         {
-            throw new System.NotImplementedException();
+            return cost - paid;
         }
 
-        public string DetermineChange(double changeDue)
+        public string DetermineChange(decimal changeDue)
         {
             throw new System.NotImplementedException();
         }
