@@ -1,4 +1,4 @@
 # Prerequisites
 
-1. [.NET 5.0102 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) 
+1. [Download .NET 5.0.102 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) 
 2. 

@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include=".\testData.txt" CopyToOutputDirectory="PreserveNewest" />
     <ProjectReference Include="..\CashRegister\CashRegister.csproj" />
   </ItemGroup>
 
