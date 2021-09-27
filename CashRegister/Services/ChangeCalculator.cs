@@ -7,17 +7,15 @@ namespace CashRegister.Services
 {
     public class ChangeCalculator : IChangeCalculator
     {
-        private IRandomChangeCalculator randomChangeCalculator;
-        private IChangeStringBuilder changeBuilder;
+        private IChangeStringBuilder changeStringBuilder;
 
         public ChangeCalculator(
-            IRandomChangeCalculator randomChangeCalculator,
             IChangeStringBuilder changeBuilder
         )
         {
-            this.randomChangeCalculator = randomChangeCalculator;
-            this.changeBuilder = changeBuilder;
+            this.changeStringBuilder = changeBuilder;
         }
+
         public decimal CalculateChange(decimal paid, decimal cost)
         {
             if (paid < 0)
@@ -57,7 +55,7 @@ namespace CashRegister.Services
 
             pennies = changeDue;
 
-            return changeBuilder.BuildChangeString(dollars, quarters, dimes, nickels, pennies);
+            return changeStringBuilder.BuildChangeString(dollars, quarters, dimes, nickels, pennies);
         }
 
         private decimal determineDenomination(decimal changeDue, int denomination)
@@ -77,7 +75,7 @@ namespace CashRegister.Services
                 return 0;
             }
 
-            return changeDue % (denominationCount * denomination);
+            return changeDue - (denominationCount * denomination);
         }
     }
 }

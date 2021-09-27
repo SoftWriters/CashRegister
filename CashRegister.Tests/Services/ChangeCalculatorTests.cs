@@ -9,15 +9,13 @@ namespace CashRegister.Tests.Services
     [TestFixture]
     public class ChangeCalculatorTests
     {
-        private Mock<IRandomChangeCalculator> mockRandomChangeCalculator;
         private Mock<IChangeStringBuilder> mockChangeBuilder;
         protected ChangeCalculator uut;
 
         public ChangeCalculatorTests()
         {
-            mockRandomChangeCalculator = new Mock<IRandomChangeCalculator>();
             mockChangeBuilder = new Mock<IChangeStringBuilder>();
-            uut = new ChangeCalculator(mockRandomChangeCalculator.Object, mockChangeBuilder.Object);
+            uut = new ChangeCalculator(mockChangeBuilder.Object);
         }
 
         [Test]
