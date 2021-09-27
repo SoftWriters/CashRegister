@@ -11,15 +11,22 @@ Using the `dotnet` command line interface, navigate to [the CashRegister project
 dotnet run
 ```
 
+### Swagger UI
 After running this command, you can navigate to the port specified in the output of the above command. To navigate to the Swagger UI, 
 simply append `/swagger` to your localhost port e.g: `https://localhost:5001/swagger`
 
 ## Testing the Application
+
+### Unit Testing
 From the root of the project run the following command to run the unit tests:
 
 ```
 dotnet test
 ```
+
+### Manual Testing
+The application can be manually tested by navigating to the [Swagger link.](#swagger-ui) This provides a physical and easy way to 
+verify the code. 
 
 # Technologies
 

@@ -38,23 +38,23 @@ namespace CashRegister.Controllers
         [HttpPost]
         public IActionResult Index(IFormFile file)
         {
-            if (!acceptedFileTypes.Contains(Path.GetExtension(file.FileName).ToLower()))
+            if (file == null || !acceptedFileTypes.Contains(Path.GetExtension(file.FileName).ToLower()))
             {
                 return BadRequest("Please submit a file with a .txt or .csv extension");
             }
 
-            try 
+            try
             {
                 var stream = file.OpenReadStream();
                 var results = csvParser.ParseCsvFile(stream);
 
-                var changeString = results.Select(res =>
+                var changeStrings = results.Select(res =>
                 {
                     var changeDue = 0m;
 
-                // If the cost in cents is divisible by 3, the client wants to 
-                // use the random number generator to generate the change
-                if (res.costDue * 100 % 3 == 0)
+                    // If the cost in cents is divisible by 3, the client wants to 
+                    // use the random number generator to generate the change
+                    if (res.costDue * 100 % 3 == 0)
                     {
                         changeDue = randomChangeCalculator.CalculateChange(res.paid, res.costDue);
 
@@ -66,7 +66,7 @@ namespace CashRegister.Controllers
                     return changeCalculator.DetermineChange(changeDue);
                 }).ToList();
 
-                return Ok(changeString);
+                return Ok(string.Join("\r\n", changeStrings));
 
             }
             catch (Exception ex)

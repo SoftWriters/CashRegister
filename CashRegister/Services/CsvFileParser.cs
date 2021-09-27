@@ -21,6 +21,7 @@ namespace CashRegister.Services
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 HasHeaderRecord = false,
+                IgnoreBlankLines = true
             };
 
             List<CashRegisterTransaction> cashRegisterTransactions;
