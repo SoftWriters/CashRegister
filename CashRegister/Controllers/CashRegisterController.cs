@@ -23,7 +23,8 @@ namespace CashRegister.Controllers
             ".csv"
         };
 
-        public CashRegisterController(ILogger<CashRegisterController> logger,
+        public CashRegisterController(
+            ILogger<CashRegisterController> logger,
             ICsvFileParser csvParser,
             IChangeCalculator changeCalculator,
             IRandomChangeCalculator randomChangeCalculator
@@ -71,6 +72,7 @@ namespace CashRegister.Controllers
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, ex.Message);
                 return BadRequest($"An error occured with the following message: {ex.Message}");
             }
         }
