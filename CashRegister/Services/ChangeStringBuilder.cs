@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using CashRegister.Services.Interfaces;
@@ -15,17 +16,18 @@ namespace CashRegister.Services
             var penniesLabel = pennies == 1 ? "penny" : "pennies";
 
             StringBuilder sb = new StringBuilder();
+            List<string> strings = new List<string>(); 
 
-            AppendString(sb, dollars, dollarsLabel, false);
-            AppendString(sb, quarters, quartersLabel, false);
-            AppendString(sb, dimes, dimesLabel, false);
-            AppendString(sb, nickels, nickelsLabel, false);
-            AppendString(sb, pennies, penniesLabel, true);
+            AppendString(strings, dollars, dollarsLabel);
+            AppendString(strings, quarters, quartersLabel);
+            AppendString(strings, dimes, dimesLabel);
+            AppendString(strings, nickels, nickelsLabel);
+            AppendString(strings, pennies, penniesLabel);
             
-            return sb.ToString();
+            return sb.AppendJoin(", ", strings).ToString();
         }
 
-        public void AppendString(StringBuilder sb, decimal val, string label, bool last)
+        private void AppendString(List<string> strings, decimal val, string label)
         {
             var numberFormat = new NumberFormatInfo()
             {
@@ -34,12 +36,7 @@ namespace CashRegister.Services
 
             if (val != 0)
             {
-                sb.Append($"{((int) val).ToString(numberFormat)} {label}");
-
-                if (!last)
-                {
-                    sb.Append(", ");
-                }
+                strings.Add($"{((int) val).ToString(numberFormat)} {label}");
             }
 
         }
