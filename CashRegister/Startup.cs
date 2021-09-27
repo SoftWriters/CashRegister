@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CashRegister.Services;
+using CashRegister.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +24,13 @@ namespace CashRegister
             services.AddControllersWithViews();
 
             services.AddSwaggerGen();
+
+            services.AddScoped<IChangeCalculator, ChangeCalculator>();
+            services.AddScoped<IRandomChangeCalculator, RandomChangeCalculator>();
+            services.AddScoped<IChangeStringBuilder, ChangeStringBuilder>();
+            services.AddScoped<ICsvFileParser, CsvFileParser>();
+            services.AddScoped<IChangeStringBuilder, ChangeStringBuilder>();
+            services.AddScoped<IRandomNumberGenerator, RandomNumberGenerator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -60,21 +60,11 @@ namespace CashRegister.Services
 
         private decimal determineDenomination(decimal changeDue, int denomination)
         {
-            if (changeDue == 0)
-            {
-                return 0;
-            }
-
             return Math.Floor(changeDue / denomination);
         }
 
         private decimal RecalculateChangeDue(decimal changeDue, decimal denominationCount, int denomination)
         {
-            if (changeDue == 0)
-            {
-                return 0;
-            }
-
             return changeDue - (denominationCount * denomination);
         }
     }

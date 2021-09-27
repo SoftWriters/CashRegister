@@ -11,6 +11,11 @@ namespace CashRegister.Services
 {
     public class CsvFileParser : ICsvFileParser
     {
+        public CsvFileParser()
+        {
+            
+        }
+        
         public List<CashRegisterTransaction> ParseCsvFile(Stream stream)
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)

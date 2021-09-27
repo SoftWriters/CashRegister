@@ -9,7 +9,8 @@ namespace CashRegister.Services
         {
             Random rand = new Random();
 
-            return rand.Next(minValue, maxValue);
+            // +1 since maxValue for method is not inclusive
+            return rand.Next(minValue, maxValue + 1);
         }
     }
 }

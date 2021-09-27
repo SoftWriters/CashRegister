@@ -42,6 +42,6 @@ namespace CashRegister.Tests.Services
                 Assert.True(foundIdx > -1);
             });
         }
-        
+
     }
 }

@@ -5,10 +5,11 @@ using CashRegister.Services.Interfaces;
 
 namespace CashRegister.Services
 {
-    public class RandomChangeCalculator : IChangeCalculator
+    public class RandomChangeCalculator : IRandomChangeCalculator
     {
         private IChangeStringBuilder changeStringBuilder;
         private IRandomNumberGenerator randomNumberGenerator;
+
         public RandomChangeCalculator(
             IChangeStringBuilder changeStringBuilder,
             IRandomNumberGenerator randomNumberGenerator)
@@ -42,16 +43,16 @@ namespace CashRegister.Services
             decimal nickels;
             decimal pennies;
 
-            dollars = determineDenomination(changeDue, Denomination.DOLLAR);
+            dollars = DetermineDenomination(changeDue, Denomination.DOLLAR);
             changeDue = RecalculateChangeDue(changeDue, dollars, Denomination.DOLLAR);
 
-            quarters = determineDenomination(changeDue, Denomination.QUARTER);
+            quarters = DetermineDenomination(changeDue, Denomination.QUARTER);
             changeDue = RecalculateChangeDue(changeDue, quarters, Denomination.QUARTER);
 
-            dimes = determineDenomination(changeDue, Denomination.DIME);
+            dimes = DetermineDenomination(changeDue, Denomination.DIME);
             changeDue = RecalculateChangeDue(changeDue, dimes, Denomination.DIME);
 
-            nickels = determineDenomination(changeDue, Denomination.NICKEL);
+            nickels = DetermineDenomination(changeDue, Denomination.NICKEL);
             changeDue = RecalculateChangeDue(changeDue, nickels, Denomination.NICKEL);
 
             pennies = (int) changeDue;
@@ -59,7 +60,7 @@ namespace CashRegister.Services
             return changeStringBuilder.BuildChangeString(dollars, quarters, dimes, nickels, pennies);
         }
 
-        private decimal determineDenomination(decimal changeDue, int denomination)
+        private decimal DetermineDenomination(decimal changeDue, int denomination)
         {
             return randomNumberGenerator.GenerateRandomInt(0, (int) Math.Floor(changeDue / denomination));
         }
