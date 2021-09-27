@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using CashRegister.Services.Interfaces;
 using System.Linq;
 using System.IO;
+using System;
 
 namespace CashRegister.Controllers
 {
@@ -42,29 +43,36 @@ namespace CashRegister.Controllers
                 return BadRequest("Please submit a file with a .txt or .csv extension");
             }
 
-            var stream = file.OpenReadStream();
-            var results = csvParser.ParseCsvFile(stream);
-
-            var changeString = results.Select(res =>
+            try 
             {
-                var changeDue = 0m;
-                
+                var stream = file.OpenReadStream();
+                var results = csvParser.ParseCsvFile(stream);
+
+                var changeString = results.Select(res =>
+                {
+                    var changeDue = 0m;
+
                 // If the cost in cents is divisible by 3, the client wants to 
                 // use the random number generator to generate the change
                 if (res.costDue * 100 % 3 == 0)
-                {
-                    changeDue = randomChangeCalculator.CalculateChange(res.paid, res.costDue);
+                    {
+                        changeDue = randomChangeCalculator.CalculateChange(res.paid, res.costDue);
 
-                    return randomChangeCalculator.DetermineChange(changeDue); 
-                }
+                        return randomChangeCalculator.DetermineChange(changeDue);
+                    }
 
-                changeDue = changeCalculator.CalculateChange(res.paid, res.costDue);
+                    changeDue = changeCalculator.CalculateChange(res.paid, res.costDue);
 
-                return changeCalculator.DetermineChange(changeDue);
-            }).ToList();
+                    return changeCalculator.DetermineChange(changeDue);
+                }).ToList();
 
+                return Ok(changeString);
 
-            return Ok(changeString);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"An error occured with the following message: {ex.Message}");
+            }
         }
 
     }
