@@ -1,6 +1,7 @@
 # Prerequisites
 
-1. [Download .NET 5.0.102 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
+1. [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
+- This may require a restart
 - The MVC project was created using the `dotnet new mvc` cli command.
 - The test project was created using the `dotnet new nunit` cli command
 
