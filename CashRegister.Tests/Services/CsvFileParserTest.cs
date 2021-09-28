@@ -20,7 +20,7 @@ namespace CashRegister.Tests.Services
         [SetUp]
         public void SetUpTests()
         {
-            stream = File.OpenRead(Directory.GetCurrentDirectory() + "\\testData.txt");
+            stream = File.OpenRead(Directory.GetCurrentDirectory() + "/testData.txt");
         }
 
         [Test]
