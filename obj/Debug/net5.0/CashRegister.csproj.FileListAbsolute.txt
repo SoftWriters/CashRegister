@@ -1,0 +1,15 @@
+/Users/staasafras/Desktop/CashRegister/CashRegister/bin/Debug/net5.0/CashRegister.deps.json
+/Users/staasafras/Desktop/CashRegister/CashRegister/bin/Debug/net5.0/CashRegister.runtimeconfig.json
+/Users/staasafras/Desktop/CashRegister/CashRegister/bin/Debug/net5.0/CashRegister.runtimeconfig.dev.json
+/Users/staasafras/Desktop/CashRegister/CashRegister/bin/Debug/net5.0/CashRegister.dll
+/Users/staasafras/Desktop/CashRegister/CashRegister/bin/Debug/net5.0/ref/CashRegister.dll
+/Users/staasafras/Desktop/CashRegister/CashRegister/bin/Debug/net5.0/CashRegister.pdb
+/Users/staasafras/Desktop/CashRegister/CashRegister/obj/Debug/net5.0/CashRegister.csproj.AssemblyReference.cache
+/Users/staasafras/Desktop/CashRegister/CashRegister/obj/Debug/net5.0/CashRegister.GeneratedMSBuildEditorConfig.editorconfig
+/Users/staasafras/Desktop/CashRegister/CashRegister/obj/Debug/net5.0/CashRegister.AssemblyInfoInputs.cache
+/Users/staasafras/Desktop/CashRegister/CashRegister/obj/Debug/net5.0/CashRegister.AssemblyInfo.cs
+/Users/staasafras/Desktop/CashRegister/CashRegister/obj/Debug/net5.0/CashRegister.csproj.CoreCompileInputs.cache
+/Users/staasafras/Desktop/CashRegister/CashRegister/obj/Debug/net5.0/CashRegister.dll
+/Users/staasafras/Desktop/CashRegister/CashRegister/obj/Debug/net5.0/ref/CashRegister.dll
+/Users/staasafras/Desktop/CashRegister/CashRegister/obj/Debug/net5.0/CashRegister.pdb
+/Users/staasafras/Desktop/CashRegister/CashRegister/obj/Debug/net5.0/CashRegister.genruntimeconfig.cache
