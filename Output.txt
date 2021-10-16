@@ -1,0 +1,9 @@
+Insufficient Funds
+Exact Change Given
+1 FIFTIES. 2 TWENTIES. 1 FIVE(S). 3 ONE(S). 
+1 TEN(S). 
+3 QUARTER(S). 1 DIME(S). 3 PENNIES. 
+3 PENNIES. 
+1 ONE(S). 2 QUARTER(S). 1 DIME(S). 1 NICKEL(S). 2 PENNIES. 
+1 DIME(S). 1 NICKEL(S). 
+33 PENNIES. 
