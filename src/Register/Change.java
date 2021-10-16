@@ -73,7 +73,7 @@ public class Change {
 	
 	public double quarters(double change) {
 		if((int)(change/.25) > 0) {
-			quarters = (int)(change/.25);
+			quarters = (int)((change*100)/(.25*100));
 			change =  Double.valueOf(df.format(change - (quarters * .25)));
 		}
 		return change;
@@ -81,7 +81,7 @@ public class Change {
 	
 	public double dimes(double change) {
 		if((int)(change/.10) > 0) {
-			dimes = (int)(change/.10);
+			dimes = (int)((change*100)/(.10*100));
 			change =  Double.valueOf(df.format(change - (dimes * .10)));
 		}
 		return change;
@@ -89,7 +89,7 @@ public class Change {
 	
 	public double nickels(double change) {
 		if((int)(change/.05) > 0) {
-			nickels = (int)(change/.05);
+			nickels = (int)((change*100)/(.05*100));
 			change =  Double.valueOf(df.format(change - (nickels * .05)));
 		}
 		return change;

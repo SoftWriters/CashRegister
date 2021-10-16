@@ -13,7 +13,7 @@ public class Register {
 		
 	public static void main(String[] args) throws IOException {
 		Register register = new Register();
-		MoneyWriter moneyWriter = new MoneyWriter("Output.txt");
+		MoneyWriter moneyWriter = new MoneyWriter("Receipt.txt");
 		ArrayList<Double> change = new ArrayList<Double>();
 
 		change = register.payments("Input.txt");
