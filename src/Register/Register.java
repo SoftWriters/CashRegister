@@ -27,19 +27,23 @@ public class Register {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		Register register = new Register();
-		MoneyWriter moneyWriter = new MoneyWriter("Receipt.txt");
-		ArrayList<Double> change = new ArrayList<Double>();
-
-		change = register.payments("Input.txt");
-		
-		for (int counter = 0; counter < change.size(); counter++) { 
-			String cashBack = register.outputChange(change.get(counter));
-			System.out.println(cashBack);
-			moneyWriter.writeChange(cashBack);
-	    } 
-		
-		moneyWriter.close();
+		try {
+			Register register = new Register();
+			MoneyWriter moneyWriter = new MoneyWriter("Receipt.txt");
+			ArrayList<Double> change = new ArrayList<Double>();
+	
+			change = register.payments("Input.txt");
+			
+			for (int counter = 0; counter < change.size(); counter++) { 
+				String cashBack = register.outputChange(change.get(counter));
+				System.out.println(cashBack);
+				moneyWriter.writeChange(cashBack);
+		    } 
+			
+			moneyWriter.close();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	/**
