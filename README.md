@@ -1,6 +1,9 @@
 Cash Register
 ============
 
+This project is written in Java. It takes in a flat file with a list of prices and payments, and outputs the change, as a String, to a Receipt.txt file. In most cases, the least amount of physical change is returned, however, if the total due in cents is divisible by 3, the application randomly generates the change denominations. Below is the original problems and criteria for the application.
+
+
 The Problem
 -----------
 Creative Cash Draw Solutions is a client who wants to provide something different for the cashiers who use their system. The function of the application is to tell the cashier how much change is owed and what denominations should be used. In most cases the app should return the minimum amount of physical change, but the client would like to add a twist. If the total due in cents is divisible by 3, the app should randomly generate the change denominations (but the math still needs to be right :))

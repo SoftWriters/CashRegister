@@ -5,6 +5,9 @@ import java.text.DecimalFormat;
 import Register.Change;
 import org.junit.jupiter.api.Test;
 
+/*
+ * Test class for the Change class
+ */
 class ChangeTest {
 
 	@Test
