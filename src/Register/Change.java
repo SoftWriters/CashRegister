@@ -117,7 +117,7 @@ public class Change {
 	 * @param change - amount needed to be returned
 	 */
 	public double ones(double change) {
-		if(change-1 > 0) {
+		if(change-1 >= 0) {
 			ones = 0;
 			while(change >= 1) {
 				change = Double.valueOf(df.format(change -1));
