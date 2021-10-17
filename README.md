@@ -1,7 +1,7 @@
 Cash Register
 ============
 
-This project is written in Java. It takes in a flat file with a list of prices and payments, and outputs the change, as a String, to a Receipt.txt file. In most cases, the least amount of physical change is returned, however, if the total due in cents is divisible by 3, the application randomly generates the change denominations. Below is the original problems and criteria for the application.
+This project is written in Java with a JUnit test class. It takes in a flat file with a list of prices and payments, and outputs the change, as a String, to a Receipt.txt file. In most cases, the least amount of physical change is returned, however, if the total due in cents is divisible by 3, the application randomly generates the change denominations. Below is the original problems and criteria for the application.
 
 
 The Problem
