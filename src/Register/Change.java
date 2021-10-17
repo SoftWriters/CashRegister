@@ -1,6 +1,5 @@
 package Register;
 
-import java.io.IOException;
 import java.text.DecimalFormat;
 
 /**
@@ -194,7 +193,7 @@ public class Change {
 	public String printChange() {
 		cashBack = "";
 		if(hundreds != 0){
-			cashBack += hundreds + " HUNDREDS(S). ";
+			cashBack += hundreds + " HUNDRED(S). ";
 		}
 	    if(fifties != 0){
 			cashBack += fifties + " FIFTIES. ";
