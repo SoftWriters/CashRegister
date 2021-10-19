@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CashRegister": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Coding Exams\\CashRegister\\CashRegisterUnitTests\\Resources\\textinputfile.txt\""
+    }
+  }
+}
