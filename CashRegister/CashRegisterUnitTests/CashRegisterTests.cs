@@ -126,5 +126,41 @@ namespace CashRegisterUnitTests
             
         }
 
+        /// <summary>
+        /// Writing out text file
+        /// </summary>
+        [Test]
+        public void WriteOutTextFile()
+        {
+            // Arrange
+            var utilities = new ChangeCalculations();
+
+            List<string> paid = new List<string>();
+            List<string> cost = new List<string>();
+            List<string> change = new List<string>();
+            List<string> line = new List<string>();
+            List<string> testLine = new List<string>();
+            paid.Add("3.00");
+            cost.Add("2.20");
+
+
+
+            // Act
+            utilities.ChangeofCost(cost, paid, change);
+            utilities.Receiptfile(change);
+            foreach(string changeNeeded in change)
+            {
+                testLine.Add(changeNeeded.Remove(changeNeeded.Length - 1));
+            }
+
+            StreamReader inputFile = new StreamReader("Resources\\ReceiptFile.txt");
+
+            line.Add(inputFile.ReadLine());
+            
+            //Assert
+            Assert.AreEqual(testLine, line);
+
+        }
+
     }
 }

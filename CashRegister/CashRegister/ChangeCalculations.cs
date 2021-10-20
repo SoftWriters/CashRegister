@@ -262,5 +262,16 @@ namespace CashRegister
                     }
             }
         }
+
+        public void Receiptfile(List<string> changeNeeded)
+        {
+            using(StreamWriter writer = new StreamWriter("Resources\\ReceiptFile.txt"))
+            {
+                foreach(string change in changeNeeded)
+                {
+                    writer.WriteLine(change);
+                }
+            }
+        }
     }
 }

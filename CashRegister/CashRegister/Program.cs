@@ -13,13 +13,11 @@ namespace CashRegister
             ChangeCalculations utilities = new ChangeCalculations();
             utilities.Splittingvalues(args[0], costValue, paidValue);
 
-            //Output the change the cashier should return
+            //change the cashier should return
             utilities.ChangeofCost(costValue, paidValue,change);
 
-            foreach (string changeNeeded in change)
-            {
-                Console.WriteLine(changeNeeded);
-            }
+            //Write text output for change needed
+            utilities.Receiptfile(change);
 
 
             Console.WriteLine("Press any key to stop...");
