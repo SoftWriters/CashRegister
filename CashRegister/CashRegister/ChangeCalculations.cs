@@ -265,6 +265,12 @@ namespace CashRegister
 
         public void Receiptfile(List<string> changeNeeded)
         {
+            string folderName = "Resources";
+            if(!Directory.Exists(folderName))
+            {
+                Directory.CreateDirectory(folderName);
+            }
+
             using(StreamWriter writer = new StreamWriter("Resources\\ReceiptFile.txt"))
             {
                 foreach(string change in changeNeeded)
