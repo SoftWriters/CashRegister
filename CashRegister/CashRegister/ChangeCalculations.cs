@@ -89,11 +89,8 @@ namespace CashRegister
             }
             Coins coins = new Coins();
 
-            while (difference != 0)
-            {
-                difference = SubtractionofRandomization(RandomizationCalculation(difference), coins, difference);
+            SubtractionofRandomization(RandomizationCalculation(difference), coins, difference);
 
-            }
             return coins.ChangeGiven();
         }
         /// <summary>
@@ -110,52 +107,52 @@ namespace CashRegister
                 case (int)AbovePrice.Hundred:
                     {
                         coins.HundredBills++;
-                        return change -= Coins.HundredValue;
+                        return SubtractionofRandomization(RandomizationCalculation(change -= Coins.HundredValue),coins,change);
                     }
                 case (int)AbovePrice.Fifty:
                     {
                         coins.FiftyBills++;
-                        return change -= Coins.FiftyValue;
+                        return SubtractionofRandomization(RandomizationCalculation(change -= Coins.FiftyValue), coins, change);
                     }
                 case (int)AbovePrice.Twenty:
                     {
                         coins.TwentyBills++;
-                        return change -= Coins.TwentyValue;
+                        return SubtractionofRandomization(RandomizationCalculation(change -= Coins.TwentyValue), coins, change);
                     }
                 case (int)AbovePrice.Ten:
                     {
                         coins.TenBills++;
-                        return change -= Coins.TenValue;
+                        return SubtractionofRandomization(RandomizationCalculation(change -= Coins.TenValue), coins, change);
                     }
                  case (int)AbovePrice.Five:
                     {
                         coins.FiveBills++;
-                        return change -= Coins.FiveValue;
+                        return SubtractionofRandomization(RandomizationCalculation(change -= Coins.FiveValue), coins, change);
                     }
                  case (int)AbovePrice.Dollar:
                     {
                         coins.DollarBills++;
-                        return change -= Coins.DollarValue;
+                        return SubtractionofRandomization(RandomizationCalculation(change -= Coins.DollarValue), coins, change);
                     }
                  case (int)AbovePrice.Quarter:
                     {
                         coins.Quarters++;
-                        return change -= Coins.QuarterValue;
+                        return SubtractionofRandomization(RandomizationCalculation(change -= Coins.QuarterValue), coins, change);
                     }
                  case (int)AbovePrice.Dime:
                     {
                         coins.Dimes++;
-                        return change -= Coins.DimeValue;
+                        return SubtractionofRandomization(RandomizationCalculation(change -= Coins.DimeValue), coins, change);
                     }
                  case (int)AbovePrice.Nickel:
                     {
                         coins.Nickels++;
-                        return change -= Coins.NickelValue;
+                        return SubtractionofRandomization(RandomizationCalculation(change -= Coins.NickelValue), coins, change);
                     }
                  case (int)AbovePrice.Penny:
                     {
                         coins.Pennies++;
-                        return change -= Coins.PennyValue;
+                        return SubtractionofRandomization(RandomizationCalculation(change -= Coins.PennyValue), coins, change);
                     }
             }
             return 0;
